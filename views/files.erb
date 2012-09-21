@@ -1,0 +1,5 @@
+<h1>Files</h1>
+
+<% @files.each do |f| %>
+  <a href="<%= f.object.url_for(:read) %>"><%= f.key.split('/').last %></a> <br>
+<% end %>

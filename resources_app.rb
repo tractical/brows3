@@ -1,5 +1,3 @@
-require 'aws-sdk'
-require './lib/s3'
 require "sinatra"
 require "sinatra/reloader" if development?
 require "debugger"

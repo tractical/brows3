@@ -5,6 +5,7 @@ gem 'aws-sdk',         '~> 1.7.1'
 gem 'thin',            '~> 1.5.0'
 gem 'sinatra-contrib', '~> 1.3.2'
 gem 'debugger',        '~> 1.2.2'
+gem 'fog',             '~> 1.8.0'
 
 group :test do
   gem 'rspec',     '~> 2.12.0'

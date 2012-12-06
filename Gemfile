@@ -1,15 +1,12 @@
 source 'https://rubygems.org'
 
-gem "sinatra"
-
-gem "thin"
-
-gem "aws-sdk"
-gem "sinatra-contrib"
-gem "debugger"
-
+gem "sinatra",         "~> 1.3.3"
+gem "aws-sdk",         "~> 1.7.1"
+gem "thin",            "~> 1.5.0"
+gem "sinatra-contrib", "~> 1.3.2"
+gem "debugger",        "~> 1.2.2"
 
 group :test do
-  gem "rspec"
-  gem "rack-test"
+  gem "rspec",     "~> 2.12.0"
+  gem "rack-test", "~> 0.6.2"
 end

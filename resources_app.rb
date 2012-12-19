@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
-require 'debugger'
+require 'debugger' if development?
 require 'fog'
 
 require 'yaml'
@@ -14,10 +14,27 @@ before do
     aws_secret_access_key: APP_CONFIG["aws_secret_key"])
 end
 
+
 get '/' do
   "Connected to AWS" if @storage
 end
 
 get '/buckets' do
-  @directories = @storage.directories.to_s
+  @buckets = @storage.directories
+  erb :buckets
+end
+
+get '/bucket/:id/?' do
+  bucket = @storage.directories.get(params[:id])
+  @files = bucket.files
+  erb :bucket
+end
+
+get '/bucket/:bucket_id/files' do
+  bucket = @storage.directories.get(params[:bucket_id])
+  @files = bucket.files.all(prefix: params[:prefix])
+  @files.group_by do |file|
+    @files.prefix
+  end
+  erb :files
 end

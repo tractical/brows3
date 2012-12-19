@@ -1,0 +1,10 @@
+<h1><%= @files.prefix %></h1>
+
+<% @files.each do |file| %>
+  <% next if file.key == "#{@files.prefix}" %>
+  <% if file.key.end_with?('/') %>
+    <a href="?prefix=<%= file.key %>"><%= file.key.gsub(@files.prefix, '') %></a> <br>
+  <% elsif !file.key.end_with?('/') %>
+    <%= file.key.gsub(@files.prefix, '') %><br>
+  <% end %>
+<% end %>

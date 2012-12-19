@@ -1,0 +1,10 @@
+<h1><%= @files.directory.key %></h1>
+
+<h2>Directories & Files</h2>
+<% @files.each do |file| %>
+  <% if file.key.end_with?('/') && file.key.split('/').count <= 1 %>
+    <a href="files?prefix=<%= file.key %>"><%= file.key %></a> <br>
+  <% elsif !file.key.end_with?('/') && file.key.split('/').count == 1 %>
+    <a href="#"><%= file.key %></a> <br>
+  <% end %>
+<% end %>

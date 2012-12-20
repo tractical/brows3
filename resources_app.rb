@@ -33,8 +33,5 @@ end
 get '/bucket/:bucket_id/files' do
   bucket = @storage.directories.get(params[:bucket_id])
   @files = bucket.files.all(prefix: params[:prefix])
-  @files.group_by do |file|
-    @files.prefix
-  end
   erb :files
 end

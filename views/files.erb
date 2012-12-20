@@ -1,10 +1,51 @@
 <h1><%= @files.prefix %></h1>
+<% directory = nil %>
+<% sub_directory = nil %>
 
-<% @files.each do |file| %>
-  <% next if file.key == "#{@files.prefix}" %>
-  <% if file.key.end_with?('/') %>
-    <a href="?prefix=<%= file.key %>"><%= file.key.gsub(@files.prefix, '') %></a> <br>
-  <% elsif !file.key.end_with?('/') %>
-    <%= file.key.gsub(@files.prefix, '') %><br>
+  <% @files.each_with_index do |file, index| %>
+    <% next if @files.prefix == file.key %>
+    <% next_file = @files[index + 1] rescue nil %>
+    <% previous_file = @files[index - 1] rescue nil %>
+
+    <% if file.key.end_with?('/') # Is directory %>
+
+      <% if directory && file.key.include?(directory.key) # Is sub-directory %>
+        <% sub_directory = file %>
+        <ul class="sub-directory">
+          <li> <a href="?prefix=<%= file.key %>"><%= file.key.gsub(directory.key, '') %></a> </li>
+      <% else # Is top directory %>
+        <% directory = file %>
+        <ul class="directory">
+          <li> <a href="?prefix=<%= file.key %>"><%= file.key.gsub(@files.prefix, '') %></a> </li>
+      <% end %>
+
+    <% else # Is file %>
+      <% if previous_file && previous_file.key.end_with?('/') # Previous file was a directory %>
+        <ul class="files">
+      <% elsif sub_directory && previous_file && previous_file.key.include?(sub_directory.key) %>
+        <% sub_directory = nil %>
+        <ul class="files">
+      <% end %>
+
+        <% if sub_directory %>
+          <li> <%= file.key.gsub(sub_directory.key, '') %> </li>
+        <% elsif directory %>
+          <li> <%= file.key.gsub(directory.key, '') %> </li>
+        <% else %>
+          <li> <%= file.key.gsub(@files.prefix, '') %> </li>
+        <% end %>
+
+      <% if next_file && next_file.key.end_with?('/') # Next file is a directory %>
+        </ul> <%# Close files %>
+      <% end %>
+
+      <% if sub_directory && next_file && !next_file.key.include?(sub_directory.key) %>
+          </ul>
+        </ul>
+      <% elsif directory && next_file && !next_file.key.include?(directory.key) %>
+          </ul>
+        </ul>
+      <% end %>
+
+    <% end %>
   <% end %>
-<% end %>

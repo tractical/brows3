@@ -1,17 +1,15 @@
 require 'sinatra'
-require 'sinatra/reloader' if development?
+require 'sinatra/contrib/all'
 require 'debugger' if development?
 require 'fog'
+require 'tree'
 
-require 'yaml'
-
-aws_yml = File.expand_path('../aws.yml',  __FILE__)
-APP_CONFIG = YAML.load_file(aws_yml)["defaults"]
+config_file 'config.yml'
 
 before do
   @storage = Fog::Storage::AWS.new(
-    aws_access_key_id: APP_CONFIG["aws_access_key"],
-    aws_secret_access_key: APP_CONFIG["aws_secret_key"])
+    aws_access_key_id: settings.AWS["access_key"],
+    aws_secret_access_key: settings.AWS["secret_key"])
 end
 
 
@@ -31,7 +29,20 @@ get '/bucket/:id/?' do
 end
 
 get '/bucket/:bucket_id/files' do
+  @tree = Tree::TreeNode.new(params[:prefix].split('/').last)
   bucket = @storage.directories.get(params[:bucket_id])
   @files = bucket.files.all(prefix: params[:prefix])
+
+  # TODO: Move to #make_tree method or something similar
+  @files.each do |file|
+    next if file.key == params[:prefix]
+    splitted_key = file.key.split('/')
+    if splitted_key.size >= 1
+      @tree.find do |n|
+        n.name == splitted_key[-2]
+      end << Tree::TreeNode.new(splitted_key.last, file)
+    end
+  end
+
   erb :files
 end

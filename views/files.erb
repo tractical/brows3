@@ -8,7 +8,15 @@
   }
 </style>
 
-<h1><%= @tree.root.name %></h1>
+<h1>
+  <% if params[:prefix].split('/').size > 1 %>
+    <% last_prefix = params[:prefix].split('/').last + '/' %>
+    <a href="?prefix=<%= params[:prefix].gsub(last_prefix, '') %>"><%= params[:prefix].gsub(last_prefix, '') %></a>
+    > <%= last_prefix %>
+  <% else %>
+    <a href="?prefix=<%= params[:prefix] %>"><%= params[:prefix] %></a>
+  <% end %>
+</h1>
 
 <ul>
   <% @tree.children.each do |child| %>
@@ -23,6 +31,7 @@
         <a href="<%= child.content.url(Time.now + 10*60) %>">
         <%= child.name %>
       </a>
+      - <a href="/delete?directory=<%= child.content.directory.key %>&key=<%= child.content.key %>">Delete file</a>
     </li>
     <% end %>
   <% end %>

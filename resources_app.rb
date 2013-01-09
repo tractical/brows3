@@ -46,3 +46,10 @@ get '/bucket/:bucket_id/files' do
 
   erb :files
 end
+
+get '/delete' do
+  bucket = @storage.directories.get(params[:directory])
+  file = bucket.files.get(params[:key])
+  file.destroy
+  redirect('/buckets')
+end

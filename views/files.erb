@@ -23,6 +23,7 @@
         <a href="<%= child.content.url(Time.now + 10*60) %>">
         <%= child.name %>
       </a>
+      - <a href="/delete?directory=<%= child.content.directory.key %>&key=<%= child.content.key %>">Delete file</a>
     </li>
     <% end %>
   <% end %>

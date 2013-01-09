@@ -33,10 +33,10 @@ end
 get '/bucket/:bucket_id/files' do
   @tree = Tree::TreeNode.new(params[:prefix].split('/').last)
   bucket = @storage.directories.get(params[:bucket_id])
-  @files = bucket.files.all(prefix: params[:prefix])
+  files = bucket.files.all(prefix: params[:prefix])
 
   # TODO: Move to #make_tree method or something similar
-  @files.each do |file|
+  files.each do |file|
     next if file.key == params[:prefix]
     splitted_key = file.key.split('/')
     if splitted_key.size >= 1
@@ -47,4 +47,11 @@ get '/bucket/:bucket_id/files' do
   end
 
   erb :files
+end
+
+get '/delete' do
+  bucket = @storage.directories.get(params[:directory])
+  file = bucket.files.get(params[:key])
+  file.destroy
+  redirect('/buckets')
 end

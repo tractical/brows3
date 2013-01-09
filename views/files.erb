@@ -1,51 +1,29 @@
-<h1><%= @files.prefix %></h1>
-<% directory = nil %>
-<% sub_directory = nil %>
+<style>
+  .directory {
+    font-weight: bold;
+    font-size: 110%;
+  }
+  .file {
+    list-style: none;
+  }
+</style>
 
-  <% @files.each_with_index do |file, index| %>
-    <% next if @files.prefix == file.key %>
-    <% next_file = @files[index + 1] rescue nil %>
-    <% previous_file = @files[index - 1] rescue nil %>
+<h1><%= @tree.root.name %></h1>
 
-    <% if file.key.end_with?('/') # Is directory %>
-
-      <% if directory && file.key.include?(directory.key) # Is sub-directory %>
-        <% sub_directory = file %>
-        <ul class="sub-directory">
-          <li> <a href="?prefix=<%= file.key %>"><%= file.key.gsub(directory.key, '') %></a> </li>
-      <% else # Is top directory %>
-        <% directory = file %>
-        <ul class="directory">
-          <li> <a href="?prefix=<%= file.key %>"><%= file.key.gsub(@files.prefix, '') %></a> </li>
-      <% end %>
-
-    <% else # Is file %>
-      <% if previous_file && previous_file.key.end_with?('/') # Previous file was a directory %>
-        <ul class="files">
-      <% elsif sub_directory && previous_file && previous_file.key.include?(sub_directory.key) %>
-        <% sub_directory = nil %>
-        <ul class="files">
-      <% end %>
-
-        <% if sub_directory %>
-          <li> <%= file.key.gsub(sub_directory.key, '') %> </li>
-        <% elsif directory %>
-          <li> <%= file.key.gsub(directory.key, '') %> </li>
-        <% else %>
-          <li> <%= file.key.gsub(@files.prefix, '') %> </li>
-        <% end %>
-
-      <% if next_file && next_file.key.end_with?('/') # Next file is a directory %>
-        </ul> <%# Close files %>
-      <% end %>
-
-      <% if sub_directory && next_file && !next_file.key.include?(sub_directory.key) %>
-          </ul>
-        </ul>
-      <% elsif directory && next_file && !next_file.key.include?(directory.key) %>
-          </ul>
-        </ul>
-      <% end %>
-
+<ul>
+  <% @tree.children.each do |child| %>
+    <% if child.has_children? %>
+      <li class="directory">
+        <a href="?prefix=<%= child.content.key %>">
+          <%= child.name %> >
+        </a>
+      </li>
+    <% else %>
+      <li class="file">
+        <a href="<%= child.content.url(Time.now + 10*60) %>">
+        <%= child.name %>
+      </a>
+    </li>
     <% end %>
   <% end %>
+</ul>

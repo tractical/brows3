@@ -7,9 +7,11 @@ require 'tree'
 config_file 'config.yml'
 
 before do
+  aws_access_key = ENV['S3_KEY'] || settings.AWS["access_key"]
+  aws_secret_key = ENV['S3_SECRET'] || settings.AWS["secret_key"]
   @storage = Fog::Storage::AWS.new(
-    aws_access_key_id: settings.AWS["access_key"],
-    aws_secret_access_key: settings.AWS["secret_key"])
+    aws_access_key_id: aws_access_key,
+    aws_secret_access_key: aws_secret_key)
 end
 
 

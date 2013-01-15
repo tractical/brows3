@@ -14,7 +14,6 @@ before do
     aws_secret_access_key: aws_secret_key)
 end
 
-
 get '/' do
   "Connected to AWS" if @storage
 end
@@ -40,8 +39,8 @@ get '/bucket/:bucket_id/files' do
     next if file.key == params[:prefix]
     splitted_key = file.key.split('/')
     if splitted_key.size >= 1
-      @tree.find do |n|
-        n.name == splitted_key[-2]
+      @tree.find do |node|
+        node.name == splitted_key[-2]
       end << Tree::TreeNode.new(splitted_key.last, file)
     end
   end

@@ -1,38 +1,46 @@
 <style>
-  .directory {
+  li.directory {
     font-weight: bold;
     font-size: 110%;
   }
-  .file {
+  .directory .file {
     list-style: none;
+    font-weight: lighter;
+    font-size: 90%;
+    font-style: italic;
   }
 </style>
 
 <h1>
   <% if params[:prefix].split('/').size > 1 %>
     <% last_prefix = params[:prefix].split('/').last + '/' %>
-    <a href="?prefix=<%= params[:prefix].gsub(last_prefix, '') %>"><%= params[:prefix].gsub(last_prefix, '') %></a>
+    <a href="?prefix=<%= params[:prefix].gsub(last_prefix, '') %>">
+      <%= params[:prefix].gsub(last_prefix, '') %>
+    </a>
     > <%= last_prefix %>
   <% else %>
     <a href="?prefix=<%= params[:prefix] %>"><%= params[:prefix] %></a>
   <% end %>
 </h1>
 
-<ul>
-  <% @tree.children.each do |child| %>
-    <% if child.has_children? %>
-      <li class="directory">
-        <a href="?prefix=<%= child.content.key %>">
-          <%= child.name %> >
-        </a>
-      </li>
-    <% else %>
-      <li class="file">
-        <a href="<%= child.content.url(Time.now + 10*60) %>">
-        <%= child.name %>
-      </a>
-      - <a href="/delete?directory=<%= child.content.directory.key %>&key=<%= child.content.key %>">Delete file</a>
-    </li>
+<div>
+  <ul>
+    <% @tree.each do |node| %>
+      <% next if node.is_root? %>
+      <% if node.has_children? %>
+        <li class="directory">
+          <%= node.name %>
+          <ul>
+      <% elsif node.is_leaf? %>
+        <li class="file">
+          <a href="<%= node.content.url(Time.now + 10*60) %>">
+            <%= node.name %>
+          </a>
+        </li>
+        <% if node.is_last_sibling? %>
+          </ul>
+        <% end %>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
+</div>

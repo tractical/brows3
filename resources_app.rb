@@ -15,7 +15,7 @@ before do
 end
 
 get '/' do
-  "Connected to AWS" if @storage
+  erb :index if @storage
 end
 
 get '/buckets' do

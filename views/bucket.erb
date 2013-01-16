@@ -1,10 +1,19 @@
-<h1><%= @files.directory.key %></h1>
+<ul class="breadcrumbs">
+  <li>
+    <a href="#"><%= @files.directory.key %></a>
+  </li>
+</ul>
 
-<h2>Directories & Files</h2>
-<% @files.each do |file| %>
-  <% if file.key.end_with?('/') && file.key.split('/').count <= 1 %>
-    <a href="files?prefix=<%= file.key %>"><%= file.key %></a> <br>
-  <% elsif !file.key.end_with?('/') && file.key.split('/').count == 1 %>
-    <a href="#"><%= file.key %></a> <br>
+<ul class="nav-bar vertical four columns">
+  <% @files.each do |file| %>
+    <% if file.key.end_with?('/') && file.key.split('/').count <= 1 %>
+      <li>
+        <a href="files?prefix=<%= file.key %>"><%= file.key %></a>
+      </li>
+    <% elsif !file.key.end_with?('/') && file.key.split('/').count == 1 %>
+      <li>
+        <a href="#"><%= file.key %></a> <br>
+      </li>
+    <% end %>
   <% end %>
-<% end %>
+</ul>

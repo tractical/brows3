@@ -4,7 +4,7 @@ require 'debugger' if development?
 require 'fog'
 require 'tree'
 
-config_file 'config.yml'
+config_file 'config/config.yml'
 
 before do
   aws_access_key = ENV['S3_KEY'] || settings.AWS["access_key"]
@@ -37,20 +37,25 @@ get '/bucket/:bucket_id/files' do
   # TODO: Move to #make_tree method or something similar
   files.each do |file|
     next if file.key == params[:prefix]
+
     splitted_key = file.key.split('/')
     if splitted_key.size >= 1
-      @tree.find do |node|
-        node.name == splitted_key[-2]
-      end << Tree::TreeNode.new(splitted_key.last, file)
+      parent   = @tree.find { |node| node.name == splitted_key[-2] }
+      position = file.key.end_with?('/') && parent != @tree.root ? 0 : -1
+      parent.add(Tree::TreeNode.new(splitted_key.last, file), position)
     end
   end
 
   erb :files
 end
 
-get '/delete' do
+delete '/delete' do
   bucket = @storage.directories.get(params[:directory])
   file = bucket.files.get(params[:key])
   file.destroy
   redirect('/buckets')
+end
+
+post '/edit' do
+  bucket = @storage.directories.get(params[:directory])
 end

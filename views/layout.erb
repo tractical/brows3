@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>S3 Browser</title>
+    <%= stylesheet "/stylesheets/foundation.min.css" %>
+    <script src="/javascripts/foundation.min.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="contain-to-grid">
+        <nav class="top-bar">
+          <ul>
+            <li class="name">
+              <h1><a href="/">Tractical</a></h1>
+            </li>
+            <li class="toggle-topbar"><a href="#"></a></li>
+          </ul>
+          <section>
+            <ul class="right">
+              <li> <a href="/buckets">Buckets</a> </li>
+            </ul>
+          </section>
+        </nav>
+
+      </div>
+    </header>
+
+    <div class="row">
+      <div class="twelve columns">
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
+</html>

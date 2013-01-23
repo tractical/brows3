@@ -56,6 +56,18 @@ delete '/delete' do
   redirect('/buckets')
 end
 
-post '/edit' do
-  bucket = @storage.directories.get(params[:directory])
+get '/bucket/:bucket_id/files/:key/edit' do
+  bucket = @storage.directories.get(params[:bucket_id])
+  @file  = bucket.files.get(params[:key] + "/")
+  erb :edit
+end
+
+put '/bucket/:bucket_id/files/:key' do
+  bucket = @storage.directories.get(params[:bucket_id])
+  file   = bucket.files.get(params[:id])
+  name = params[:name].gsub(/\/$/, '') + "/"
+  # file.key = file.key.gsub(/([^\/]*)\/$/, params[:name]) unless params[:name].empty?
+  # file.save
+  file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, name)) unless params[:name].empty?
+  redirect '/'
 end

@@ -20,6 +20,7 @@
 <ul class="accordion">
   <% @tree.each do |node| %>
     <% next if node.is_root? %>
+
     <% if node.has_children? %>
       <% if node.parent != @tree.root %>
         <ul class="accordion">

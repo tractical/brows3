@@ -65,9 +65,23 @@ end
 put '/bucket/:bucket_id/files/:key' do
   bucket = @storage.directories.get(params[:bucket_id])
   file   = bucket.files.get(params[:id])
-  name = params[:name].gsub(/\/$/, '') + "/"
-  # file.key = file.key.gsub(/([^\/]*)\/$/, params[:name]) unless params[:name].empty?
-  # file.save
-  file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, name)) unless params[:name].empty?
-  redirect '/'
+  child_files = bucket.files.all(prefix: params[:id])
+
+  # Copy files and directory with new name.
+  new_name = params[:name].gsub(/\/$/, '') + "/"
+  new_file = file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, new_name)) unless params[:name].empty?
+  child_files.each do |cf|
+    next if cf.key == params[:id]
+    cf.key = cf.key.gsub(params[:id], new_file.key)
+    cf.save
+  end
+
+  # Delete old files
+  bucket.files.all(prefix: params[:ids]).each do |cf|
+    cf.destroy
+  end
+
+  file.destroy
+
+  redirect '/buckets'
 end

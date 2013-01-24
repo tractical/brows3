@@ -72,12 +72,7 @@ put '/bucket/:bucket_id/files/:key' do
   new_file = file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, new_name)) unless params[:name].empty?
   child_files.each do |cf|
     next if cf.key == params[:id]
-    cf.key = cf.key.gsub(params[:id], new_file.key)
-    cf.save
-  end
-
-  # Delete old files
-  bucket.files.all(prefix: params[:ids]).each do |cf|
+    new_cf = cf.copy(params[:bucket_id], cf.key.gsub(params[:id], new_file.key))
     cf.destroy
   end
 

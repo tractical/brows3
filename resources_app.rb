@@ -49,30 +49,42 @@ get '/bucket/:bucket_id/files' do
   erb :files
 end
 
-delete '/delete' do
-  bucket = @storage.directories.get(params[:directory])
-  file = bucket.files.get(params[:key])
-  file.destroy
-  redirect('/buckets')
-end
-
 get '/bucket/:bucket_id/files/:key/edit' do
   bucket = @storage.directories.get(params[:bucket_id])
   @file  = bucket.files.get(params[:key] + "/")
   erb :edit
 end
 
+# Update Folder name
 put '/bucket/:bucket_id/files/:key' do
   bucket = @storage.directories.get(params[:bucket_id])
   file   = bucket.files.get(params[:id])
   child_files = bucket.files.all(prefix: params[:id])
 
-  # Copy files and directory with new name.
-  new_name = params[:name].gsub(/\/$/, '') + "/"
-  new_file = file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, new_name)) unless params[:name].empty?
-  child_files.each do |cf|
-    next if cf.key == params[:id]
-    new_cf = cf.copy(params[:bucket_id], cf.key.gsub(params[:id], new_file.key))
+  if file.key.split('/').last != params[:name]
+    # Copy files and directory with new name.
+    new_name = params[:name].gsub(/\/$/, '') + "/"
+    new_file = file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, new_name)) unless params[:name].empty?
+    child_files.each do |cf|
+      next if cf.key == params[:id]
+
+      new_cf = cf.copy(params[:bucket_id], cf.key.gsub(params[:id], new_file.key))
+      cf.destroy
+    end
+
+    file.destroy
+  end
+
+  redirect '/buckets'
+end
+
+# Delete folder.
+# First deletes files inside the folder and the folder last.
+delete '/bucket/:bucket_id/files/:key' do
+  bucket = @storage.directories.get(params[:bucket_id])
+  file   = bucket.files.get(params[:id])
+
+  bucket.files.all(prefix: params[:id]).each do |cf|
     cf.destroy
   end
 

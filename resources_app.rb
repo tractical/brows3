@@ -1,21 +1,53 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
+require 'omniauth'
+require 'omniauth-github'
 require 'debugger' if development?
 require 'fog'
 require 'tree'
 
 config_file 'config/config.yml'
 
-before do
-  aws_access_key = ENV['S3_KEY'] || settings.AWS["access_key"]
-  aws_secret_key = ENV['S3_SECRET'] || settings.AWS["secret_key"]
-  @storage = Fog::Storage::AWS.new(
-    aws_access_key_id: aws_access_key,
-    aws_secret_access_key: aws_secret_key)
+enable :sessions
+set :sessions, key: "oauth_github"
+set :session_secret, settings.sessions["secret"]
+
+use OmniAuth::Builder do
+  client_id     = ENV['GITHUB_KEY']    || settings.github["client_id"]
+  client_secret = ENV['GITHUB_SECRET'] || settings.github["client_secret"]
+  provider :github, client_id, client_secret
+end
+
+get '/auth/:name/callback' do
+  auth = request.env['omniauth.auth']
+  session[:uid] = auth["uid"]
+  redirect '/buckets'
+end
+
+get '/auth/failure' do
+  "Authentication failed!"
+end
+
+helpers do
+  def authorized?
+    @current_user = session[:uid]
+  end
+end
+
+before %r{/bucket(.+)} do
+  if authorized?
+    aws_access_key = ENV['S3_KEY'] || settings.aws["access_key"]
+    aws_secret_key = ENV['S3_SECRET'] || settings.aws["secret_key"]
+    @storage = Fog::Storage::AWS.new(
+      aws_access_key_id: aws_access_key,
+      aws_secret_access_key: aws_secret_key)
+  else
+    redirect '/'
+  end
 end
 
 get '/' do
-  erb :index if @storage
+  erb :index
 end
 
 get '/buckets' do

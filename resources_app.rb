@@ -13,15 +13,18 @@ set :sessions, key: "oauth_github"
 set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
 
 helpers do
-  def authorize_user(auth)
+  def authorize_user(user)
     authorized_users = ENV['GITHUB_USERS'] || settings.github["users"]
-    user = auth['info']['nickname']
-    redirect '/auth/failure' unless authorized_users.include?(user)
+    redirect '/auth/failure' unless (user && authorized_users.include?(user))
     session[:github_nickname] = user
   end
 
   def current_user
-    @current_user = session[:github_nickname]
+    if session[:github_nickname]
+      @current_user = authorize_user(session[:github_nickname])
+    else
+      nil
+    end
   end
 end
 
@@ -34,7 +37,8 @@ end
 
 get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
-  authorize_user(auth)
+  authorize_user(auth['info']['nickname'])
+  redirect '/'
 end
 
 get '/auth/failure' do
@@ -43,11 +47,15 @@ get '/auth/failure' do
 end
 
 before %r{/bucket(.+)} do
-  aws_access_key = ENV['S3_KEY'] || settings.aws["access_key"]
-  aws_secret_key = ENV['S3_SECRET'] || settings.aws["secret_key"]
-  @storage = Fog::Storage::AWS.new(
-    aws_access_key_id: aws_access_key,
-    aws_secret_access_key: aws_secret_key)
+  if current_user
+    aws_access_key = ENV['S3_KEY'] || settings.aws["access_key"]
+    aws_secret_key = ENV['S3_SECRET'] || settings.aws["secret_key"]
+    @storage = Fog::Storage::AWS.new(
+      aws_access_key_id: aws_access_key,
+      aws_secret_access_key: aws_secret_key)
+  else
+    redirect '/auth/failure'
+  end
 end
 
 get '/' do

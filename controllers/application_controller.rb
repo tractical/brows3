@@ -1,17 +1,23 @@
 require 'sinatra/base'
-# require 'sinatra/contrib/all'
-# require 'omniauth'
-# require 'omniauth-github'
-# require 'debugger' if development?
+require 'sinatra/contrib'
 # require 'fog'
 # require 'tree'
 
-class ResourcesApp < Sinatra::Base
-  # config_file 'config/config.yml'
+class ApplicationController < Sinatra::Base
+  register Sinatra::Contrib
 
-  # enable :sessions
-  # set :sessions, key: "oauth_github"
-  # set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
+  config_file '../config/config.yml'
+
+  set :views, File.expand_path('../../views', __FILE__)
+
+  configure :production, :development do
+    enable :logging
+    enable :sessions
+  end
+
+  not_found do
+    erb :not_found
+  end
 
   # helpers do
   #   def authorize_user(user)
@@ -27,24 +33,6 @@ class ResourcesApp < Sinatra::Base
   #       nil
   #     end
   #   end
-  # end
-
-  # use OmniAuth::Builder do
-  #   client_id     = ENV['GITHUB_KEY']    || settings.github["client_id"]
-  #   client_secret = ENV['GITHUB_SECRET'] || settings.github["client_secret"]
-  #   state         = ENV['GITHUB_STATE']  || settings.github["state"]
-  #   provider :github, client_id, client_secret, state: state
-  # end
-
-  # get '/auth/:name/callback' do
-  #   auth = request.env['omniauth.auth']
-  #   authorize_user(auth['info']['nickname'])
-  #   redirect '/'
-  # end
-
-  # get '/auth/failure' do
-  #   session.clear
-  #   erb :not_authorized
   # end
 
   # before %r{/bucket(.+)} do

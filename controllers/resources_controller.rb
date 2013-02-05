@@ -1,5 +1,6 @@
 require 'fog'
 require 'tree'
+require 'debugger'
 
 class ResourcesController < ApplicationController
 
@@ -11,19 +12,15 @@ class ResourcesController < ApplicationController
       aws_secret_access_key: aws_secret_key)
   end
 
-  get '/' do
-    erb :index
-  end
-
   get '/buckets' do
     @buckets = @storage.directories
-    erb :buckets
+    erb :'resources/buckets'
   end
 
   get '/bucket/:id/?' do
     bucket = @storage.directories.get(params[:id])
     @files = bucket.files
-    erb :bucket
+    erb :'resources/bucket'
   end
 
   get '/bucket/:bucket_id/files' do
@@ -43,13 +40,13 @@ class ResourcesController < ApplicationController
       end
     end
 
-    erb :files
+    erb :'resources/files'
   end
 
   get '/bucket/:bucket_id/files/:key/edit' do
     bucket = @storage.directories.get(params[:bucket_id])
     @file  = bucket.files.get(params[:key] + "/")
-    erb :edit
+    erb :'resources/edit'
   end
 
   # Update Folder name

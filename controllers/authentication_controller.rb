@@ -15,10 +15,6 @@ class AuthenticationController < ApplicationController
     provider :github, client_id, client_secret, state: state
   end
 
-  get '/' do
-    "Authenticate plz!"
-  end
-
   get '/auth/:name/callback' do
     auth = request.env['omniauth.auth']
     # authorize_user(auth['info']['nickname'])

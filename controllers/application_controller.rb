@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
 
   config_file '../config/config.yml'
 
+  set :root, File.expand_path('../../', __FILE__)
   set :views, File.expand_path('../../views', __FILE__)
 
   configure :production, :development do

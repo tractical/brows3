@@ -1,1 +1,1 @@
-web: bundle exec ruby resources_app.rb -p $PORT
+web: bundle exec ruby config.ru -p $PORT

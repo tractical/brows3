@@ -2,7 +2,6 @@
 # Other controllers should use this
 require 'sinatra/base'
 require 'sinatra/contrib'
-require 'debugger'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib

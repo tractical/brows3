@@ -1,15 +1,16 @@
 require 'fog'
 require 'tree'
-require 'debugger'
 
 class ResourcesController < ApplicationController
 
   before do
-    aws_access_key = ENV['S3_KEY']    || settings.aws["access_key"]
-    aws_secret_key = ENV['S3_SECRET'] || settings.aws["secret_key"]
-    @storage = Fog::Storage::AWS.new(
-      aws_access_key_id: aws_access_key,
-      aws_secret_access_key: aws_secret_key)
+    if authorized?
+      aws_access_key = ENV['S3_KEY']    || settings.aws["access_key"]
+      aws_secret_key = ENV['S3_SECRET'] || settings.aws["secret_key"]
+      @storage = Fog::Storage::AWS.new(
+        aws_access_key_id: aws_access_key,
+        aws_secret_access_key: aws_secret_key)
+    end
   end
 
   get '/buckets' do

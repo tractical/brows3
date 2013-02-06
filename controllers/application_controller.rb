@@ -2,9 +2,11 @@
 # Other controllers should use this
 require 'sinatra/base'
 require 'sinatra/contrib'
+require 'debugger'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
+  helpers ApplicationHelper
 
   config_file '../config/config.yml'
 
@@ -14,26 +16,16 @@ class ApplicationController < Sinatra::Base
   configure :production, :development do
     enable :logging
     enable :sessions
+    set :sessions, key: "oauth_github"
+    set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
   end
 
   not_found do
     erb :not_found
   end
 
-  # helpers do
-  #   def authorize_user(user)
-  #     authorized_users = ENV['GITHUB_USERS'] || settings.github["users"]
-  #     redirect '/auth/failure' unless (user && authorized_users.include?(user))
-  #     session[:github_nickname] = user
-  #   end
-
-  #   def current_user
-  #     if session[:github_nickname]
-  #       @current_user = authorize_user(session[:github_nickname])
-  #     else
-  #       nil
-  #     end
-  #   end
-  # end
+  get '/' do
+    erb :index
+  end
 
 end

@@ -1,39 +1,16 @@
-<ul class="accordion">
-  <% @tree.each do |node| %>
-    <% next if node.is_root? %>
-
-    <% if node.has_children? %>
-      <% if node.parent != @tree.root %>
-        <ul class="accordion">
-      <% end %>
-      <li class="directory">
-        <div class="title">
-          <h5>
-            <%= node.name %>
-            <% node_path = node.parentage.collect(&:name).join('%2F') + '%2F' + node.name %>
-            <a href="files/<%= node_path %>/edit" class="tiny button">Edit</a>
-          </h5>
-        </div>
-        <div class="content">
-    <% elsif node.is_leaf? %>
-          <ul>
-            <li class="file">
-              <a href="<%= node.content.url(Time.now + 10*60) %>">
-                <%= node.name %>
-              </a>
-            </li>
-          </ul>
-      <% if node.is_last_sibling? %>
-        </div>
-      </li>
-      <% end %>
-      <% if node.has_children? && node.parent != @tree.root %>
-        </ul>
-      <% end %>
-    <% end %>
+<h1>Directories Size <%= @directories.size %></h1>
+<ul>
+  <% @directories.each do |directory| %>
+    <li><%= directory.name %></li>
   <% end %>
 </ul>
 
+<h1>Files</h1>
+<ul>
+  <% @files.each do |file| %>
+    <li><%= file.name %></li>
+  <% end %>
+</ul>
 <script>
   $(function(){
     $(document).foundationAccordion();

@@ -45,10 +45,13 @@ class ResourcesController < ApplicationController
     erb :'resources/buckets/show'
   end
 
-  get '/bucket/:bucket_id/:key/edit' do
+  get '/bucket/:bucket_id/*/edit' do
     bucket = @storage.directories.get(params[:bucket_id])
-    @file  = bucket.files.get(params[:key] + "/")
-    erb :'resources/directories/edit'
+    if @file  = bucket.files.get(params[:splat].first + "/")
+      erb :'resources/directories/edit'
+    else
+      erb :not_found
+    end
   end
 
   get '/bucket/:bucket_id/*/?' do

@@ -23,13 +23,13 @@ class ResourcesController < ApplicationController
   # buckets#show
   get '/bucket/:id/?' do
     bucket = @storage.directories.get(params[:id])
-    @files = bucket.files
+    files = bucket.files
 
     # Populate Tree to avoid calls to Fog
     @@tree = Tree::TreeNode.new(bucket.key) # Root node
 
     # TODO: Move to #make_tree method or something similar
-    @files.each do |file|
+    files.each do |file|
       splitted_key = file.key.split('/')
       if splitted_key.size >= 2
         parent   = @@tree.find { |node| node.name == splitted_key[-2] }
@@ -39,6 +39,9 @@ class ResourcesController < ApplicationController
         @@tree.add(Tree::TreeNode.new(splitted_key.last, file))
       end
     end
+
+    @directories = @@tree.children.select { |node| node.has_children? }
+    @files = @@tree.children.select { |node| node.is_leaf? }
 
     erb :'resources/buckets/show'
   end

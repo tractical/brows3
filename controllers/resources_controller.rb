@@ -1,6 +1,5 @@
 require 'fog'
 require 'tree'
-require 'debugger'
 
 class ResourcesController < ApplicationController
 

@@ -1,3 +1,14 @@
+<ul class="breadcrumbs">
+  <% path = @directories.first.try(:parentage) || @files.first.try(:parentage) %>
+  <% path.reverse_each do |node| %>
+    <% if node.parentage %>
+      <li><a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}/"  %>"><%= node.name %></a></li>
+    <% else %>
+      <li><a href="/resources/bucket/<%= node.name %>/"><%= node.name %></a></li>
+    <% end %>
+  <% end %>
+</ul>
+
 <h2>Directories</h2>
 <ul>
   <% @directories.each do |directory| %>

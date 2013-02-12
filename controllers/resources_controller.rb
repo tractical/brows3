@@ -13,25 +13,34 @@ class ResourcesController < ApplicationController
     end
   end
 
+  # buckets#index
   get '/buckets' do
     @buckets = @storage.directories
     erb :'resources/buckets'
   end
 
+  # buckets#show
   get '/bucket/:id/?' do
     bucket = @storage.directories.get(params[:id])
     @files = bucket.files
     erb :'resources/bucket'
   end
 
-  get '/bucket/:bucket_id/files' do
-    @tree = Tree::TreeNode.new(params[:prefix].split('/').last)
+  # files#index
+  # A bucket has many files
+  # params
+  #   prefix: Directory to expand
+  get '/bucket/:bucket_id/files/?' do
+    prefix = params[:prefix]
+    prefix.concat('/') unless prefix.end_with?('/')
+
+    @tree = Tree::TreeNode.new(prefix.split('/').last)
     bucket = @storage.directories.get(params[:bucket_id])
-    files = bucket.files.all(prefix: params[:prefix])
+    files = bucket.files.all(prefix: prefix)
 
     # TODO: Move to #make_tree method or something similar
     files.each do |file|
-      next if file.key == params[:prefix]
+      next if file.key == prefix
 
       splitted_key = file.key.split('/')
       if splitted_key.size >= 1

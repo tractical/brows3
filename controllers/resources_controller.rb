@@ -17,47 +17,47 @@ class ResourcesController < ApplicationController
   # buckets#index
   get '/buckets' do
     @buckets = @storage.directories
-    erb :'resources/buckets'
+    erb :'resources/buckets/index.erb'
   end
 
   # buckets#show
   get '/bucket/:id/?' do
     bucket = @storage.directories.get(params[:id])
     @files = bucket.files
-    erb :'resources/bucket'
+    erb :'resources/buckets/show.erb'
   end
 
-  # files#index
-  # A bucket has many files
-  # params
-  #   prefix: Directory to expand
-  get '/bucket/:bucket_id/files/?' do
-    prefix = params[:prefix]
-    prefix.concat('/') unless prefix.end_with?('/')
+  # # files#index
+  # # A bucket has many files
+  # # params
+  # #   prefix: Directory to expand
+  # get '/bucket/:bucket_id/files/?' do
+  #   prefix = params[:prefix]
+  #   prefix.concat('/') unless prefix.end_with?('/')
 
-    @tree = Tree::TreeNode.new(prefix.split('/').last)
-    bucket = @storage.directories.get(params[:bucket_id])
-    files = bucket.files.all(prefix: prefix)
+  #   @tree = Tree::TreeNode.new(prefix.split('/').last)
+  #   bucket = @storage.directories.get(params[:bucket_id])
+  #   files = bucket.files.all(prefix: prefix)
 
-    # TODO: Move to #make_tree method or something similar
-    files.each do |file|
-      next if file.key == prefix
+  #   # TODO: Move to #make_tree method or something similar
+  #   files.each do |file|
+  #     next if file.key == prefix
 
-      splitted_key = file.key.split('/')
-      if splitted_key.size >= 1
-        parent   = @tree.find { |node| node.name == splitted_key[-2] }
-        position = file.key.end_with?('/') && parent != @tree.root ? 0 : -1
-        parent.add(Tree::TreeNode.new(splitted_key.last, file), position)
-      end
-    end
+  #     splitted_key = file.key.split('/')
+  #     if splitted_key.size >= 1
+  #       parent   = @tree.find { |node| node.name == splitted_key[-2] }
+  #       position = file.key.end_with?('/') && parent != @tree.root ? 0 : -1
+  #       parent.add(Tree::TreeNode.new(splitted_key.last, file), position)
+  #     end
+  #   end
 
-    erb :'resources/files'
-  end
+  #   erb :'resources/files'
+  # end
 
   get '/bucket/:bucket_id/files/:key/edit' do
     bucket = @storage.directories.get(params[:bucket_id])
     @file  = bucket.files.get(params[:key] + "/")
-    erb :'resources/edit'
+    erb :'resources/directories/edit'
   end
 
   get '/bucket/:bucket_id/*/?' do

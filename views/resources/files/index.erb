@@ -2,28 +2,33 @@
   <% path = @directories.first.try(:parentage) || @files.first.try(:parentage) %>
   <% path.reverse_each do |node| %>
     <% if node.parentage %>
-      <li><a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}/"  %>"><%= node.name %></a></li>
+      <li>
+        <a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}/"  %>">
+          <%= node.name %>
+        </a>
+      </li>
     <% else %>
       <li><a href="/resources/bucket/<%= node.name %>/"><%= node.name %></a></li>
     <% end %>
   <% end %>
 </ul>
 
-<h2>Directories</h2>
-<ul>
-  <% @directories.each do |directory| %>
-    <li><a href="<%= directory.name %>/"><%= directory.name %></a></li>
-  <% end %>
-</ul>
+<% unless @directories.empty? %>
+  <h2>Directories</h2>
+  <ul>
+    <% @directories.each do |directory| %>
+      <li>
+        <a href="<%= directory.name %>/"><%= directory.name %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
-<h2>Files</h2>
-<ul>
-  <% @files.each do |file| %>
-    <li><a href="<%= file.content.url(Time.now + 10*60) %>"><%= file.name %></a></li>
-  <% end %>
-</ul>
-<script>
-  $(function(){
-    $(document).foundationAccordion();
-  });
-</script>
+<% unless @files.empty? %>
+  <h2>Files</h2>
+  <ul>
+    <% @files.each do |file| %>
+      <li><a href="<%= file.content.url(Time.now + 10*60) %>"><%= file.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>

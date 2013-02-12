@@ -1,5 +1,6 @@
 require 'fog'
 require 'tree'
+require 'debugger'
 
 class ResourcesController < ApplicationController
 
@@ -57,6 +58,29 @@ class ResourcesController < ApplicationController
     bucket = @storage.directories.get(params[:bucket_id])
     @file  = bucket.files.get(params[:key] + "/")
     erb :'resources/edit'
+  end
+
+  get '/bucket/:bucket_id/*/?' do
+    prefix = params[:splat].first
+    prefix.concat('/') unless prefix.end_with?('/')
+
+    @tree = Tree::TreeNode.new(prefix.split('/').last)
+    bucket = @storage.directories.get(params[:bucket_id])
+    files = bucket.files.all(prefix: prefix)
+
+    # TODO: Move to #make_tree method or something similar
+    files.each do |file|
+      next if file.key == prefix
+
+      splitted_key = file.key.split('/')
+      if splitted_key.size >= 1
+        parent   = @tree.find { |node| node.name == splitted_key[-2] }
+        position = file.key.end_with?('/') && parent != @tree.root ? 0 : -1
+        parent.add(Tree::TreeNode.new(splitted_key.last, file), position)
+      end
+    end
+
+    erb :'resources/files'
   end
 
   # Update Folder name

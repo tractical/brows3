@@ -1,22 +1,3 @@
-<ul class="breadcrumbs">
-  <li>
-    <a href="/bucket/<%= params[:bucket_id] %>/"><%= params[:bucket_id] %></a>
-  </li>
-  <% if params[:prefix].split('/').size > 1 %>
-    <% last_prefix = params[:prefix].split('/').last + '/' %>
-    <li>
-      <a href="?prefix=<%= params[:prefix].gsub(last_prefix, '') %>">
-        <%= params[:prefix].gsub(last_prefix, '') %>
-      </a>
-    </li>
-    > <%= last_prefix %>
-  <% else %>
-    <li>
-      <a href="?prefix=<%= params[:prefix] %>"><%= params[:prefix] %></a>
-    </li>
-  <% end %>
-</ul>
-
 <ul class="accordion">
   <% @tree.each do |node| %>
     <% next if node.is_root? %>

@@ -2,7 +2,7 @@
   <h2>Directories</h2>
   <ul>
     <% @directories.each do |directory| %>
-      <li><a href="<%= directory.name %>"><%= directory.name.gsub(/\/$/, '') %></a></li>
+      <li><a href="<%= directory.name %>/"><%= directory.name %></a></li>
     <% end %>
   </ul>
 <% end %>

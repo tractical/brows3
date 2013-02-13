@@ -1,16 +1,17 @@
 <ul class="breadcrumbs">
-  <% path = @directories.first.try(:parentage) || @files.first.try(:parentage) %>
+  <% path = @file.first.try(:parentage) %>
   <% path.reverse_each do |node| %>
     <% if node.parentage %>
       <li>
-        <a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}"  %>">
-          <%= node.name.gsub(/\/$/, '') %>
+        <a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}/"  %>">
+          <%= node.name %>
         </a>
       </li>
     <% else %>
-      <li><a href="/resources/bucket/<%= node.name %>/"><%= node.name.gsub(/\/$/, '') %></a></li>
+      <li><a href="/resources/bucket/<%= node.name %>/"><%= node.name %></a></li>
     <% end %>
   <% end %>
+  <li class="current"><a href="#"><%= @file.name %></a></li>
 </ul>
 
 <a class="large button right" href="directories/new">Add Folder Here</a>
@@ -21,7 +22,7 @@
     <% @directories.each do |directory| %>
       <li>
         <a class="small secondary button" href="<%= directory.name %>/edit">Edit</a>
-        <a href="<%= directory.name %>"><%= directory.name.gsub(/\/$/, '') %></a>
+        <a href="<%= directory.name %>/"><%= directory.name %></a>
       </li>
     <% end %>
   </ul>

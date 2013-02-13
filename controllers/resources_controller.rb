@@ -32,10 +32,10 @@ class ResourcesController < ApplicationController
       # TODO: Move to #make_tree method or something similar
       files.each do |file|
         splitted_key = file.key.split('/')
-        name = file.key.end_with?('/') ? splitted_key.last + '/' : splitted_key.last
+        name = splitted_key.last
 
         if splitted_key.size >= 2
-          parent = @@tree.find { |node| (node.name == splitted_key[-2]) || (node.name == splitted_key[-2] + '/') }
+          parent = @@tree.find { |node| node.name == splitted_key[-2] }
           parent.add(Tree::TreeNode.new(name, file))
         else
           @@tree.add(Tree::TreeNode.new(name, file))
@@ -43,8 +43,8 @@ class ResourcesController < ApplicationController
       end
     end
 
-    @directories = @@tree.children.select { |node| node.has_children? || node.name.end_with?('/') }
-    @files = @@tree.children.select { |node| node.is_leaf? }
+    @directories = @@tree.children.select { |node| node.has_children? || node.content.key.end_with?('/') }
+    @files = @@tree.children.select { |node| node.is_leaf? && !node.content.key.end_with?('/') }
 
     erb :'resources/buckets/show'
   end
@@ -104,11 +104,14 @@ class ResourcesController < ApplicationController
       end
 
       file.destroy
+      parent = @@tree.find { |node| node.name == splat.split('/')[-2] }
+      node = @@tree.find { |node| node.name == splat.split('/').last }
+      parent.remove!(node)
     else
       halt 500
     end
 
-    redirect "/resources/bucket/#{bucket.key}/"
+    redirect "/resources/bucket/#{bucket.key}/#{splat.split('/')[-2]}/"
   end
 
   get '/bucket/:bucket_id/*/directories/new' do
@@ -126,7 +129,9 @@ class ResourcesController < ApplicationController
     name = path + params[:name].gsub(/\//, '') + '/'
 
     if file = bucket.files.create(key: name)
-      redirect "resources/bucket/#{params[:bucket_id]}/"
+      parent = @@tree.find { |node| node.name == path.split('/').last }
+      parent.add(Tree::TreeNode.new(name.split('/').last, file))
+      redirect "resources/bucket/#{params[:bucket_id]}/#{path}"
     else
       halt 500
     end
@@ -135,9 +140,12 @@ class ResourcesController < ApplicationController
   # files#index
   get '/bucket/:bucket_id/*/?' do
     path = params[:splat].first.split('/')
-    node = @@tree.find { |node| node.name == (path.last + '/') }
-    @directories = node.children.select { |node| node.has_children? }
-    @files = node.children.select { |node| node.is_leaf? }
+    node = @@tree.find { |node| node.name == path.last }
+    children_nodes = node.try(:children)
+
+    @directories = children_nodes.try(:select) { |node| node.has_children? || node.content.key.end_with?('/') }
+    @files = children_nodes.try(:select) { |node| node.is_leaf? && !node.content.key.end_with?('/') }
+    @file = node
 
     erb :'resources/files/index'
   end

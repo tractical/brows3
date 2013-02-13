@@ -12,6 +12,8 @@ class ApplicationController < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
   set :views, Proc.new { File.join(root, 'views') }
 
+  enable :method_override
+
   configure :production, :development do
     enable :logging
     enable :sessions

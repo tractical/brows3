@@ -18,8 +18,8 @@
   <ul>
     <% @directories.each do |directory| %>
       <li>
-        <a href="<%= directory.name %>/"><%= directory.name %></a>
         <a class="small secondary button" href="<%= directory.name %>/edit">Edit</a>
+        <a href="<%= directory.name %>/"><%= directory.name %></a>
       </li>
     <% end %>
   </ul>

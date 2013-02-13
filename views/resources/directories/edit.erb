@@ -1,15 +1,13 @@
 <% file_name = @file.key.split('/').last %>
 <h1>Edit <%= file_name %></h1>
-<form method="post" action="/bucket/<%= params[:bucket_id] %>/files/<%= file_name %>">
+<form method="post" action="/resources/bucket/<%= params[:bucket_id] %>/<%= @file.key %>">
   <label for="name">Name</label>
   <input type="text" name="name" value="<%= @file.key.split('/').last %>">
-  <input type="hidden" name="_method" value="PUT">
-  <input type="hidden" name="id" value="<%= @file.key %>">
+  <input type="hidden" name="_method" value="put">
   <input type="submit" class="large button">
 </form>
 
-<form method="post" action="/bucket/<%= params[:bucket_id] %>/files/<%= file_name %>">
-  <input type="hidden" name="id" value="<%= @file.key %>">
+<form method="post" action="/resources/bucket/<%= params[:bucket_id] %>/<%= @file.key %>">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete" class="large alert button">
 </form>

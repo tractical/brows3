@@ -54,6 +54,55 @@ class ResourcesController < ApplicationController
     end
   end
 
+  # Update Folder name
+  put '/bucket/:bucket_id/*/?' do
+    bucket = @storage.directories.get(params[:bucket_id])
+    splat = params[:splat].first.gsub(/\/$/, '') + "/"
+
+    if file = bucket.files.get(splat)
+      child_files = bucket.files.all(prefix: splat)
+
+      if file.key.split('/').last != params[:name]
+        # Copy files and directory with new name.
+        new_name = params[:name].gsub(/\/$/, '') + "/"
+        new_name = file.key.gsub(/([^\/]*)\/$/, new_name)
+
+        new_file = file.copy(params[:bucket_id], new_name) unless params[:name].empty?
+        child_files.each do |cf|
+          next if cf.key == splat
+
+          new_cf = cf.copy(params[:bucket_id], cf.key.gsub(splat, new_file.key))
+          cf.destroy
+        end
+
+        file.destroy
+      end
+    else
+      halt 500
+    end
+
+    redirect "/resources/bucket/#{bucket.key}/"
+  end
+
+  # Delete folder.
+  # Delete files inside the folder first, the folder last.
+  delete '/bucket/:bucket_id/*/?' do
+    bucket = @storage.directories.get(params[:bucket_id])
+    splat = params[:splat].first.gsub(/\/$/, '') + "/"
+
+    if file = bucket.files.get(splat)
+      bucket.files.all(prefix: splat).each do |cf|
+        cf.destroy
+      end
+
+      file.destroy
+    else
+      halt 500
+    end
+
+    redirect "/resources/bucket/#{bucket.key}/"
+  end
+
   get '/bucket/:bucket_id/*/?' do
     path = params[:splat].first.split('/')
     node = @@tree.find { |node| node.name == path.last }
@@ -61,44 +110,6 @@ class ResourcesController < ApplicationController
     @files = node.children.select { |node| node.is_leaf? }
 
     erb :'resources/files/index'
-  end
-
-  # Update Folder name
-  put '/bucket/:bucket_id/:key/edit/?' do
-    bucket = @storage.directories.get(params[:bucket_id])
-    file   = bucket.files.get(params[:id])
-    child_files = bucket.files.all(prefix: params[:id])
-
-    if file.key.split('/').last != params[:name]
-      # Copy files and directory with new name.
-      new_name = params[:name].gsub(/\/$/, '') + "/"
-      new_file = file.copy(params[:bucket_id], file.key.gsub(/([^\/]*)\/$/, new_name)) unless params[:name].empty?
-      child_files.each do |cf|
-        next if cf.key == params[:id]
-
-        new_cf = cf.copy(params[:bucket_id], cf.key.gsub(params[:id], new_file.key))
-        cf.destroy
-      end
-
-      file.destroy
-    end
-
-    redirect '/buckets'
-  end
-
-  # Delete folder.
-  # Delete files inside the folder first, the folder last.
-  delete '/bucket/:bucket_id/:key' do
-    bucket = @storage.directories.get(params[:bucket_id])
-    file   = bucket.files.get(params[:id])
-
-    bucket.files.all(prefix: params[:id]).each do |cf|
-      cf.destroy
-    end
-
-    file.destroy
-
-    redirect '/buckets'
   end
 
 end

@@ -3,6 +3,7 @@ require 'tree'
 require 'debugger'
 
 class ResourcesController < ApplicationController
+  helpers ResourcesHelper
 
   before do
     if authorized?
@@ -22,29 +23,10 @@ class ResourcesController < ApplicationController
 
   # buckets#show
   get '/bucket/:bucket_id/?' do
-    unless defined? @@tree
-      bucket = @storage.directories.get(params[:bucket_id])
-      files = bucket.files
+    bucket = @storage.directories.get(params[:bucket_id])
 
-      # Populate Tree to avoid calls to AWS
-      @@tree ||= Tree::TreeNode.new(bucket.key) # Root node
-
-      # TODO: Move to #make_tree method or something similar
-      files.each do |file|
-        splitted_key = file.key.split('/')
-        name = splitted_key.last
-
-        if splitted_key.size >= 2
-          parent = @@tree.find { |node| node.name == splitted_key[-2] }
-          parent.add(Tree::TreeNode.new(name, file))
-        else
-          @@tree.add(Tree::TreeNode.new(name, file))
-        end
-      end
-    end
-
-    @directories = @@tree.children.select { |node| node.has_children? || node.content.key.end_with?('/') }
-    @files = @@tree.children.select { |node| node.is_leaf? && !node.content.key.end_with?('/') }
+    @directories = tree_from_bucket(bucket).children.select { |node| node.has_children? || node.content.key.end_with?('/') }
+    @files = tree_from_bucket(bucket).children.select { |node| node.is_leaf? && !node.content.key.end_with?('/') }
 
     erb :'resources/buckets/show'
   end
@@ -104,8 +86,8 @@ class ResourcesController < ApplicationController
       end
 
       file.destroy
-      parent = @@tree.find { |node| node.name == splat.split('/')[-2] }
-      node = @@tree.find { |node| node.name == splat.split('/').last }
+      parent = tree_from_bucket(bucket).find { |node| node.name == splat.split('/')[-2] }
+      node = tree_from_bucket(bucket).find { |node| node.name == splat.split('/').last }
       parent.remove!(node)
     else
       halt 500
@@ -129,7 +111,7 @@ class ResourcesController < ApplicationController
     name = path + params[:name].gsub(/\//, '') + '/'
 
     if file = bucket.files.create(key: name)
-      parent = @@tree.find { |node| node.name == path.split('/').last }
+      parent = tree_from_bucket(bucket).find { |node| node.name == path.split('/').last }
       parent.add(Tree::TreeNode.new(name.split('/').last, file))
       redirect "resources/bucket/#{params[:bucket_id]}/#{path}"
     else
@@ -139,8 +121,10 @@ class ResourcesController < ApplicationController
 
   # files#index
   get '/bucket/:bucket_id/*/?' do
+    bucket = @storage.directories.get(params[:bucket_id])
+
     path = params[:splat].first.split('/')
-    node = @@tree.find { |node| node.name == path.last }
+    node = tree_from_bucket(bucket).find { |node| node.name == path.last }
     children_nodes = node.try(:children)
 
     @directories = children_nodes.try(:select) { |node| node.has_children? || node.content.key.end_with?('/') }

@@ -1,13 +1,17 @@
-<h2>Directories</h2>
-<ul>
-  <% @directories.each do |directory| %>
-    <li><a href="<%= directory.name %>/"><%= directory.name %></a></li>
-  <% end %>
-</ul>
+<% unless @directories.empty? %>
+  <h2>Directories</h2>
+  <ul>
+    <% @directories.each do |directory| %>
+      <li><a href="<%= directory.name %>"><%= directory.name.gsub(/\/$/, '') %></a></li>
+    <% end %>
+  </ul>
+<% end %>
 
-<h2>Files</h2>
-<ul>
-  <% @files.each do |file| %>
-    <li><a href="<%= file.content.url(Time.now + 10*60) %>"><%= file.name %></a></li>
-  <% end %>
-</ul>
+<% unless @files.empty? %>
+  <h2>Files</h2>
+  <ul>
+    <% @files.each do |file| %>
+      <li><a href="<%= file.content.url(Time.now + 10*60) %>"><%= file.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>

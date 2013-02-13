@@ -3,12 +3,12 @@
   <% path.reverse_each do |node| %>
     <% if node.parentage %>
       <li>
-        <a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}/"  %>">
-          <%= node.name %>
+        <a href="/resources/bucket/<%= node.parentage.sort_by(&:level).collect(&:name).join('/') + "/#{node.name}"  %>">
+          <%= node.name.gsub(/\/$/, '') %>
         </a>
       </li>
     <% else %>
-      <li><a href="/resources/bucket/<%= node.name %>/"><%= node.name %></a></li>
+      <li><a href="/resources/bucket/<%= node.name %>/"><%= node.name.gsub(/\/$/, '') %></a></li>
     <% end %>
   <% end %>
 </ul>
@@ -21,7 +21,7 @@
     <% @directories.each do |directory| %>
       <li>
         <a class="small secondary button" href="<%= directory.name %>/edit">Edit</a>
-        <a href="<%= directory.name %>/"><%= directory.name %></a>
+        <a href="<%= directory.name %>"><%= directory.name.gsub(/\/$/, '') %></a>
       </li>
     <% end %>
   </ul>

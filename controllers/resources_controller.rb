@@ -8,7 +8,11 @@ class ResourcesController < ApplicationController
   before do
     aws_access_key = session[:aws_access]
     aws_secret_key = session[:aws_secret]
-    @storage ||= Fog::Storage::AWS.new(aws_access_key_id: aws_access_key, aws_secret_access_key: aws_secret_key)
+    begin
+      @storage ||= Fog::Storage::AWS.new(aws_access_key_id: aws_access_key, aws_secret_access_key: aws_secret_key)
+    rescue ArgumentError
+      flash[:notice] = "Please make sure you are providing valid credentials"
+    end
   end
 
   get '/' do
@@ -18,7 +22,7 @@ class ResourcesController < ApplicationController
   post '/login' do
     session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access]
     session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret]
-    redirect '/resources'
+    redirect '/'
   end
 
   # buckets#index

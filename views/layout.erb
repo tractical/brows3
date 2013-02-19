@@ -29,6 +29,12 @@
       </div>
     </header>
 
+    <% if flash[:notice] %>
+      <div class="alert-box row">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
     <div class="row">
       <div class="twelve columns">
         <%= yield %>

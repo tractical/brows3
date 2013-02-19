@@ -1,11 +1,14 @@
 # Application wide settings
 # Other controllers should use this
+
 require 'sinatra/base'
 require 'sinatra/contrib'
+require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
   helpers ApplicationHelper
+  use Rack::Flash
 
   config_file '../config/config.yml'
 

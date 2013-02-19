@@ -6,13 +6,19 @@ class ResourcesController < ApplicationController
   helpers ResourcesHelper
 
   before do
-    if authorized?
-      aws_access_key = ENV['S3_KEY']    || settings.aws["access_key"]
-      aws_secret_key = ENV['S3_SECRET'] || settings.aws["secret_key"]
-      @storage ||= Fog::Storage::AWS.new(
-        aws_access_key_id: aws_access_key,
-        aws_secret_access_key: aws_secret_key)
-    end
+    aws_access_key = session[:aws_access]
+    aws_secret_key = session[:aws_secret]
+    @storage ||= Fog::Storage::AWS.new(aws_access_key_id: aws_access_key, aws_secret_access_key: aws_secret_key)
+  end
+
+  get '/' do
+    erb :'resources/index'
+  end
+
+  post '/login' do
+    session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access]
+    session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret]
+    redirect '/resources'
   end
 
   # buckets#index

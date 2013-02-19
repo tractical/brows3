@@ -22,8 +22,8 @@ class ApplicationController < Sinatra::Base
     erb :not_found
   end
 
-  get '/' do
-    erb :index
+  get '/', provides: :html do
+    respond_with :index
   end
 
 end

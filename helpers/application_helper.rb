@@ -11,10 +11,10 @@ module ApplicationHelper
       conn.directories.first
     rescue ArgumentError
       flash[:notice] = "Please make sure you are providing valid credentials."
-      redirect '/logout'
+      redirect '/'
     rescue Excon::Errors::Forbidden
-      flash[:notice] = "Forbidden Access"
-      redirect '/logout'
+      flash[:notice] = "Forbidden Access. Please make sure you are providing valid credentials."
+      redirect '/'
     else
       session[:logged_in] = true
     end

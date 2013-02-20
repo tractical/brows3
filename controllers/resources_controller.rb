@@ -14,12 +14,8 @@ class ResourcesController < ApplicationController
   end
 
   get '/' do
+    flash[:notice] = "You have logged in!"
     erb :'resources/index'
-  end
-
-  error do
-    flash[:alert] = "OMG! Something went wrong! We'll get to it asap!"
-    redirect to '/'
   end
 
   # buckets#index

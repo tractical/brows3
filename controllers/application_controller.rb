@@ -4,6 +4,7 @@
 require 'sinatra/base'
 require 'sinatra/contrib'
 require 'rack-flash'
+require 'debugger'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
@@ -25,6 +26,11 @@ class ApplicationController < Sinatra::Base
     erb :not_found
   end
 
+  error do
+    flash[:alert] = "OMG! Something went wrong! We'll get to it asap!"
+    redirect to '/'
+  end
+
   get '/', provides: :html do
     respond_with :index
   end
@@ -35,12 +41,13 @@ class ApplicationController < Sinatra::Base
 
   get '/logout' do
     session.clear
+    flash[:alert] = "You have logged out."
     redirect to '/'
   end
 
   post '/login' do
-    session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access]
-    session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret]
+    session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access].strip
+    session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret].strip
     redirect to '/resources'
   end
 

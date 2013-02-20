@@ -17,6 +17,11 @@ class ResourcesController < ApplicationController
     erb :'resources/index'
   end
 
+  error do
+    flash[:alert] = "OMG! Something went wrong! We'll get to it asap!"
+    redirect to '/'
+  end
+
   # buckets#index
   get '/buckets' do
     @buckets = @storage.directories

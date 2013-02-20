@@ -38,6 +38,10 @@
       <div class="alert-box row">
         <%= flash[:notice] %>
       </div>
+    <% elsif flash[:alert] %>
+      <div class="alert-box alert row">
+        <%= flash[:alert] %>
+      </div>
     <% end %>
 
     <div class="row">

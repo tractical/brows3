@@ -3,7 +3,7 @@
   <% path.reverse_each do |node| %>
     <% if node.parentage %>
       <li>
-        <a href=<%= url("/resources/bucket/#{node.parentage.sort_by(&:level).collect(&:name).join('/')}" + "/#{node.name}/") %>>
+        <a href=<%= url("/bucket/#{node.parentage.sort_by(&:level).collect(&:name).join('/')}" + "/#{node.name}/") %>>
           <%= node.name %>
         </a>
       </li>

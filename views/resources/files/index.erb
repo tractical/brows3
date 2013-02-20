@@ -14,14 +14,11 @@
   <li class="current"><a href="#"><%= @file.name %></a></li>
 </ul>
 
-<a class="large button right" href="directories/new">Add Folder Here</a>
-
 <% unless @directories.empty? %>
   <h2>Directories</h2>
   <ul>
     <% @directories.each do |directory| %>
       <li>
-        <a class="small secondary button" href="<%= directory.name %>/edit">Edit</a>
         <a href="<%= directory.name %>/"><%= directory.name %></a>
       </li>
     <% end %>

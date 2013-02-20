@@ -31,8 +31,8 @@ class ApplicationController < Sinatra::Base
     redirect to '/'
   end
 
-  get '/', provides: :html do
-    respond_with :index
+  get '/' do
+    erb :index
   end
 
   get '/login' do

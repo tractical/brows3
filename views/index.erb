@@ -1,11 +1,14 @@
 <h1>Welcome</h1>
-<h2>Please sign in using your AWS credentials</h2>
-<form action="/resources/login" method="post">
-  <label for="aws-access">AWS Access Key</label>
-  <input id="aws-access" type="text" name="aws_access">
 
-  <label for="aws-secret">AWS Secret Key</label>
-  <input id="aws-secret" type="text" name="aws_secret">
+<% unless session[:logged_in] %>
+  <h2>Please sign in using your AWS credentials</h2>
+  <form action="/login" method="post">
+    <label for="aws-access">AWS Access Key</label>
+    <input id="aws-access" type="text" name="aws_access">
 
-  <input class="button" type="submit">
-</form>
+    <label for="aws-secret">AWS Secret Key</label>
+    <input id="aws-secret" type="text" name="aws_secret">
+
+    <input class="button" type="submit">
+  </form>
+<% end %>

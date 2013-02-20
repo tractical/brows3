@@ -29,4 +29,20 @@ class ApplicationController < Sinatra::Base
     respond_with :index
   end
 
+  get '/login' do
+    erb :login
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
+
+  post '/login' do
+    session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access]
+    session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret]
+    redirect '/resources'
+  end
+
+
 end

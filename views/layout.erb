@@ -21,7 +21,12 @@
           </ul>
           <section>
             <ul class="right">
-              <li> <a href="/resources/buckets">Buckets</a> </li>
+              <% if session[:logged_in] %>
+                <li><a href="/resources/buckets">Buckets</a> </li>
+                <li><a href="/logout">Log out</a></li>
+              <% else %>
+                <li><a href="/login">Log in</a></li>
+              <% end %>
             </ul>
           </section>
         </nav>

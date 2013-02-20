@@ -25,10 +25,10 @@ class ResourcesController < ApplicationController
 
   # buckets#show
   get '/bucket/:bucket_id/?' do
-    bucket = @storage.directories.get(params[:bucket_id])
+    @bucket = @storage.directories.get(params[:bucket_id])
 
-    @directories = tree_from_bucket(bucket).children.select { |node| node.has_children? || node.content.key.end_with?('/') }
-    @files = tree_from_bucket(bucket).children.select { |node| node.is_leaf? && !node.content.key.end_with?('/') }
+    @directories = tree_from_bucket(@bucket).children.select { |node| node.has_children? || node.content.key.end_with?('/') }
+    @files = tree_from_bucket(@bucket).children.select { |node| node.is_leaf? && !node.content.key.end_with?('/') }
 
     erb :'resources/buckets/show'
   end

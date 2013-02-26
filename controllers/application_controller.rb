@@ -1,10 +1,10 @@
 # Application wide settings
 # Other controllers should use this
 
+require 'compass'
 require 'sinatra/base'
 require 'sinatra/contrib'
 require 'rack-flash'
-require 'debugger'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
@@ -29,6 +29,11 @@ class ApplicationController < Sinatra::Base
   error do
     flash[:alert] = "OMG! Something went wrong! We'll get to it asap!"
     redirect to '/'
+  end
+
+  get '/stylesheets/:name.css' do
+    content_type 'text/css', charset: 'utf-8'
+    scss :"stylesheets/#{params[:name]}"
   end
 
   get '/' do

@@ -1,9 +1,6 @@
 require './spec/spec_helper'
-require 'debugger'
 
-describe "ResourcesApp" do
-
-  Fog.mock!
+describe "ResourcesController" do
 
   subject do
     Fog::Storage::AWS.new(aws_access_key_id: 'abcdef', aws_secret_access_key: 'secret')

@@ -1,15 +1,12 @@
-require './resources_app'
+# ENV['RACK_ENV'] = 'test'
 require 'rspec'
 require 'rack/test'
 
-set :environment, :test
-set :run, false
-set :raise_errors, true
-
-def app
-  Sinatra::Application
+module RSpecMixin
+  include Rack::Test::Methods
+  def app() described_class end
 end
 
 RSpec.configure do |config|
-  config.include Rack::Test::Methods
+  config.include RSpecMixin
 end

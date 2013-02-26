@@ -50,6 +50,4 @@ class ApplicationController < Sinatra::Base
     session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret].strip
     redirect to '/resources'
   end
-
-
 end

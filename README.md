@@ -14,20 +14,20 @@ any [other method](http://www.ruby-lang.org/en/downloads/) you prefer.
 
 2. Clone the repository
 
-    $ git clone git@github.com:tractical/s3_browser.git
+      $ git clone git@github.com:tractical/s3_browser.git
 
 3. Run bundle to install the required gems.
 
-    $ bundle install
+      $ bundle install
 
 4. Create your configuration settings file. You can find an example at
 `config/config.yml.example`
 
-    $ touch /config/config.yml
+      $ touch /config/config.yml
 
 5. Run the application.
 
-    $ rackup config.ru
+      $ rackup config.ru
 
 ## Deployment
 Brows3 is ready for deploy to [Heroku](http://www.heroku.com/).
@@ -41,14 +41,14 @@ guide to create it and get ready to
 [declare a process type](https://devcenter.heroku.com/articles/ruby#declare-process-types-with-procfile)
 with Procfile.
 
-    # Procfile
-    web: bundle exec rackup config.ru -p $PORT
+      # Procfile
+      web: bundle exec rackup config.ru -p $PORT
 
 3. Finally create a custom
 [session secret](http://www.sinatrarb.com/intro#Using%20Sessions) to sign your
 session data. You can use the same one defined in your `config.yml` local settings
 file.
 
-    $ heroku config:add SESSION_SECRET=yoursessionsecretkey
+      $ heroku config:add SESSION_SECRET=yoursessionsecretkey
 
 4. You are ready to go! :)

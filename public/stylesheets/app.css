@@ -33,19 +33,19 @@ a img {
 
 /* line 12, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/common/_globals.scss */
 a {
-  color: black;
+  color: #2ba6cb;
   text-decoration: none;
   line-height: inherit;
 }
 
 /* line 13, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/common/_globals.scss */
 a:hover {
-  color: black;
+  color: #2795b6;
 }
 
 /* line 14, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/common/_globals.scss */
 a:focus {
-  color: black;
+  color: #2795b6;
 }
 
 /* line 15, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/common/_globals.scss */
@@ -888,7 +888,7 @@ form.custom .custom.disabled {
 /* The Grid ---------------------- */
 /* line 3, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/_grid.scss */
 .row {
-  width: 1000px;
+  width: 960px;
   max-width: 100%;
   min-width: 768px;
   margin: 0 auto;
@@ -898,7 +898,7 @@ form.custom .custom.disabled {
   width: auto;
   max-width: none;
   min-width: 0;
-  margin: 0 -15px;
+  margin: 0 -10px;
 }
 /* line 7, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/_grid.scss */
 .row.collapse .column, .row.collapse .columns {
@@ -909,7 +909,7 @@ form.custom .custom.disabled {
   width: auto;
   max-width: none;
   min-width: 0;
-  margin: 0 -15px;
+  margin: 0 -10px;
 }
 /* line 10, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/_grid.scss */
 .row .row.collapse {
@@ -920,7 +920,7 @@ form.custom .custom.disabled {
 .column, .columns {
   float: left;
   min-height: 1px;
-  padding: 0 15px;
+  padding: 0 10px;
   position: relative;
 }
 /* line 15, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/_grid.scss */
@@ -1354,8 +1354,8 @@ that IE7/8 do not support :nth-child.
 /* line 3, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button {
   width: auto;
-  background: black;
-  border: 1px solid black;
+  background: #2ba6cb;
+  border: 1px solid #1e728c;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -1385,7 +1385,7 @@ that IE7/8 do not support :nth-child.
 /* line 6, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button:hover, .button:focus {
   color: white;
-  background-color: black;
+  background-color: #2284a1;
 }
 /* line 7, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button:active {
@@ -1419,12 +1419,12 @@ that IE7/8 do not support :nth-child.
 }
 /* line 17, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.primary {
-  background-color: black;
-  border: 1px solid black;
+  background-color: #2ba6cb;
+  border: 1px solid #1e728c;
 }
 /* line 18, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.primary:hover, .button.primary:focus {
-  background-color: black;
+  background-color: #2284a1;
 }
 /* line 20, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.success {
@@ -1486,14 +1486,14 @@ that IE7/8 do not support :nth-child.
 .button.disabled, .button[disabled] {
   opacity: 0.6;
   cursor: default;
-  background: black;
+  background: #2ba6cb;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
 /* line 40, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.disabled:hover, .button[disabled]:hover {
-  background: black;
+  background: #2ba6cb;
 }
 /* line 42, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.disabled.success, .button[disabled].success {
@@ -1675,7 +1675,7 @@ input[type=submit].button, button.button {
 }
 /* line 87, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown > ul li:hover, .button.dropdown > ul li:focus {
-  background-color: #737373;
+  background-color: #e3f4f9;
   color: #222;
 }
 /* line 88, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
@@ -1713,7 +1713,7 @@ input[type=submit].button, button.button {
 }
 /* line 105, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown.split:hover, .button.dropdown.split:focus {
-  background-color: black;
+  background-color: #2ba6cb;
 }
 /* line 106, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown.split.alert:hover, .button.dropdown.split.alert:focus {
@@ -1741,7 +1741,7 @@ input[type=submit].button, button.button {
 }
 /* line 112, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown.split > a:hover, .button.dropdown.split > a:focus {
-  background-color: black;
+  background-color: #2284a1;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -1766,13 +1766,13 @@ input[type=submit].button, button.button {
 }
 /* line 119, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown.split > span {
-  background-color: black;
+  background-color: #2ba6cb;
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
   width: 30px;
-  border-left: 1px solid black;
+  border-left: 1px solid #1e728c;
   -webkit-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
   -moz-box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
   box-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
@@ -1783,7 +1783,7 @@ input[type=submit].button, button.button {
 }
 /* line 120, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown.split > span:hover, .button.dropdown.split > span:focus {
-  background-color: black;
+  background-color: #2284a1;
 }
 /* line 121, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_buttons.scss */
 .button.dropdown.split > span:after {
@@ -2032,8 +2032,8 @@ div.button-bar ul.button-group:last-child {
 }
 /* line 8, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_navbar.scss */
 .nav-bar > li.active {
-  background: black;
-  border-color: black;
+  background: #2ba6cb;
+  border-color: #2284a1;
 }
 /* line 9, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_navbar.scss */
 .nav-bar > li.active > a {
@@ -2042,7 +2042,7 @@ div.button-bar ul.button-group:last-child {
 }
 /* line 10, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_navbar.scss */
 .nav-bar > li.active:hover {
-  background: black;
+  background: #2ba6cb;
   cursor: default;
 }
 /* line 12, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_navbar.scss */
@@ -2143,7 +2143,7 @@ div.button-bar ul.button-group:last-child {
 }
 /* line 41, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_navbar.scss */
 .nav-bar.vertical > li.active {
-  border-right: solid 1px black;
+  border-right: solid 1px #2284a1;
 }
 /* line 42, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_navbar.scss */
 .nav-bar.vertical > li:last-child {
@@ -2317,7 +2317,7 @@ ul.flyout li.active a, .nav-bar li ul li.active a {
 }
 /* line 33, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_topbar.scss */
 .contain-to-grid .top-bar {
-  max-width: 1000px;
+  max-width: 960px;
   margin: 0 auto;
 }
 /* line 38, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_topbar.scss */
@@ -3531,11 +3531,11 @@ ul.block-grid[data-clearing] {
 /* line 12, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_tabs.scss */
 .tabs dd a:focus, .tabs li a:focus {
   font-weight: bold;
-  color: black;
+  color: #2ba6cb;
 }
 /* line 14, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_tabs.scss */
 .tabs dd.active, .tabs li.active {
-  border-top: 3px solid black;
+  border-top: 3px solid #2ba6cb;
   margin-top: -3px;
 }
 /* line 15, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_tabs.scss */
@@ -3636,7 +3636,7 @@ ul.block-grid[data-clearing] {
 }
 /* line 39, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_tabs.scss */
 .tabs.pill dd.active a, .tabs.pill li.active a {
-  background-color: black;
+  background-color: #2ba6cb;
   border: none;
   color: #fff;
 }
@@ -3737,7 +3737,7 @@ div.alert-box {
   font-weight: bold;
   font-size: 14px;
   color: white;
-  background-color: black;
+  background-color: #2ba6cb;
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 12px;
   -webkit-border-radius: 3px;
@@ -3795,7 +3795,7 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
   position: relative;
   bottom: 1px;
   color: #fff;
-  background: black;
+  background: #2ba6cb;
 }
 /* line 43, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .label.radius {
@@ -3838,8 +3838,8 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
 }
 /* line 56, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .has-tip:hover, .has-tip:focus {
-  border-bottom: dotted 1px black;
-  color: black;
+  border-bottom: dotted 1px #196177;
+  color: #2ba6cb;
 }
 /* line 57, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .has-tip.tip-left, .has-tip.tip-right {
@@ -3917,8 +3917,8 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
 }
 /* line 73, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .tooltip.opened {
-  color: black !important;
-  border-bottom: dotted 1px black !important;
+  color: #2ba6cb !important;
+  border-bottom: dotted 1px #196177 !important;
 }
 
 /* line 77, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
@@ -3948,9 +3948,9 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
 }
 /* line 86, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .panel.callout {
-  background: black;
+  background: #2ba6cb;
   color: #fff;
-  border-color: black;
+  border-color: #2284a1;
   -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
   -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5);
@@ -3963,7 +3963,7 @@ div.alert-box a.close:hover, div.alert-box a.close:focus {
 .panel.callout .button {
   background: white;
   border: none;
-  color: black;
+  color: #2ba6cb;
   text-shadow: none;
 }
 /* line 90, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
@@ -4029,7 +4029,7 @@ ul.accordion > li .content {
 }
 /* line 112, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 ul.accordion > li.active {
-  border-top: 3px solid black;
+  border-top: 3px solid #2ba6cb;
 }
 /* line 114, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 ul.accordion > li.active .title {
@@ -4118,7 +4118,7 @@ dl.sub-nav dd a {
 /* line 144, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 dl.sub-nav dd.active a {
   font-weight: bold;
-  background: black;
+  background: #2ba6cb;
   color: #fff;
   padding: 3px 9px;
   cursor: default;
@@ -4161,14 +4161,14 @@ ul.pagination li.unavailable:hover a, ul.pagination li.unavailable a:focus {
 }
 /* line 158, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 ul.pagination li.current a {
-  background: black;
+  background: #2ba6cb;
   color: white;
   font-weight: bold;
   cursor: default;
 }
 /* line 159, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 ul.pagination li.current a:hover, ul.pagination li.current a:focus {
-  background: black;
+  background: #2ba6cb;
 }
 
 /* line 165, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
@@ -4311,9 +4311,9 @@ ul.inline-list > li > *, ul.link-list > li > * {
 }
 /* line 209, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 .th:hover img, .th:focus img {
-  -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
+  -moz-box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
+  box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5);
 }
 
 /* Video - Mad props to http://www.alistapart.com/articles/creating-intrinsic-ratios-for-video/ ---------------------- */
@@ -4455,7 +4455,7 @@ div.progress {
 }
 /* line 269, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_ui.scss */
 div.progress .meter {
-  background: black;
+  background: #2ba6cb;
   height: 100%;
   display: block;
   width: 50%;
@@ -4897,7 +4897,7 @@ table.hide-for-medium {
   .row .mobile-one {
     width: 25% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 10px;
   }
   /* line 201, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .row .mobile-one:last-child {
@@ -4916,7 +4916,7 @@ table.hide-for-medium {
   .row .mobile-two {
     width: 50% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 10px;
   }
   /* line 201, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .row .mobile-two:last-child {
@@ -4935,7 +4935,7 @@ table.hide-for-medium {
   .row .mobile-three {
     width: 75% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 10px;
   }
   /* line 201, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .row .mobile-three:last-child {
@@ -4954,7 +4954,7 @@ table.hide-for-medium {
   .row .mobile-four {
     width: 100% !important;
     float: left;
-    padding: 0 15px;
+    padding: 0 10px;
   }
   /* line 201, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .row .mobile-four:last-child {
@@ -5639,7 +5639,7 @@ table.hide-for-medium {
   /* line 321, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-3.2.5/scss/foundation/components/modules/_mqueries.scss */
   .tabs.mobile dd a.active, .tabs.mobile li a.active {
     border: none;
-    background: black;
+    background: #2ba6cb;
     color: #fff;
     margin: 0;
     position: static;

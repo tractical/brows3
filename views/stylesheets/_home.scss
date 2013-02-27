@@ -1,0 +1,49 @@
+.home {
+  background: #D3FBF8 url('/images/home-mountains.png') center bottom no-repeat;
+  padding: 130px 0 240px;
+
+  .logo {
+    @include column(2, center);
+    display: block;
+    text-align: center;
+  }
+
+  .brand {
+    @include column(8, center);
+    margin-bottom: 20px;
+
+    h1 {
+      color: #2B353B;
+      font-family: 'Nexa Bold', sans-serif;
+      font-size: 113px;
+      font-weight: lighter;
+      line-height: 95px;
+      margin-bottom: 0px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      background: transparent url('/images/home-strikethrough.png') 230px 15px no-repeat;
+      color: #F1AB1D;
+      font-family: 'Nexa Bold', sans-serif;
+      font-size: 38px;
+      height: 60px;
+      margin-top: 0px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  form#login {
+    @include column(8, center);
+    padding: 0px 60px;
+
+    input[type="submit"] {
+      font-size: 12px;
+      font-family: 'Nexa Bold', sans-serif;
+      font-weight: lighter;
+      text-transform: uppercase;
+    }
+  }
+}

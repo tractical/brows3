@@ -6,32 +6,9 @@
     <meta name="googlebot" content="noarchive">
     <title>BrowS3.it</title>
     <%= stylesheet "/stylesheets/app.css" %>
-    <script src="/javascripts/foundation/app.js"></script>
   </head>
 
   <body>
-    <header>
-      <div class="contain-to-grid">
-        <nav class="top-bar">
-          <ul>
-            <li class="name">
-              <h1><a href="/">Tractical</a></h1>
-            </li>
-            <li class="toggle-topbar"><a href="#"></a></li>
-          </ul>
-          <section>
-            <ul class="right">
-              <% if session[:logged_in] %>
-                <li><a href="/resources/buckets">Buckets</a> </li>
-                <li><a href="/logout">Log out</a></li>
-              <% else %>
-                <li><a href="/login">Log in</a></li>
-              <% end %>
-            </ul>
-          </section>
-        </nav>
-      </div>
-    </header>
 
     <% if flash[:notice] %>
       <div class="alert-box row">
@@ -43,11 +20,7 @@
       </div>
     <% end %>
 
-    <div class="row">
-      <div class="twelve columns">
-        <%= yield %>
-      </div>
-    </div>
+    <%= yield %>
 
   </body>
 </html>

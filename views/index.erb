@@ -1,14 +1,28 @@
-<h1>Welcome</h1>
+<div class="app home">
+  <div class="row">
+    <div class="brand">
+      <a class="logo" href="/">
+        <img src="/images/brows3.png" alt="An Amazing S3 Browser">
+      </a>
 
-<% unless session[:logged_in] %>
-  <h2>Please sign in using your AWS credentials</h2>
-  <form action="/login" method="post">
-    <label for="aws-access">AWS Access Key</label>
-    <input id="aws-access" type="text" name="aws_access">
+      <h1>Brows3</h1>
+      <h2>An Amazon S3 Browser</h2>
+    </div>
+  </div>
 
-    <label for="aws-secret">AWS Secret Key</label>
-    <input id="aws-secret" type="text" name="aws_secret">
-
-    <input class="button" type="submit">
-  </form>
-<% end %>
+  <div class="row">
+    <form id="login" action="/login" method="post">
+      <div class="row">
+        <div class="five columns">
+          <input id="aws-access" type="text" name="aws_access" placeholder="AWS Access Key">
+        </div>
+        <div class="five columns">
+          <input id="aws-secret" type="text" name="aws_secret" placeholder="AWS Secret Key">
+        </div>
+        <div class="two columns">
+          <input class="radius button" type="submit" value="Let's Go">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

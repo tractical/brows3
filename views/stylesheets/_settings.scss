@@ -28,6 +28,7 @@
 // $text-direction: ltr;
 
 // We use these as default colors throughout
+$primary-color: #F1AB1D;
 // $primary-color: #2ba6cb;
 // $secondary-color: #e9e9e9;
 // $alert-color: #c60f13;
@@ -49,6 +50,9 @@
 //
 // Grid Variables
 //
+
+$row-width: emCalc(960px);
+$column-gutter: emCalc(20px);
 
 // $row-width: 62.5em;
 // $column-gutter: 1.875em;

@@ -2,7 +2,7 @@ module ResourcesHelper
 
   # Populate Tree to avoid calls to AWS
   def tree_from_bucket(bucket)
-    unless defined? @@tree
+    unless defined? @tree
       @tree = Tree::TreeNode.new(bucket.key) # Root node
 
       bucket.files.each do |file|

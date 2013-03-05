@@ -5083,7 +5083,7 @@ table tfoot tr td {
 }
 
 @font-face {
-  font-family: "Muse Sans 500";
+  font-family: "Museo Sans 500";
   src: url(/fonts/MuseoSans_500-webfont.eot) format('embedded-opentype'), url(/fonts/MuseoSans_500-webfont.woff) format('woff');
 }
 
@@ -5092,13 +5092,13 @@ body {
   background: #EFEFEF;
 }
 
-/* line 1, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home {
+/* line 2, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login {
   background: #d3fbf8 url("/images/home-mountains.png") center bottom no-repeat;
   padding: 130px 0 240px;
 }
-/* line 5, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .logo {
+/* line 6, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login .logo {
   position: relative;
   padding-left: 0.625em;
   padding-right: 0.625em;
@@ -5108,8 +5108,8 @@ body {
   display: block;
   text-align: center;
 }
-/* line 11, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .brand {
+/* line 12, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login .brand {
   position: relative;
   padding-left: 0.625em;
   padding-right: 0.625em;
@@ -5118,8 +5118,8 @@ body {
   margin-right: auto;
   margin-bottom: 20px;
 }
-/* line 15, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .brand h1 {
+/* line 16, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login .brand h1 {
   color: #2B353B;
   font-family: "Nexa Bold", sans-serif;
   font-size: 7.0625em;
@@ -5129,8 +5129,8 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 26, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .brand h2 {
+/* line 27, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login .brand h2 {
   background: transparent url("/images/home-strikethrough.png") 230px 25px no-repeat;
   color: #F1AB1D;
   font-family: "Nexa Bold", sans-serif;
@@ -5140,8 +5140,8 @@ body {
   text-align: center;
   text-transform: uppercase;
 }
-/* line 38, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home form#login {
+/* line 39, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login form#login {
   position: relative;
   padding-left: 0.625em;
   padding-right: 0.625em;
@@ -5149,20 +5149,115 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 41, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home form#login #aws-access {
+/* line 42, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login form#login #aws-access {
   background: white url("/images/home-aws-access-input-icon.png") 10px center no-repeat;
   text-indent: 30px;
 }
-/* line 45, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home form#login #aws-secret {
+/* line 46, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login form#login #aws-secret {
   background: white url("/images/home-aws-secret-input-icon.png") 10px center no-repeat;
   text-indent: 30px;
 }
-/* line 50, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home form#login input[type="submit"] {
+/* line 51, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login form#login input[type="submit"] {
   font-size: 0.75em;
   font-family: "Nexa Bold", sans-serif;
   font-weight: lighter;
   text-transform: uppercase;
+}
+/* line 59, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works {
+  background: #eeeeee url("/images/home-how-it-works-top.png") top repeat-x;
+  padding-top: 120px;
+}
+/* line 63, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works h2 {
+  color: #F2AB1D;
+  font-family: "Nexa Bold", sans-serif;
+  font-size: 3.625em;
+  font-weight: lighter;
+  margin-bottom: 65px;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 72, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works h2:before {
+  content: " --- ";
+  background: url("/images/home-how-it-works-title-line.png") left center no-repeat;
+  color: transparent;
+  display: inline-block;
+  margin-right: 25px;
+  width: 160px;
+}
+/* line 80, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works h2:after {
+  content: " --- ";
+  background: url("/images/home-how-it-works-title-line.png") right center no-repeat;
+  color: transparent;
+  display: inline-block;
+  margin-left: 25px;
+  width: 160px;
+}
+/* line 89, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature {
+  position: relative;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  width: 33.33333%;
+  float: left;
+  text-align: center;
+  margin-bottom: 65px;
+}
+/* line 94, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature img {
+  margin: 0 auto;
+}
+/* line 95, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature hr {
+  color: #D6D7D8;
+  margin-bottom: 2.1875em auto;
+  width: 80%;
+}
+/* line 100, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature h3 {
+  color: #F2AB1D;
+  font-family: "Nexa Bold", sans-serif;
+  font-size: 2.26688em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+/* line 107, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature.odd h3 {
+  color: #61C5C3;
+}
+/* line 108, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature p {
+  color: #58595B;
+  font-size: 0.885em;
+  font-family: "Museo Sans 500", sans-serif;
+  line-height: 1.4em;
+}
+/* line 116, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .footer {
+  background: url("/images/footer-top.png") top repeat-x;
+  padding: 20px 0;
+}
+/* line 120, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .footer .footer-option {
+  position: relative;
+  padding-left: 0.625em;
+  padding-right: 0.625em;
+  width: 33.33333%;
+  float: left;
+  border-right: 1px solid #d4d5d7;
+  color: #686868;
+  font-family: "Museo Sans 500", sans-serif;
+  font-size: 0.875em;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 129, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .footer .footer-option:last-child {
+  border-right: 0px;
 }

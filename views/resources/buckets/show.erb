@@ -1,12 +1,12 @@
 <ul class="breadcrumbs">
-  <li class="current"><a href="#"><%= @bucket.key %></a></li>
+  <li class="current"><a href="#"><%= @bucket.name %></a></li>
 </ul>
 
 <% unless @directories.empty? %>
   <h2>Directories</h2>
   <ul>
     <% @directories.each do |directory| %>
-      <li><a href="<%= directory.name %>/"><%= directory.name %></a></li>
+      <li><a href="<%= directory %>"><%= directory %></a></li>
     <% end %>
   </ul>
 <% end %>
@@ -15,7 +15,7 @@
   <h2>Files</h2>
   <ul>
     <% @files.each do |file| %>
-      <li><a href="<%= file.content.url(Time.now + 10*60) %>"><%= file.name %></a></li>
+      <li><a href="<%= file.object.url_for(:read) %>"><%= file.key %></a></li>
     <% end %>
   </ul>
 <% end %>

@@ -5,15 +5,12 @@ module ApplicationHelper
     aws_secret_key = session[:aws_secret]
 
     begin
-      conn = Fog::Storage::AWS.new(
-        aws_access_key_id: aws_access_key,
-        aws_secret_access_key: aws_secret_key)
-      conn.directories.first
-    rescue ArgumentError
+      s3 = AWS::S3.new(access_key_id: aws_access_key, secret_access_key: aws_secret_key)
+      s3.buckets.first.name
+    rescue AWS::Errors::MissingCredentialsError, AWS::S3::Errors::SignatureDoesNotMatch,
+            AWS::S3::Errors::InvalidAccessKeyId, ArgumentError
       flash[:notice] = "Please make sure you are providing valid credentials."
-      redirect '/'
-    rescue Excon::Errors::Forbidden
-      flash[:notice] = "Forbidden Access. Please make sure you are providing valid credentials."
+      session.clear
       redirect '/'
     else
       session[:logged_in] = true

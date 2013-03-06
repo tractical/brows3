@@ -36,6 +36,10 @@ class ApplicationController < Sinatra::Base
     scss :"stylesheets/#{params[:name]}"
   end
 
+  get %r{(\/.*[^\/])$} do
+    redirect to "#{params[:captures].first}/"
+  end
+
   get '/' do
     erb :index
   end
@@ -44,15 +48,15 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/logout' do
+  get '/logout/?' do
     session.clear
     flash[:alert] = "You have logged out."
-    redirect to '/'
+    redirect '/'
   end
 
   post '/login' do
     session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access].strip
     session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret].strip
-    redirect to '/resources'
+    redirect to '/resources/buckets/'
   end
 end

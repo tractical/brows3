@@ -18,7 +18,7 @@ class ResourcesController < ApplicationController
   # buckets#index
   get '/buckets/?' do
     @buckets = @storage.buckets
-    erb :'resources/buckets/index'
+    erb :'resources/buckets/index', layout: :resources
   end
 
   # buckets#show

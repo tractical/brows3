@@ -1,5 +1,5 @@
 .resources {
-  &.buckets {
+  .buckets {
     &.index {
       .bucket {
         @include grid-column($columns: 4, $float: left);

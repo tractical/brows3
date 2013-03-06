@@ -11,8 +11,7 @@ body {
   margin-bottom: 70px;
 }
 
-
-@include sticky-footer(34px, "#wrapper", "#content", "footer.main");
+@include sticky-footer(34px, "#content", "#footer", "footer.main");
 
 footer.main {
   background: url('/images/footer-top.png') top repeat-x;

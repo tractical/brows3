@@ -12,7 +12,21 @@
   <body>
 
     <div id="content">
-      <div class="application">
+      <nav class="top-bar">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/">BrowS3</a></h1>
+          </li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </section>
+      </nav>
+
+      <div class="resources">
         <% if flash[:notice] %>
           <div class="alert-box row">
             <%= flash[:notice] %>

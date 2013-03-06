@@ -6,10 +6,12 @@
 
 // Compass modules
 @import "compass/css3";
+@import "compass/layout";
 
 // Application styles
 @import "core";
 @import "home";
+@import "resources";
 
 // Import specific parts of Foundation by commenting the import "foundation"
 // and uncommenting what you want below. You must uncomment the following if customizing

@@ -1,0 +1,17 @@
+.resources {
+  &.buckets {
+    &.index {
+      .bucket {
+        @include grid-column($columns: 4, $float: left);
+        background: transparent url('/images/resources-bucket-icon.png') center no-repeat;
+        height: 190px;
+        padding-top: 200px;
+        text-align: center;
+
+        &:hover {
+          background-image: url('/images/resources-bucket-icon-hover.png');
+        }
+      }
+    }
+  }
+}

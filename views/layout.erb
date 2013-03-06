@@ -11,17 +11,29 @@
 
   <body>
 
-    <% if flash[:notice] %>
-      <div class="alert-box row">
-        <%= flash[:notice] %>
-      </div>
-    <% elsif flash[:alert] %>
-      <div class="alert-box alert row">
-        <%= flash[:alert] %>
-      </div>
-    <% end %>
+    <div id="wrapper">
+      <div id="content">
+        <% if flash[:notice] %>
+          <div class="alert-box row">
+            <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="alert-box alert row">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
 
-    <%= yield %>
+        <%= yield %>
+      </div>
+    </div>
+
+    <footer class="main">
+      <div class="row collapse">
+        <a class="footer-option" href="#">Contact us</a>
+        <a class="footer-option" href="#">FAQ</a>
+        <a class="footer-option" href="#">Privacy & Terms</a>
+      </div>
+    </footer>
 
   </body>
 </html>

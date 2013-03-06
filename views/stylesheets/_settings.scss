@@ -950,10 +950,13 @@ $column-gutter: emCalc(20px);
 //
 
 // Background color for the top bar
+$topbar-bg: rgba(255, 255, 255, 0);
 // $topbar-bg: #111;
 
 // Height and margin
+$topbar-height: 64px;
 // $topbar-height: 45px;
+$topbar-margin-bottom: emCalc(70px);
 // $topbar-margin-bottom: emCalc(30px);
 
 // Control Input height for top bar
@@ -964,11 +967,13 @@ $column-gutter: emCalc(20px);
 // $topbar-title-font-size: emCalc(17px);
 
 // Set the link colors and styles for top-level nav
+$topbar-link-color: $primary-color;
 // $topbar-link-color: #fff;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: emCalc(13px);
 
 // Style the top bar dropdown elements
+$topbar-dropdown-bg: rgba(255, 255, 255, 0);
 // $topbar-dropdown-bg: #333;
 // $topbar-dropdown-link-color: #fff;
 // $topbar-dropdown-toggle-size: 5px;

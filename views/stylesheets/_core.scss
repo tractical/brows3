@@ -5,3 +5,30 @@
 body {
   background: #EFEFEF;
 }
+
+.top-bar {
+  background-image: url('/images/spiky-header.png');
+  margin-bottom: 70px;
+}
+
+
+@include sticky-footer(34px, "#wrapper", "#content", "footer.main");
+
+footer.main {
+  background: url('/images/footer-top.png') top repeat-x;
+  padding: 10px 0;
+
+  .footer-option {
+    @include grid-column($columns: 4, $float: left);
+    border-right: 1px solid #D4D5D7;
+    color: #686868;
+    font-family: 'Museo Sans 500', sans-serif;
+    font-size: emCalc(12px);
+    text-align: center;
+    text-transform: uppercase;
+
+    &:last-child {
+      border-right: 0px;
+    }
+  }
+}

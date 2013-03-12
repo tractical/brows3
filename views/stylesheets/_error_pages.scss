@@ -1,8 +1,17 @@
 .error-pages {
-  background:
-    url('/images/errors-flags.png') 87% bottom no-repeat,
-    #D3FBF8 url('/images/errors-mountains-grass.png') center bottom repeat-x;
   text-align: center;
+
+  &.not-found {
+    background:
+      url('/images/errors-flags.png') 87% bottom no-repeat,
+      #D3FBF8 url('/images/errors-mountains-grass.png') center bottom repeat-x;
+  }
+  &.error {
+    background:
+      url('/images/errors-tower.png') 13% bottom no-repeat,
+      url('/images/errors-plane-500.png') 75% top no-repeat,
+      #D3FBF8 url('/images/errors-mountains-grass.png') center bottom repeat-x;
+  }
 
   h1, h2 { font-family: 'Museo Sans 500', sans-serif; }
   h1 {

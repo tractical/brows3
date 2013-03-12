@@ -27,8 +27,7 @@ class ApplicationController < Sinatra::Base
   end
 
   error do
-    flash[:alert] = "OMG! Something went wrong! We'll get to it asap!"
-    redirect to '/'
+    erb :error, layout: false
   end
 
   get '/stylesheets/:name.css' do

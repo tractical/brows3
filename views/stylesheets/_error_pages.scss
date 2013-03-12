@@ -1,17 +1,9 @@
 .error-pages {
   text-align: center;
-
-  &.not-found {
-    background:
-      url('/images/errors-flags.png') 87% bottom no-repeat,
-      #D3FBF8 url('/images/errors-mountains-grass.png') center bottom repeat-x;
-  }
-  &.error {
-    background:
-      url('/images/errors-tower.png') 13% bottom no-repeat,
-      url('/images/errors-plane-500.png') 75% top no-repeat,
-      #D3FBF8 url('/images/errors-mountains-grass.png') center bottom repeat-x;
-  }
+  background:
+    url('/images/errors-grass.png') bottom repeat-x,
+    url('/images/mountains.png') center bottom no-repeat,
+    #D3FBF8 url('/images/bg-blue.png');
 
   h1, h2 { font-family: 'Museo Sans 500', sans-serif; }
   h1 {
@@ -26,6 +18,18 @@
   .container {
     height: 100%;
 
+    &.not-found {
+      background:
+        url('/images/errors-plane-404.png') center -50px no-repeat,
+        url('/images/errors-grass.png') bottom repeat-x,
+        url('/images/errors-flags.png') right bottom no-repeat;
+    }
+    &.error {
+      background:
+        url('/images/errors-plane-500.png') right top no-repeat,
+        url('/images/errors-grass.png') bottom repeat-x,
+        url('/images/errors-tower.png') left bottom no-repeat;
+    }
     .message { top: 35% }
   }
 }

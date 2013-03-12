@@ -2,9 +2,7 @@
 
 @include font-face("Museo Sans 500", font-files("/fonts/MuseoSans_500-webfont.eot", "/fonts/MuseoSans_500-webfont.woff"));
 
-body {
-  background: #EFEFEF;
-}
+body { background: #EFEFEF url('/images/bg-gray.png') }
 
 .top-bar {
   background-image: url('/images/spiky-header.png');

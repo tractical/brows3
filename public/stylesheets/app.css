@@ -1974,3 +1974,16 @@ footer.main .footer-option:last-child { border-right: 0px; }
 .resources .buckets.index .bucket { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; background: transparent url("/images/resources-bucket-icon.png") center no-repeat; height: 190px; padding-top: 200px; text-align: center; }
 /* line 11, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources .buckets.index .bucket:hover { background-image: url("/images/resources-bucket-icon-hover.png"); }
+
+/* line 1, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */
+.error-pages { background: url("/images/errors-flags.png") 87% bottom no-repeat, #d3fbf8 url("/images/errors-mountains-grass.png") center bottom repeat-x; text-align: center; }
+/* line 7, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */
+.error-pages h1, .error-pages h2 { font-family: 'Museo Sans 500', sans-serif; }
+/* line 8, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */
+.error-pages h1 { color: #2d363d; font-size: 2.5em; }
+/* line 12, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */
+.error-pages h2 { color: #f1ab1d; font-size: 1.5em; }
+/* line 17, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */
+.error-pages .container { height: 100%; }
+/* line 20, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */
+.error-pages .container .message { top: 35%; }

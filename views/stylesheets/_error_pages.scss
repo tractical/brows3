@@ -1,0 +1,22 @@
+.error-pages {
+  background:
+    url('/images/errors-flags.png') 87% bottom no-repeat,
+    #D3FBF8 url('/images/errors-mountains-grass.png') center bottom repeat-x;
+  text-align: center;
+
+  h1, h2 { font-family: 'Museo Sans 500', sans-serif; }
+  h1 {
+    color: #2d363d;
+    font-size: emCalc(40px);
+  }
+  h2 {
+    color: #f1ab1d;
+    font-size: emCalc(24px);
+  }
+
+  .container {
+    height: 100%;
+
+    .message { top: 35% }
+  }
+}

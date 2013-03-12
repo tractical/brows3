@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
   end
 
   not_found do
-    erb :not_found
+    erb :not_found, layout: false
   end
 
   error do

@@ -1,9 +1,19 @@
+<ul class="breadcrumbs">
+  <li class="bucket"><a href="<%= url("/buckets/#{@bucket.name}") %>"><%= @bucket.name %></a></li>
+  <% node = @directories.first || @files.first %>
+  <% path = node.parent.prefix.split('/') %>
+
+  <% node.parent.prefix.split('/').each_with_index do |dir, index| %>
+    <li><a href="<%= url("/buckets/#{@bucket.name}/#{path[0..-index].join('/')}") %>"><%= dir %></a></li>
+  <% end %>
+</ul>
+
 <% unless @directories.empty? %>
-  <h2>Directories</h2>
   <ul>
     <% @directories.each do |directory| %>
+      <% dir = directory.prefix.gsub(params[:splat].first + "/", "") %>
       <li>
-        <a href="<%= directory %>"><%= directory %></a>
+        <a href="<%= dir %>"><%= dir %></a>
       </li>
     <% end %>
   </ul>

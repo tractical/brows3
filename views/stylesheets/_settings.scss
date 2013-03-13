@@ -22,6 +22,29 @@ $row-width: emCalc(960px);
 $column-gutter: emCalc(20px);
 
 //
+// Breadcrumb Variables
+//
+
+// We use this to set the background color for the breadcrumb container.
+$crumb-bg: rgba(0, 0, 0, 0);
+
+// We use these to set various text styles for breadcrumbs.
+$crumb-font-size: emCalc(12px);
+$crumb-font-color: #fff;
+$crumb-font-transform: capitalize;
+$crumb-link-decor: none;
+
+// We use these to set the padding around the breadcrumbs.
+$crumb-padding: 0;
+$crumb-side-padding: 0;
+
+// We use these to control border styles.
+$crumb-border-size: 0;
+
+// We use these to control the slash between breadcrumbs
+$crumb-slash: " ";
+
+//
 // Top Bar Variables
 //
 

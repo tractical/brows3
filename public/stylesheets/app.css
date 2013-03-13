@@ -1572,13 +1572,13 @@ form.custom .custom.disabled { background-color: #dddddd; }
 
 /* Breadcrumbs */
 /* line 108, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
-.breadcrumbs { display: block; padding: 0.375em 0.875em 0.5625em; overflow: hidden; margin-left: 0; list-style: none; border-style: solid; border-width: 1px; background-color: #f6f6f6; border-color: gainsboro; -webkit-border-radius: 3px; border-radius: 3px; }
+.breadcrumbs { display: block; padding: 0; overflow: hidden; margin-left: 0; list-style: none; border-style: solid; border-width: 0; background-color: rgba(0, 0, 0, 0); border-color: rgba(0, 0, 0, 0); -webkit-border-radius: 3px; border-radius: 3px; }
 /* line 112, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
-.breadcrumbs li { margin: 0; padding: 0 0.75em 0 0; float: left; }
+.breadcrumbs li { margin: 0; padding: 0 0 0 0; float: left; }
 /* line 59, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
-.breadcrumbs li:hover a, .breadcrumbs li:focus a { text-decoration: underline; }
+.breadcrumbs li:hover a, .breadcrumbs li:focus a { text-decoration: none; }
 /* line 62, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
-.breadcrumbs li a, .breadcrumbs li span { font-size: 0.6875em; padding-left: 0.75em; text-transform: uppercase; color: #f1ab1d; }
+.breadcrumbs li a, .breadcrumbs li span { font-size: 0.75em; padding-left: 0; text-transform: capitalize; color: white; }
 /* line 71, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs li.current a { cursor: default; color: #333333; }
 /* line 77, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
@@ -1588,7 +1588,7 @@ form.custom .custom.disabled { background-color: #dddddd; }
 /* line 85, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs li.unavailable:hover a, .breadcrumbs li.unavailable a:focus { text-decoration: none; color: #999999; cursor: default; }
 /* line 92, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
-.breadcrumbs li:before { content: "/"; color: #aaaaaa; position: relative; top: 1px; }
+.breadcrumbs li:before { content: " "; color: #aaaaaa; position: relative; top: 1px; }
 /* line 99, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs li:first-child a, .breadcrumbs li:first-child span { padding-left: 0; }
 /* line 100, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.5/scss/foundation/components/_breadcrumbs.scss */
@@ -1972,9 +1972,23 @@ footer.main .footer-option:last-child { border-right: 0px; }
 /* line 131, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .footer .footer-option:last-child { border-right: 0px; }
 
-/* line 4, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+/* line 3, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs { font-family: 'Museo Sans 500', sans-serif; }
+/* line 5, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs li { background: #f1ab1d; height: 30px; padding: 2px 10px; margin-left: 20px; position: relative; }
+/* line 6, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs li.bucket { background: #60c5c3; margin-left: 0; }
+/* line 10, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs li.bucket:before { content: " "; background: transparent; }
+/* line 14, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs li.bucket:after { content: " "; background: transparent url("/images/breadcrumbs-bucket-after.png") no-repeat; width: 12px; height: 31px; right: -12px; top: -1px; position: absolute; }
+/* line 31, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs li:before { content: " "; background: transparent url("/images/breadcrumbs-before.png") no-repeat; width: 12px; height: 31px; left: -12px; top: -1px; position: absolute; }
+/* line 40, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .breadcrumbs li:after { content: " "; background: transparent url("/images/breadcrumbs-after.png") no-repeat; width: 12px; height: 31px; right: -12px; top: -1px; position: absolute; }
+/* line 54, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources .buckets.index .bucket { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; background: transparent url("/images/resources-bucket-icon.png") center no-repeat; height: 190px; padding-top: 200px; text-align: center; }
-/* line 11, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+/* line 61, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources .buckets.index .bucket:hover { background-image: url("/images/resources-bucket-icon-hover.png"); }
 
 /* line 1, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_error_pages.scss */

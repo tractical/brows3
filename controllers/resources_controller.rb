@@ -33,14 +33,15 @@ class ResourcesController < ApplicationController
 
   # files#index
   get '/buckets/:bucket_id/*/' do
-    bucket = @storage.buckets[params[:bucket_id]]
+    @bucket = @storage.buckets[params[:bucket_id]]
 
     prefix = params[:splat].first.gsub(/\/+$/, '') + '/'
-    tree = bucket.as_tree(prefix: prefix)
-    @directories = tree.children.select(&:branch?).collect { |b| b.prefix.gsub(prefix, "") }
+    tree = @bucket.as_tree(prefix: prefix)
+    # @directories = tree.children.select(&:branch?).collect { |b| b.prefix.gsub(prefix, "") }
+    @directories = tree.children.select(&:branch?)
     @files = tree.children.select(&:leaf?).reject { |f| f.key == prefix }
 
-    erb :'resources/files/index'
+    erb :'resources/files/index', layout: :resources
   end
 
 end

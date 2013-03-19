@@ -16,4 +16,12 @@ module ApplicationHelper
       session[:logged_in] = true
     end
   end
+
+  def javascripts *scripts
+    html = []
+    scripts.each do |script|
+      html << "<script src='/javascripts/#{script}.js'></script>"
+    end
+    html.join
+  end
 end

@@ -7,6 +7,10 @@ body { background: #EFEFEF url('/images/bg-gray.png') }
 .top-bar {
   background-image: url('/images/spiky-header.png');
   margin-bottom: 70px;
+
+  .title-area {
+    left: 47%;
+  }
 }
 
 @include sticky-footer(34px, "#content", "#footer", "footer.main");

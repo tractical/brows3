@@ -1931,6 +1931,8 @@ body { background: #efefef url("/images/bg-gray.png"); }
 
 /* line 7, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 .top-bar { background-image: url("/images/spiky-header.png"); margin-bottom: 70px; }
+/* line 11, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+.top-bar .title-area { left: 47%; }
 
 /* line 10, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 html, body { height: 100%; }
@@ -1943,11 +1945,11 @@ html, body { height: 100%; }
 /* line 20, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 footer.main { clear: both; position: relative; height: 34px; }
 
-/* line 14, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
-footer.main { background: url("/images/footer-top.png") top repeat-x; padding: 10px 0; }
 /* line 18, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+footer.main { background: url("/images/footer-top.png") top repeat-x; padding: 10px 0; }
+/* line 22, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 footer.main .footer-option { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; border-right: 1px solid #D4D5D7; color: #686868; font-family: 'Museo Sans 500', sans-serif; font-size: 0.75em; text-align: center; text-transform: uppercase; }
-/* line 27, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+/* line 31, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 footer.main .footer-option:last-child { border-right: 0px; }
 
 /* line 1, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */

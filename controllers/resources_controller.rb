@@ -28,7 +28,7 @@ class ResourcesController < ApplicationController
     @directories = @bucket.as_tree.children.select(&:branch?).collect(&:prefix)
     @files = @bucket.as_tree.children.select(&:leaf?).reject { |f| f.key == prefix }
 
-    erb :'resources/buckets/show'
+    erb :'resources/buckets/show', layout: :resources
   end
 
   # files#index

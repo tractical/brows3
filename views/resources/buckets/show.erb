@@ -1,5 +1,5 @@
 <ul class="breadcrumbs">
-  <li class="current"><a href="#"><%= @bucket.name %></a></li>
+  <li class="bucket"><a href="<%= url("/buckets/#{@bucket.name}") %>"><%= @bucket.name %></a></li>
 </ul>
 
 <% unless @directories.empty? %>

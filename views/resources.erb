@@ -26,13 +26,13 @@
         </section>
       </nav>
 
-      <div class="resources">
+      <div class="resources row">
         <% if flash[:notice] %>
-          <div class="alert-box row">
+          <div class="alert-box">
             <%= flash[:notice] %>
           </div>
         <% elsif flash[:alert] %>
-          <div class="alert-box alert row">
+          <div class="alert-box alert">
             <%= flash[:alert] %>
           </div>
         <% end %>

@@ -3,6 +3,8 @@
   .breadcrumbs {
     font-family: 'Museo Sans 500', sans-serif;
     li {
+      margin-bottom: 1em;
+
       &.bucket {
         background: #60c5c3;
         margin-left: 0;
@@ -67,6 +69,22 @@
 
   table.browser {
     width: 100%;
+
+    th:first-child {
+      position: relative;
+
+      &:before {
+        content: " ";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 12px solid #60c5c3;
+        position: absolute;
+        top: -12px;
+        left: 30px;
+      }
+    }
 
     td.directory {
       a {

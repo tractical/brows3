@@ -15,7 +15,6 @@
       <th>File Type</th>
       <th>Size</th>
       <th>Date Added</th>
-      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +33,9 @@
       <% @files.each do |file| %>
         <tr>
           <td><a href="<%= file.object.url_for(:read) %>"><%= file.key.gsub(params[:splat].first, "") %></a></td>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.content_type %></a></td>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.content_length %> bytes</a></td>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.last_modified.to_date.strftime("%B %e, %Y") %></a></td>
         </tr>
       <% end %>
     <% end %>

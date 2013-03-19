@@ -8,22 +8,34 @@
   <% end %>
 </ul>
 
-<% unless @directories.empty? %>
-  <ul>
-    <% @directories.each do |directory| %>
-      <% dir = directory.prefix.gsub(params[:splat].first + "/", "") %>
-      <li>
-        <a href="<%= dir %>"><%= dir %></a>
-      </li>
+<table class="browser">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File Type</th>
+      <th>Size</th>
+      <th>Date Added</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @directories.empty? %>
+      <% @directories.each do |directory| %>
+        <% dir = directory.prefix.gsub(params[:splat].first + "/", "") %>
+        <tr>
+          <td class="directory">
+            <a href="<%= dir %>"><%= dir %></a>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
-  </ul>
-<% end %>
 
-<% unless @files.empty? %>
-  <h2>Files</h2>
-  <ul>
-    <% @files.each do |file| %>
-      <li><a href="<%= file.object.url_for(:read) %>"><%= file.key.gsub(params[:splat].first, "") %></a></li>
+    <% unless @files.empty? %>
+      <% @files.each do |file| %>
+        <tr>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.key.gsub(params[:splat].first, "") %></a></td>
+        </tr>
+      <% end %>
     <% end %>
-  </ul>
-<% end %>
+  </tbody>
+</table>

@@ -64,4 +64,15 @@
       }
     }
   }
+
+  table.browser {
+    width: 100%;
+
+    td.directory {
+      a {
+        background: url('/images/browser-folder.png') no-repeat;
+        padding-left: 25px;
+      }
+    }
+  }
 }

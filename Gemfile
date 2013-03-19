@@ -8,7 +8,7 @@ gem 'debugger',        '~> 1.2.2'
 gem 'rubytree',        '~> 0.8.3'
 gem 'rack-flash3',     '~> 1.0.3'
 gem 'compass',         '~> 0.12.2'
-gem 'zurb-foundation', '~> 4.0.5'
+gem 'zurb-foundation', '~> 4.0.9'
 
 group :test do
   gem 'rspec',     '~> 2.12.0'

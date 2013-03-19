@@ -2,19 +2,33 @@
   <li class="bucket"><a href="<%= url("/buckets/#{@bucket.name}") %>"><%= @bucket.name %></a></li>
 </ul>
 
-<% unless @directories.empty? %>
-  <ul>
-    <% @directories.each do |directory| %>
-      <li><a href="<%= directory %>"><%= directory %></a></li>
+<table class="browser">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File Type</th>
+      <th>Size</th>
+      <th>Date Added</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @directories.empty? %>
+      <% @directories.each do |directory| %>
+        <tr>
+          <td class="directory">
+            <a href="<%= directory %>"><%= directory %></a>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
-  </ul>
-<% end %>
 
-<% unless @files.empty? %>
-  <h2>Files</h2>
-  <ul>
-    <% @files.each do |file| %>
-      <li><a href="<%= file.object.url_for(:read) %>"><%= file.key %></a></li>
+    <% unless @files.empty? %>
+      <% @files.each do |file| %>
+        <tr>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.key %></a></td>
+        </tr>
+      <% end %>
     <% end %>
-  </ul>
-<% end %>
+  </tbody>
+</table>

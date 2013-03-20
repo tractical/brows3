@@ -7,6 +7,7 @@
     <title>BrowS3.it</title>
     <%= stylesheet "/stylesheets/normalize.css" %>
     <%= stylesheet "/stylesheets/app.css" %>
+    <%= stylesheet "/stylesheets/jparallax/jquery.parallax.css" %>
   </head>
 
   <body>
@@ -36,6 +37,11 @@
         <a class="footer-option" href="#">Privacy & Terms</a>
       </div>
     </footer>
+
+    <%= javascripts "vendor/jquery" %>
+    <%= javascripts "jparallax/jquery.event.frame", "jparallax/jquery.parallax" %>
+    <%= javascripts "brows3" %>
+
 
   </body>
 </html>

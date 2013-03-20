@@ -5,6 +5,22 @@
     background: url('/images/mountains.png') center bottom no-repeat;
     padding: 130px 0 240px;
 
+    .cloud-left, .cloud-right {
+      position: absolute;
+      width: 189px;
+      height: 45px;
+    }
+    .cloud-left {
+      background: url('/images/cloud-left.png') center no-repeat;
+      top: 189px;
+      left: 45px;
+    }
+    .cloud-right {
+      background: url('/images/cloud-right.png') center no-repeat;
+      top: 250px;
+      right: 80px;
+    }
+
     .logo {
       @include grid-column($columns: 2, $center: true);
       display: block;

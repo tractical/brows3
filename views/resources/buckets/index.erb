@@ -1,0 +1,9 @@
+<div class="buckets index">
+  <div class="row">
+    <% @buckets.each do |bucket| %>
+      <a class="bucket" href="<%= bucket.name %>">
+        <%= bucket.name %>
+      </a>
+    <% end %>
+  </div>
+</div>

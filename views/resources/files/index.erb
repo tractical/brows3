@@ -1,0 +1,46 @@
+<ul class="breadcrumbs">
+  <li class="bucket"><a href="<%= url("/buckets/#{@bucket.name}") %>"><%= @bucket.name %></a></li>
+  <% node = @directories.first || @files.first %>
+  <% path = node.parent.prefix.split('/') %>
+
+  <% node.parent.prefix.split('/').each_with_index do |dir, index| %>
+    <li><a href="<%= url("/buckets/#{@bucket.name}/#{path[0..-index].join('/')}") %>"><%= dir %></a></li>
+  <% end %>
+</ul>
+
+<table class="browser">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>File Type</th>
+      <th>Size</th>
+      <th>Date Added</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @directories.empty? %>
+      <% @directories.each do |directory| %>
+        <% dir = directory.prefix.gsub(params[:splat].first + "/", "") %>
+        <tr>
+          <td class="directory">
+            <a href="<%= dir %>"><%= dir %></a>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+    <% end %>
+
+    <% unless @files.empty? %>
+      <% @files.each do |file| %>
+        <tr>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.key.gsub(params[:splat].first, "") %></a></td>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.content_type %></a></td>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.content_length %> bytes</a></td>
+          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.last_modified.to_date.strftime("%B %e, %Y") %></a></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

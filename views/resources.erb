@@ -1,0 +1,61 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta name="robots" content="none">
+    <meta name="googlebot" content="noarchive">
+    <title>BrowS3.it</title>
+    <%= stylesheet "/stylesheets/normalize.css" %>
+    <%= stylesheet "/stylesheets/app.css" %>
+  </head>
+
+  <body>
+
+    <div id="content">
+      <nav class="top-bar">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="<%= url('/') %>">
+                <img src="/images/brows3.png" alt="An Amazing S3 Browser" width="27" height="31">
+              </a>
+            </h1>
+          </li>
+          <li class="toggle-topbar icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </section>
+      </nav>
+
+      <div class="resources row">
+        <% if flash[:notice] %>
+          <div class="alert-box">
+            <%= flash[:notice] %>
+          </div>
+        <% elsif flash[:alert] %>
+          <div class="alert-box alert">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+
+      <div id="footer"></div>
+    </div>
+
+    <footer class="main">
+      <div class="row collapse">
+        <a class="footer-option" href="#">Contact us</a>
+        <a class="footer-option" href="#">FAQ</a>
+        <a class="footer-option" href="#">Privacy & Terms</a>
+      </div>
+    </footer>
+
+    <%= javascripts "vendor/zepto", "foundation/foundation", "foundation/foundation.topbar" %>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+.home {
+  background: #D3FBF8 url('/images/bg-blue.png');
+
+  .login {
+    background: url('/images/mountains.png') center bottom no-repeat;
+    padding: 130px 0 240px;
+
+    .clouds {
+      background: url('/images/clouds.png') center no-repeat;
+      position: absolute;
+      width: 941px;
+      height: 167px;
+      top: 150px;
+      left: 100px;
+    }
+    .logo {
+      @include grid-column($columns: 2, $center: true);
+      display: block;
+      text-align: center;
+    }
+
+    .brand {
+      @include grid-column($columns: 8, $center: true);
+      margin-bottom: 20px;
+
+      h1 {
+        color: #2B353B;
+        font-family: 'Nexa Bold', sans-serif;
+        font-size: emCalc(113px);
+        font-weight: lighter;
+        line-height: 95px;
+        margin-bottom: 0px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        background: transparent url('/images/home-strikethrough.png') 230px 25px no-repeat;
+        color: #F1AB1D;
+        font-family: 'Nexa Bold', sans-serif;
+        font-size: emCalc(38px);
+        height: 60px;
+        margin-top: 0px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+
+    form#login {
+      @include grid-column($columns: 8, $center: true);
+
+      #aws-access {
+        background: #fff url('/images/home-aws-access-input-icon.png') 10px center no-repeat;
+        text-indent: 30px;
+      }
+      #aws-secret {
+        background: #fff url('/images/home-aws-secret-input-icon.png') 10px center no-repeat;
+        text-indent: 30px;
+      }
+
+      input[type="submit"] {
+        font-size: emCalc(12px);
+        font-family: 'Nexa Bold', sans-serif;
+        font-weight: lighter;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .how-it-works {
+    background: #eee url('/images/spiky-header.png') top repeat-x;
+    padding-top: 120px;
+
+    h2 {
+      color: #F2AB1D;
+      font-family: 'Nexa Bold', sans-serif;
+      font-size: emCalc(58px);
+      font-weight: lighter;
+      margin-bottom: 65px;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+
+      &:before {
+        content: " ";
+        background: url('/images/home-how-it-works-title-line.png') left center no-repeat;
+        display: inline-block;
+        margin-right: 25px;
+        position: absolute;
+        left: 80px;
+        top: 35px;
+        width: 160px;
+        height: 1px;
+      }
+      &:after {
+        content: " ";
+        background: url('/images/home-how-it-works-title-line.png') right center no-repeat;
+        display: inline-block;
+        margin-left: 25px;
+        position: absolute;
+        top: 35px;
+        width: 160px;
+        height: 1px;
+      }
+    }
+    .feature {
+      @include grid-column($columns: 4, $float: left);
+      text-align: center;
+      margin-bottom: 65px;
+
+      img { margin: 0 auto; }
+      hr {
+        color: #D6D7D8;
+        margin-bottom: emCalc(35px) auto;
+        width: 80%;
+      }
+      h3 {
+        color: #F2AB1D;
+        font-family: 'Nexa Bold', sans-serif;
+        font-size: emCalc(36.27px);
+        margin-bottom: 0;
+        text-transform: uppercase;
+      }
+      &.odd h3 { color: #61C5C3; }
+      p {
+        color: #58595B;
+        font-size: emCalc(14.16px);
+        font-family: 'Museo Sans 500', sans-serif;
+        line-height: 1.4em;
+      }
+    }
+  }
+  .footer {
+    background: url('/images/footer-top.png') top repeat-x;
+    padding: 20px 0;
+
+    .footer-option {
+      @include grid-column($columns: 4, $float: left);
+      border-right: 1px solid #D4D5D7;
+      color: #686868;
+      font-family: 'Museo Sans 500', sans-serif;
+      font-size: emCalc(14px);
+      text-align: center;
+      text-transform: uppercase;
+
+      &:last-child {
+        border-right: 0px;
+      }
+    }
+
+  }
+}

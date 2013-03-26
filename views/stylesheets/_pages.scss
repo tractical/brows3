@@ -1,0 +1,39 @@
+.pages {
+
+  h1 {
+    border-bottom: 1px solid #ccc;
+    color: $primary-color;
+    font-family: "Nexa Bold";
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &.contact-us {
+    h1, form { @include grid-column($columns: 6, $center: true); }
+
+    input, textarea { text-indent: 30px; }
+
+    form {
+      #name, #email, #message {
+        background: #fff url('/images/home-aws-access-input-icon.png') 10px center no-repeat;
+      }
+      #submit {
+        text-indent: 0px;
+        text-align: center;
+      }
+
+    }
+  }
+  &.faq {
+    .questions {
+      @include grid-column($columns: 6);
+      ul {
+        list-style: none;
+
+        li { margin-bottom: 20px; }
+      }
+      .answer { color: $primary-color; }
+    }
+  }
+
+}

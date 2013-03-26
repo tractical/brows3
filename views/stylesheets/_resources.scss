@@ -1,0 +1,96 @@
+.resources {
+
+  .breadcrumbs {
+    font-family: 'Museo Sans 500', sans-serif;
+    li {
+      margin-bottom: 1em;
+
+      &.bucket {
+        background: #60c5c3;
+        margin-left: 0;
+
+        &:before {
+          content: " ";
+          background: transparent;
+        }
+        &:after {
+          content: " ";
+          background: transparent url('/images/breadcrumbs-bucket-after.png') no-repeat;
+          width: 12px;
+          height: 31px;
+          right: -12px;
+          top: -1px;
+          position: absolute;
+        }
+      }
+
+      background: $primary-color;
+      height: 30px;
+      padding: 2px 10px;
+      margin-left: 20px;
+      position: relative;
+
+      &:before {
+        content: " ";
+        background: transparent url('/images/breadcrumbs-before.png') no-repeat;
+        width: 12px;
+        height: 31px;
+        left: -12px;
+        top: -1px;
+        position: absolute;
+      }
+      &:after {
+        content: " ";
+        background: transparent url('/images/breadcrumbs-after.png') no-repeat;
+        width: 12px;
+        height: 31px;
+        right: -12px;
+        top: -1px;
+        position: absolute;
+      }
+    }
+  }
+
+  .buckets {
+    &.index {
+      .bucket {
+        @include grid-column($columns: 4, $float: left);
+        background: transparent url('/images/resources-bucket-icon.png') center no-repeat;
+        height: 190px;
+        padding-top: 200px;
+        text-align: center;
+
+        &:hover {
+          background-image: url('/images/resources-bucket-icon-hover.png');
+        }
+      }
+    }
+  }
+
+  table.browser {
+    width: 100%;
+
+    th:first-child {
+      position: relative;
+
+      &:before {
+        content: " ";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 12px solid #60c5c3;
+        position: absolute;
+        top: -12px;
+        left: 30px;
+      }
+    }
+
+    td.directory {
+      a {
+        background: url('/images/browser-folder.png') no-repeat;
+        padding-left: 25px;
+      }
+    }
+  }
+}

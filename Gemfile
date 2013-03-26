@@ -5,8 +5,10 @@ gem 'aws-sdk',         '~> 1.7.1'
 gem 'thin',            '~> 1.5.0'
 gem 'sinatra-contrib', '~> 1.3.2'
 gem 'debugger',        '~> 1.2.2'
-gem 'fog',             '~> 1.8.0'
 gem 'rubytree',        '~> 0.8.3'
+gem 'rack-flash3',     '~> 1.0.3'
+gem 'compass',         '~> 0.12.2'
+gem 'zurb-foundation', '~> 4.0.9'
 
 group :test do
   gem 'rspec',     '~> 2.12.0'

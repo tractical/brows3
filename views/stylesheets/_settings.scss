@@ -1,0 +1,92 @@
+// Required global settings and mixins for Foundation
+@import "foundation/foundation-global";
+
+// Settings file to override Foundation variables
+
+// You can find the variables for each component at the bottom of their
+// doc page. We tried to name them to where they'd make sense just by reading them.
+// Go to http://foundation.zurb.com/docs/ to find what you need.
+
+//
+// Foundation Global Variables
+//
+
+// We use these as default colors throughout
+$primary-color: #F1AB1D;
+
+//
+// Grid Variables
+//
+
+$row-width: emCalc(960px);
+$column-gutter: emCalc(20px);
+
+//
+// Breadcrumb Variables
+//
+
+// We use this to set the background color for the breadcrumb container.
+$crumb-bg: rgba(0, 0, 0, 0);
+
+// We use these to set various text styles for breadcrumbs.
+$crumb-font-size: emCalc(12px);
+$crumb-font-color: #fff;
+$crumb-font-transform: capitalize;
+$crumb-link-decor: none;
+
+// We use these to set the padding around the breadcrumbs.
+$crumb-padding: 0;
+$crumb-side-padding: 0;
+
+// We use these to control border styles.
+$crumb-border-size: 0;
+
+// We use these to control the slash between breadcrumbs
+$crumb-slash: " ";
+
+//
+// Table Variables
+//
+
+// These control the background color for the table and even rows
+$table-bg: #f4f4f4;
+// $table-even-row-bg: #f9f9f9;
+
+// These control the table cell border style
+$table-border-color: #dbdcdd;
+
+// These control the table head styles
+$table-head-bg: #60c5c3;
+$table-head-font-size: emCalc(12px);
+$table-head-font-color: #f2f1f0;
+$table-head-font-weight: lighter;
+// $table-head-padding: emCalc(8px) emCalc(10px) emCalc(10px);
+
+// These control the row padding and font styles
+// $table-row-padding: emCalc(9px) emCalc(10px);
+// $table-row-font-size: emCalc(14px);
+// $table-row-font-color: #222;
+// $table-line-height: emCalc(18px);
+
+// These are for controlling the display and margin of tables
+// $table-display: table-cell;
+// $table-margin-bottom: emCalc(20px);
+
+//
+// Top Bar Variables
+//
+
+// Background color for the top bar
+$topbar-bg: rgba(255, 255, 255, 0);
+
+// Height and margin
+$topbar-height: 64px;
+$topbar-margin-bottom: emCalc(70px);
+
+// Set the link colors and styles for top-level nav
+$topbar-link-color: $primary-color;
+
+// Style the top bar dropdown elements
+$topbar-dropdown-bg: rgba(255, 255, 255, 0);
+
+

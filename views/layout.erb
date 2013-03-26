@@ -13,6 +13,21 @@
   <body>
 
     <div id="content">
+      <% unless request.path_info == "/" %>
+        <nav class="top-bar">
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="<%= url('/') %>">
+                  <img src="/images/brows3.png" alt="An Amazing S3 Browser" width="27" height="31">
+                </a>
+              </h1>
+            </li>
+            <li class="toggle-topbar icon"><a href="#"><span>Menu</span></a></li>
+          </ul>
+        </nav>
+      <% end %>
+
       <div class="application">
         <% if flash[:notice] %>
           <div class="alert-box row">
@@ -32,9 +47,9 @@
 
     <footer class="main">
       <div class="row collapse">
-        <a class="footer-option" href="#">Contact us</a>
-        <a class="footer-option" href="#">FAQ</a>
-        <a class="footer-option" href="#">Privacy & Terms</a>
+        <a class="footer-option" href="<%= url('contact-us') %>">Contact us</a>
+        <a class="footer-option" href="<%= url('faq') %>">FAQ</a>
+        <a class="footer-option" href="<%= url('privacy-terms') %>">Privacy & Terms</a>
       </div>
     </footer>
 

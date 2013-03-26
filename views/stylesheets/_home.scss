@@ -76,24 +76,30 @@
       font-size: emCalc(58px);
       font-weight: lighter;
       margin-bottom: 65px;
+      position: relative;
       text-align: center;
       text-transform: uppercase;
 
       &:before {
-        content: " --- ";
+        content: " ";
         background: url('/images/home-how-it-works-title-line.png') left center no-repeat;
-        color: transparent;
         display: inline-block;
         margin-right: 25px;
+        position: absolute;
+        left: 80px;
+        top: 35px;
         width: 160px;
+        height: 1px;
       }
       &:after {
-        content: " --- ";
+        content: " ";
         background: url('/images/home-how-it-works-title-line.png') right center no-repeat;
-        color: transparent;
         display: inline-block;
         margin-left: 25px;
+        position: absolute;
+        top: 35px;
         width: 160px;
+        height: 1px;
       }
     }
     .feature {
@@ -140,5 +146,6 @@
         border-right: 0px;
       }
     }
+
   }
 }

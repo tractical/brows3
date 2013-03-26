@@ -37,7 +37,6 @@ class ResourcesController < ApplicationController
 
     prefix = params[:splat].first.gsub(/\/+$/, '') + '/'
     tree = @bucket.as_tree(prefix: prefix)
-    # @directories = tree.children.select(&:branch?).collect { |b| b.prefix.gsub(prefix, "") }
     @directories = tree.children.select(&:branch?)
     @files = tree.children.select(&:leaf?).reject { |f| f.key == prefix }
 

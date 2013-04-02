@@ -30,12 +30,22 @@
 
       <div class="application">
         <% if flash[:notice] %>
-          <div class="alert-box row">
-            <%= flash[:notice] %>
+          <div class="row">
+            <div class="large-12 columns">
+              <div data-alert class="custom-alert">
+                <%= flash[:notice] %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            </div>
           </div>
         <% elsif flash[:alert] %>
-          <div class="alert-box alert row">
-            <%= flash[:alert] %>
+          <div class="row">
+            <div class="large-8 columns">
+              <div data-alert class="custom-alert">
+                <%= flash[:alert] %>
+                <a href="#" class="close">&times;</a>
+              </div>
+            </div>
           </div>
         <% end %>
 
@@ -55,8 +65,7 @@
 
     <%= javascripts "vendor/jquery" %>
     <%= javascripts "jparallax/jquery.event.frame", "jparallax/jquery.parallax" %>
+    <%= javascripts "foundation/foundation", "foundation/foundation.alerts" %>
     <%= javascripts "brows3" %>
-
-
   </body>
 </html>

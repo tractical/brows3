@@ -1952,6 +1952,19 @@ footer.main .footer-option { position: relative; padding-left: 0.625em; padding-
 /* line 30, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 footer.main .footer-option:last-child { border-right: 0px; }
 
+/* line 35, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+.custom-alert { border-style: solid; border-width: 1px; display: block; font-weight: bold; margin-bottom: 1.25em; position: relative; padding: 0.6875em 1.3125em 0.75em 0.6875em; font-size: 0.875em; background-color: #60c5c3; border-color: #41b1af; color: white; border: 0px; height: 36px; position: absolute; top: 20px; width: 100%; z-index: 100; }
+/* line 44, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+.custom-alert .close { font-size: 1.375em; padding: 5px 4px 4px; line-height: 0; position: absolute; top: 0.4375em; right: 0.3125em; color: #333333; opacity: 0.3; }
+/* line 80, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.9/scss/foundation/components/_alert-boxes.scss */
+.custom-alert .close:hover, .custom-alert .close:focus { opacity: 0.5; }
+/* line 45, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+.custom-alert:before, .custom-alert:after { content: " "; width: 44px; height: 64px; position: absolute; top: -21px; }
+/* line 52, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+.custom-alert:before { background: url("/images/alert-box-ribbon-left.png") left top; left: -44px; }
+/* line 56, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
+.custom-alert:after { background: url("/images/alert-box-ribbon-right.png") right top; right: -44px; }
+
 /* line 1, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home { background: #d3fbf8 url("/images/bg-blue.png"); }
 /* line 4, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */

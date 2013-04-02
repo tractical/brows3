@@ -32,3 +32,29 @@ footer.main {
     }
   }
 }
+.custom-alert {
+  @include alert(#60c5c3);
+  border: 0px;
+  height: 36px;
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  z-index: 100;
+
+  .close { @include alert-close; }
+  &:before, &:after {
+    content: " ";
+    width: 44px;
+    height: 64px;
+    position: absolute;
+    top: -21px;
+  }
+  &:before {
+    background: url('/images/alert-box-ribbon-left.png') left top;
+    left: -44px;
+  }
+  &:after {
+    background: url('/images/alert-box-ribbon-right.png') right top;
+    right: -44px;
+  }
+}

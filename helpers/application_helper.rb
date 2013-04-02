@@ -9,8 +9,8 @@ module ApplicationHelper
       s3.buckets.first.name
     rescue AWS::Errors::MissingCredentialsError, AWS::S3::Errors::SignatureDoesNotMatch,
             AWS::S3::Errors::InvalidAccessKeyId, ArgumentError
-      flash[:notice] = "Please make sure you are providing valid credentials."
       session.clear
+      flash[:notice] = "Please make sure you are providing valid credentials."
       redirect '/'
     else
       session[:logged_in] = true

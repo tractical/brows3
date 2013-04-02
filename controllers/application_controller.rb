@@ -56,7 +56,6 @@ class ApplicationController < Sinatra::Base
     erb :privacy
   end
 
-
   get '/login' do
     erb :index
   end

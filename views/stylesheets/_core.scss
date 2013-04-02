@@ -3,9 +3,12 @@
 
 body { background: #EFEFEF url('/images/bg-gray.png') }
 
+ul {
+  &.none { list-style: none; }
+}
+
 .top-bar {
   background-image: url('/images/spiky-header.png');
-  margin-bottom: 70px;
 
   .title-area {
     left: 47%;

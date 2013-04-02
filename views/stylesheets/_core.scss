@@ -1,14 +1,14 @@
 @include font-face("Nexa Bold", font-files("/fonts/Nexa_Free_Bold-webfont.eot", "/fonts/Nexa_Free_Bold-webfont.woff"));
 @include font-face("Museo Sans 500", font-files("/fonts/MuseoSans_500-webfont.eot", "/fonts/MuseoSans_500-webfont.woff"));
 
-body { background: #EFEFEF url('/images/bg-gray.png') }
+body { background-image: image-url('bg-gray.png') }
 
 ul {
   &.none { list-style: none; }
 }
 
 .top-bar {
-  background-image: url('/images/spiky-header.png');
+  background-image: image-url('spiky-header.png');
 
   .title-area {
     left: 47%;
@@ -18,7 +18,7 @@ ul {
 @include sticky-footer(34px, "#content", "#footer", "footer.main");
 
 footer.main {
-  background: url('/images/footer-top.png') top repeat-x;
+  background: image-url('footer-top.png') top repeat-x;
   padding: 10px 0;
 
   .footer-option {
@@ -53,11 +53,11 @@ footer.main {
     top: -21px;
   }
   &:before {
-    background: url('/images/alert-box-ribbon-left.png') left top;
+    background: image-url('alert-box-ribbon-left.png') left top;
     left: -44px;
   }
   &:after {
-    background: url('/images/alert-box-ribbon-right.png') right top;
+    background: image-url('alert-box-ribbon-right.png') right top;
     right: -44px;
   }
 }

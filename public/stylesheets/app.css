@@ -5,7 +5,7 @@
 html, body { font-size: 100%; }
 
 /* line 12, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.9/scss/foundation/components/_global.scss */
-body { background: white; color: #222222; padding: 0; margin: 0; font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1; position: relative; }
+body { background: #efefef; color: #222222; padding: 0; margin: 0; font-family: "Museo Sans 500", "Helvetica", Helvetica, Arial, sans-serif; font-weight: normal; font-style: normal; line-height: 1; position: relative; }
 
 /* line 25, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.9/scss/foundation/components/_global.scss */
 a:focus { outline: none; }
@@ -576,7 +576,7 @@ p aside { font-size: 0.875em; line-height: 1.35; font-style: italic; }
 
 /* Default header styles */
 /* line 176, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.9/scss/foundation/components/_type.scss */
-h1, h2, h3, h4, h5, h6 { font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; margin-top: 0.2em; margin-bottom: 0.5em; line-height: 1.2125em; }
+h1, h2, h3, h4, h5, h6 { font-family: "Nexa Bold", "Helvetica", Helvetica, Arial, sans-serif; font-weight: bold; font-style: normal; color: #222222; text-rendering: optimizeLegibility; margin-top: 0.2em; margin-bottom: 0.5em; line-height: 1.2125em; }
 /* line 186, /Users/rene/.rbenv/versions/1.9.3-p125/lib/ruby/gems/1.9.1/gems/zurb-foundation-4.0.9/scss/foundation/components/_type.scss */
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { font-size: 60%; color: #6f6f6f; line-height: 0; }
 
@@ -1927,13 +1927,13 @@ table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoo
 @font-face { font-family: "Museo Sans 500"; src: url(/fonts/MuseoSans_500-webfont.eot) format('embedded-opentype'), url(/fonts/MuseoSans_500-webfont.woff) format('woff'); }
 
 /* line 4, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
-body { background: #efefef url("/images/bg-gray.png"); }
+body { background-image: url('/images/bg-gray.png?1363129957'); }
 
 /* line 7, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 ul.none { list-style: none; }
 
 /* line 10, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
-.top-bar { background-image: url("/images/spiky-header.png"); }
+.top-bar { background-image: url('/images/spiky-header.png?1362534248'); }
 /* line 13, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 .top-bar .title-area { left: 47%; }
 
@@ -1949,7 +1949,7 @@ html, body { height: 100%; }
 footer.main { clear: both; position: relative; height: 34px; }
 
 /* line 20, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
-footer.main { background: url("/images/footer-top.png") top repeat-x; padding: 10px 0; }
+footer.main { background: url('/images/footer-top.png?1362513487') top repeat-x; padding: 10px 0; }
 /* line 24, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 footer.main .footer-option { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; border-right: 1px solid #D4D5D7; color: #686868; font-family: 'Museo Sans 500', sans-serif; font-size: 0.75em; text-align: center; text-transform: uppercase; }
 /* line 33, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
@@ -1964,9 +1964,9 @@ footer.main .footer-option:last-child { border-right: 0px; }
 /* line 48, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
 .custom-alert:before, .custom-alert:after { content: " "; width: 44px; height: 64px; position: absolute; top: -21px; }
 /* line 55, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
-.custom-alert:before { background: url("/images/alert-box-ribbon-left.png") left top; left: -44px; }
+.custom-alert:before { background: url('/images/alert-box-ribbon-left.png?1364349254') left top; left: -44px; }
 /* line 59, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_core.scss */
-.custom-alert:after { background: url("/images/alert-box-ribbon-right.png") right top; right: -44px; }
+.custom-alert:after { background: url('/images/alert-box-ribbon-right.png?1364349254') right top; right: -44px; }
 
 /* line 1, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home { background: #d3fbf8 url("/images/bg-blue.png"); }
@@ -1979,42 +1979,54 @@ footer.main .footer-option:last-child { border-right: 0px; }
 /* line 22, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .login .brand { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 66.66667%; margin-left: auto; margin-right: auto; float: none !important; float: left; margin-bottom: 20px; }
 /* line 26, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .login .brand h1 { color: #2B353B; font-family: 'Nexa Bold', sans-serif; font-size: 7.0625em; font-weight: lighter; line-height: 95px; margin-bottom: 0px; text-align: center; text-transform: uppercase; }
-/* line 37, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .login .brand h2 { background: transparent url("/images/home-strikethrough.png") 230px 25px no-repeat; color: #F1AB1D; font-family: 'Nexa Bold', sans-serif; font-size: 2.375em; height: 60px; margin-top: 0px; text-align: center; text-transform: uppercase; }
-/* line 49, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login .brand h1 { color: #2B353B; font-weight: lighter; margin-bottom: 0px; text-align: center; text-transform: uppercase; }
+@media only screen and (min-width: 48em) { /* line 26, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .login .brand h1 { font-size: 7.0625em; line-height: 95px; } }
+/* line 39, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login .brand h2 { color: #F1AB1D; margin-top: 0px; text-align: center; text-transform: uppercase; }
+@media only screen and (min-width: 48em) { /* line 39, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .login .brand h2 { background: transparent url("/images/home-strikethrough.png") 230px 25px no-repeat; font-size: 2.375em; height: 60px; } }
+/* line 53, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .login form#login { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 66.66667%; margin-left: auto; margin-right: auto; float: none !important; float: left; }
-/* line 52, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .login form#login #aws-access { background: white url("/images/home-aws-access-input-icon.png") 10px center no-repeat; text-indent: 30px; }
 /* line 56, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .login form#login #aws-access { background: white url("/images/home-aws-access-input-icon.png") 10px center no-repeat; text-indent: 30px; }
+/* line 60, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .login form#login #aws-secret { background: white url("/images/home-aws-secret-input-icon.png") 10px center no-repeat; text-indent: 30px; }
-/* line 61, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+/* line 65, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .login form#login input[type="submit"] { font-size: 0.75em; font-family: 'Nexa Bold', sans-serif; font-weight: lighter; text-transform: uppercase; }
-/* line 69, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works { background: #eeeeee url("/images/spiky-header.png") top repeat-x; padding-top: 120px; }
 /* line 73, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works h2 { color: #F2AB1D; font-family: 'Nexa Bold', sans-serif; font-size: 3.625em; font-weight: lighter; margin-bottom: 65px; position: relative; text-align: center; text-transform: uppercase; }
-/* line 83, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works h2:before { content: " "; background: url("/images/home-how-it-works-title-line.png") left center no-repeat; display: inline-block; margin-right: 25px; position: absolute; left: 80px; top: 35px; width: 160px; height: 1px; }
-/* line 94, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works h2:after { content: " "; background: url("/images/home-how-it-works-title-line.png") right center no-repeat; display: inline-block; margin-left: 25px; position: absolute; top: 35px; width: 160px; height: 1px; }
-/* line 105, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works .feature { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; text-align: center; margin-bottom: 65px; }
-/* line 110, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works .feature img { margin: 0 auto; }
+.home .how-it-works { background: #eeeeee url("/images/spiky-header.png") top repeat-x; padding-top: 120px; }
+/* line 77, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works h2 { color: #F2AB1D; font-weight: lighter; position: relative; text-align: center; text-transform: uppercase; }
+@media only screen and (min-width: 48em) { /* line 77, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .how-it-works h2 { font-size: 3.625em; margin-bottom: 65px; }
+  /* line 88, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .how-it-works h2:before { content: " "; background: url("/images/home-how-it-works-title-line.png") left center no-repeat; display: inline-block; margin-right: 25px; position: absolute; left: 80px; top: 35px; width: 160px; height: 1px; }
+  /* line 99, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .how-it-works h2:after { content: " "; background: url("/images/home-how-it-works-title-line.png") right center no-repeat; display: inline-block; margin-left: 25px; position: absolute; top: 35px; width: 160px; height: 1px; } }
 /* line 111, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works .feature hr { color: #D6D7D8; margin-bottom: 2.1875em auto; width: 80%; }
-/* line 116, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works .feature h3 { color: #F2AB1D; font-family: 'Nexa Bold', sans-serif; font-size: 2.26688em; margin-bottom: 0; text-transform: uppercase; }
-/* line 123, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 100%; float: left; text-align: center; }
+/* line 115, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature h3 { color: #F2AB1D; margin-bottom: 0; text-transform: uppercase; }
+@media only screen and (min-width: 48em) { /* line 115, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .how-it-works .feature h3 { font-size: 2.26688em; } }
+/* line 122, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .how-it-works .feature.odd h3 { color: #61C5C3; }
-/* line 124, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .how-it-works .feature p { color: #58595B; font-size: 0.885em; font-family: 'Museo Sans 500', sans-serif; line-height: 1.4em; }
+/* line 123, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature hr { color: #D6D7D8; margin: 0.625em auto; width: 80%; }
+@media only screen and (min-width: 48em) { /* line 123, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .how-it-works .feature hr { margin: 2.1875em auto; } }
 /* line 132, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .footer { background: url("/images/footer-top.png") top repeat-x; padding: 20px 0; }
-/* line 136, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
-.home .footer .footer-option { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; border-right: 1px solid #D4D5D7; color: #686868; font-family: 'Museo Sans 500', sans-serif; font-size: 0.875em; text-align: center; text-transform: uppercase; }
+.home .how-it-works .feature img { margin: 0 auto; }
+/* line 133, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .how-it-works .feature p { color: #58595B; font-size: 0.885em; line-height: 1.4em; }
+@media only screen and (min-width: 48em) { /* line 111, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+  .home .how-it-works .feature { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; margin-bottom: 65px; } }
 /* line 145, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .footer { background: url("/images/footer-top.png") top repeat-x; padding: 20px 0; }
+/* line 149, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
+.home .footer .footer-option { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; border-right: 1px solid #D4D5D7; color: #686868; font-family: 'Museo Sans 500', sans-serif; font-size: 0.875em; text-align: center; text-transform: uppercase; }
+/* line 158, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_home.scss */
 .home .footer .footer-option:last-child { border-right: 0px; }
 
 /* line 3, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
@@ -2026,22 +2038,24 @@ footer.main .footer-option:last-child { border-right: 0px; }
 /* line 12, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources .breadcrumbs li.bucket:before { content: " "; background: transparent; }
 /* line 16, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
-.resources .breadcrumbs li.bucket:after { content: " "; background: transparent url("/images/breadcrumbs-bucket-after.png") no-repeat; width: 12px; height: 31px; right: -12px; top: -1px; position: absolute; }
+.resources .breadcrumbs li.bucket:after { content: " "; background: url('/images/breadcrumbs-bucket-after.png?1363137617') no-repeat; width: 12px; height: 31px; right: -12px; top: -1px; position: absolute; }
 /* line 33, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
-.resources .breadcrumbs li:before { content: " "; background: transparent url("/images/breadcrumbs-before.png") no-repeat; width: 12px; height: 31px; left: -12px; top: -1px; position: absolute; }
+.resources .breadcrumbs li:before { content: " "; background: url('/images/breadcrumbs-before.png?1363136207') no-repeat; width: 12px; height: 31px; left: -12px; top: -1px; position: absolute; }
 /* line 42, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
-.resources .breadcrumbs li:after { content: " "; background: transparent url("/images/breadcrumbs-after.png") no-repeat; width: 12px; height: 31px; right: -12px; top: -1px; position: absolute; }
+.resources .breadcrumbs li:after { content: " "; background: url('/images/breadcrumbs-after.png?1363136207') no-repeat; width: 12px; height: 31px; right: -12px; top: -1px; position: absolute; }
 /* line 56, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
-.resources .buckets.index .bucket { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; background: transparent url("/images/resources-bucket-icon.png") center no-repeat; height: 190px; padding-top: 200px; text-align: center; }
-/* line 63, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
-.resources .buckets.index .bucket:hover { background-image: url("/images/resources-bucket-icon-hover.png"); }
-/* line 70, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .buckets.index .bucket { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 100%; float: left; background: url('/images/resources-bucket-icon.png?1362530030') center no-repeat; height: 190px; margin-bottom: 20px; padding-top: 200px; text-align: center; }
+/* line 64, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+.resources .buckets.index .bucket:hover { background-image: url('/images/resources-bucket-icon-hover.png?1362533153'); }
+@media only screen and (min-width: 48em) { /* line 56, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+  .resources .buckets.index .bucket { position: relative; padding-left: 0.625em; padding-right: 0.625em; width: 33.33333%; float: left; } }
+/* line 71, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources table.browser { width: 100%; }
-/* line 73, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+/* line 74, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources table.browser th:first-child { position: relative; }
-/* line 76, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+/* line 77, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources table.browser th:first-child:before { content: " "; width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 12px solid #60c5c3; position: absolute; top: -12px; left: 30px; }
-/* line 90, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
+/* line 91, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_resources.scss */
 .resources table.browser td.directory a { background: url("/images/browser-folder.png") no-repeat; padding-left: 25px; }
 
 /* line 3, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_pages.scss */
@@ -2053,7 +2067,7 @@ footer.main .footer-option:last-child { border-right: 0px; }
 /* line 18, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_pages.scss */
 .pages.faq .questions ul li { margin-bottom: 20px; position: relative; padding-left: 60px; }
 /* line 23, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_pages.scss */
-.pages.faq .questions ul li:before { content: " "; background: url('/images/question-mark.png?1364941542') left center no-repeat; width: 40px; height: 40px; position: absolute; left: 0; }
+.pages.faq .questions ul li:before { content: " "; background: url('/images/question-mark.png?1364944824') left center no-repeat; width: 40px; height: 40px; position: absolute; left: 0; }
 /* line 33, /Users/rene/tractical/projects/s3_browser/views/stylesheets/_pages.scss */
 .pages.faq .questions .answer { color: #f1ab1d; }
 

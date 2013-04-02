@@ -15,7 +15,7 @@
         }
         &:after {
           content: " ";
-          background: transparent url('/images/breadcrumbs-bucket-after.png') no-repeat;
+          background: image-url('breadcrumbs-bucket-after.png') no-repeat;
           width: 12px;
           height: 31px;
           right: -12px;
@@ -32,7 +32,7 @@
 
       &:before {
         content: " ";
-        background: transparent url('/images/breadcrumbs-before.png') no-repeat;
+        background: image-url('breadcrumbs-before.png') no-repeat;
         width: 12px;
         height: 31px;
         left: -12px;
@@ -41,7 +41,7 @@
       }
       &:after {
         content: " ";
-        background: transparent url('/images/breadcrumbs-after.png') no-repeat;
+        background: image-url('breadcrumbs-after.png') no-repeat;
         width: 12px;
         height: 31px;
         right: -12px;
@@ -54,15 +54,16 @@
   .buckets {
     &.index {
       .bucket {
-        @include grid-column($columns: 4, $float: left);
-        background: transparent url('/images/resources-bucket-icon.png') center no-repeat;
+        @include grid-column(12);
+        background: image-url('resources-bucket-icon.png') center no-repeat;
         height: 190px;
+        margin-bottom: 20px;
         padding-top: 200px;
         text-align: center;
 
-        &:hover {
-          background-image: url('/images/resources-bucket-icon-hover.png');
-        }
+        &:hover { background-image: image-url('resources-bucket-icon-hover.png'); }
+
+        @media #{$small} { @include grid-column(4); }
       }
     }
   }

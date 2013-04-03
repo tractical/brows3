@@ -1,7 +1,6 @@
 # Application wide settings
 # Other controllers should use this
 
-require 'debugger'
 require 'compass'
 require 'sinatra/base'
 require 'sinatra/contrib'
@@ -44,18 +43,17 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/contact-us/' do
-    erb :contact_us
+  get '/terms/' do
+    erb :terms
   end
 
   get '/faq/' do
     erb :faq
   end
 
-  get '/privacy-terms/' do
+  get '/privacy/' do
     erb :privacy
   end
-
 
   get '/login' do
     erb :index

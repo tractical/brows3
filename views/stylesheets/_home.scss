@@ -25,24 +25,28 @@
 
       h1 {
         color: #2B353B;
-        font-family: 'Nexa Bold', sans-serif;
-        font-size: emCalc(113px);
         font-weight: lighter;
-        line-height: 95px;
         margin-bottom: 0px;
         text-align: center;
         text-transform: uppercase;
+
+        @media #{$small} {
+          font-size: emCalc(113px);
+          line-height: 95px;
+        }
       }
 
       h2 {
-        background: transparent url('/images/home-strikethrough.png') 230px 25px no-repeat;
         color: #F1AB1D;
-        font-family: 'Nexa Bold', sans-serif;
-        font-size: emCalc(38px);
-        height: 60px;
         margin-top: 0px;
         text-align: center;
         text-transform: uppercase;
+
+        @media #{$small} {
+          background: transparent url('/images/home-strikethrough.png') 230px 25px no-repeat;
+          font-size: emCalc(38px);
+          height: 60px;
+        }
       }
     }
 
@@ -72,60 +76,69 @@
 
     h2 {
       color: #F2AB1D;
-      font-family: 'Nexa Bold', sans-serif;
-      font-size: emCalc(58px);
       font-weight: lighter;
-      margin-bottom: 65px;
       position: relative;
       text-align: center;
       text-transform: uppercase;
 
-      &:before {
-        content: " ";
-        background: url('/images/home-how-it-works-title-line.png') left center no-repeat;
-        display: inline-block;
-        margin-right: 25px;
-        position: absolute;
-        left: 80px;
-        top: 35px;
-        width: 160px;
-        height: 1px;
-      }
-      &:after {
-        content: " ";
-        background: url('/images/home-how-it-works-title-line.png') right center no-repeat;
-        display: inline-block;
-        margin-left: 25px;
-        position: absolute;
-        top: 35px;
-        width: 160px;
-        height: 1px;
+      @media #{$small} {
+        font-size: emCalc(58px);
+        margin-bottom: 65px;
+
+        &:before {
+          content: " ";
+          background: url('/images/home-how-it-works-title-line.png') left center no-repeat;
+          display: inline-block;
+          margin-right: 25px;
+          position: absolute;
+          left: 80px;
+          top: 35px;
+          width: 160px;
+          height: 1px;
+        }
+        &:after {
+          content: " ";
+          background: url('/images/home-how-it-works-title-line.png') right center no-repeat;
+          display: inline-block;
+          margin-left: 25px;
+          position: absolute;
+          top: 35px;
+          width: 160px;
+          height: 1px;
+        }
       }
     }
     .feature {
-      @include grid-column($columns: 4, $float: left);
+      @include grid-column(12);
       text-align: center;
-      margin-bottom: 65px;
 
-      img { margin: 0 auto; }
-      hr {
-        color: #D6D7D8;
-        margin-bottom: emCalc(35px) auto;
-        width: 80%;
-      }
       h3 {
         color: #F2AB1D;
-        font-family: 'Nexa Bold', sans-serif;
-        font-size: emCalc(36.27px);
         margin-bottom: 0;
         text-transform: uppercase;
+
+        @media #{$small} { font-size: emCalc(36.27px); }
       }
       &.odd h3 { color: #61C5C3; }
+      hr {
+        color: #D6D7D8;
+        margin: emCalc(10px) auto;
+        width: 80%;
+
+        @media #{$small} {
+          margin: emCalc(35px) auto;
+        }
+      }
+      img { margin: 0 auto; }
       p {
         color: #58595B;
         font-size: emCalc(14.16px);
-        font-family: 'Museo Sans 500', sans-serif;
         line-height: 1.4em;
+      }
+
+      @media #{$small} {
+        @include grid-column(4);
+        margin-bottom: 65px;
       }
     }
   }

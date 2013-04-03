@@ -11,8 +11,12 @@
 // Foundation Global Variables
 //
 
+// We use these to control various global styles
+$body-bg: #efefef;
+$body-font-family: "Museo Sans 500", "Helvetica", Helvetica, Arial, sans-serif;
+
 // We use these as default colors throughout
-$primary-color: #F1AB1D;
+$primary-color: #f1ab1d;
 
 //
 // Grid Variables
@@ -20,6 +24,13 @@ $primary-color: #F1AB1D;
 
 $row-width: emCalc(960px);
 $column-gutter: emCalc(20px);
+
+//
+// Typography Variables
+//
+
+// We use these to control header font styles
+$header-font-family: "Nexa Bold", "Helvetica", Helvetica, Arial, sans-serif;
 
 //
 // Breadcrumb Variables
@@ -81,7 +92,7 @@ $topbar-bg: rgba(255, 255, 255, 0);
 
 // Height and margin
 $topbar-height: 64px;
-$topbar-margin-bottom: emCalc(70px);
+$topbar-margin-bottom: emCalc(40px);
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $primary-color;

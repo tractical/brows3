@@ -8,32 +8,29 @@
     text-transform: uppercase;
   }
 
-  &.contact-us {
-    h1, form { @include grid-column($columns: 6, $center: true); }
-
-    input, textarea { text-indent: 30px; }
-
-    form {
-      #name, #email, #message {
-        background: #fff url('/images/home-aws-access-input-icon.png') 10px center no-repeat;
-      }
-      #submit {
-        text-indent: 0px;
-        text-align: center;
-      }
-
-    }
-  }
   &.faq {
     .questions {
-      @include grid-column($columns: 6);
+      @include grid-column($columns: 10);
+
       ul {
         list-style: none;
 
-        li { margin-bottom: 20px; }
+        li {
+          margin-bottom: 20px;
+          position: relative;
+          padding-left: 60px;
+
+          &:before {
+            content: " ";
+            background: image-url('question-mark.png') left center no-repeat;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+          }
+        }
       }
       .answer { color: $primary-color; }
     }
   }
-
 }

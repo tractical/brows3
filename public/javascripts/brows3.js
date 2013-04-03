@@ -7,4 +7,6 @@ $(function(){
     yorigin: 0.4,
     frameDuration: 50
   });
+
+  $(document).foundation();
 });

@@ -1,6 +1,6 @@
 require './spec/spec_helper'
 
-describe "ApplicationController" do
+describe ApplicationController do
 
   describe 'GET /' do
     it 'renders the page' do

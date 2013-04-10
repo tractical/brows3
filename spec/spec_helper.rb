@@ -14,4 +14,6 @@ end
 
 RSpec.configure do |config|
   config.include RSpecMixin
+
+  config.color = true
 end

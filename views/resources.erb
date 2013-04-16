@@ -11,8 +11,7 @@
     <meta name="author" content="Tractical. Tractical is a small web development studio located in Mexico.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet "/stylesheets/normalize.css" %>
-    <%= stylesheet "/stylesheets/app.css" %>
+    <%= css :application, media: "screen" %>
   </head>
 
   <body>
@@ -62,6 +61,7 @@
       </div>
     </footer>
 
-    <%= javascripts "vendor/zepto", "foundation/foundation", "foundation/foundation.topbar" %>
+    <%= js :application %>
+    <%= js :foundation %>
   </body>
 </html>

@@ -7,10 +7,14 @@ gem 'sinatra-contrib', '~> 1.3.2'
 gem 'debugger',        '~> 1.2.2'
 gem 'rubytree',        '~> 0.8.3'
 gem 'rack-flash3',     '~> 1.0.3'
-gem 'compass',         '~> 0.12.2'
-gem 'zurb-foundation', '~> 4.0.9'
 
 group :test do
   gem 'rspec',     '~> 2.12.0'
   gem 'rack-test', '~> 0.6.2'
+end
+
+group :assets do
+  gem 'sinatra-assetpack', '~> 0.1.7', require: 'sinatra/assetpack'
+  gem 'compass',           '~> 0.12.2'
+  gem 'zurb-foundation',   '~> 4.0.9'
 end

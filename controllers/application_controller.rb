@@ -30,7 +30,7 @@ class ApplicationController < Sinatra::Base
     erb :error, layout: false
   end
 
-  get '/stylesheets/:name.css' do
+  get '/assets/stylesheets/:name.css' do
     content_type 'text/css', charset: 'utf-8'
     scss :"stylesheets/#{params[:name]}"
   end

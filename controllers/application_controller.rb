@@ -43,20 +43,14 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/terms/' do
-    erb :terms
-  end
-
-  get '/faq/' do
-    erb :faq
-  end
-
-  get '/privacy/' do
-    erb :privacy
-  end
-
-  get '/login' do
+  get '/login/?' do
     erb :index
+  end
+
+  %w(terms faq privacy).each do |page|
+    get "/#{page}/?" do
+      erb page.intern
+    end
   end
 
   get '/logout/?' do
@@ -68,6 +62,7 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     session[:aws_access] = params[:aws_access].empty? ? nil : params[:aws_access].strip
     session[:aws_secret] = params[:aws_secret].empty? ? nil : params[:aws_secret].strip
-    redirect to '/resources/buckets/'
+    validate_credentials
+    redirect '/resources/buckets/'
   end
 end

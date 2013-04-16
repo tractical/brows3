@@ -1,20 +1,19 @@
 require 'sinatra/base'
 require 'zurb-foundation'
-# Require any additional compass plugins here.
 
 project_path = Sinatra::Application.root
 
 # HTTP paths
 http_path = "/"
-http_stylesheets_path = "/stylesheets"
-http_images_path      = "/images"
-http_javascripts_path = "/javascripts"
+http_stylesheets_path = "/assets/stylesheets"
+http_images_path      = "/assets/images"
+http_javascripts_path = "/assets/javascripts"
 
 # File system locations
-sass_dir        = File.join 'views', 'stylesheets'
-css_dir         = File.join 'public', 'stylesheets'
-images_dir      = File.join 'public', 'images'
-javascripts_dir = File.join 'public', 'javascripts'
+sass_dir        = File.join "assets", "sass"
+css_dir         = File.join "assets", "stylesheets"
+images_dir      = File.join "assets", "images"
+javascripts_dir = File.join "assets", "javascripts"
 
 preferred_syntax = :sass
 

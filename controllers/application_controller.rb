@@ -4,10 +4,12 @@
 require 'compass'
 require 'sinatra/base'
 require 'sinatra/contrib'
+require 'sinatra/assetpack'
 require 'rack-flash'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
+  register Sinatra::AssetPack
   helpers ApplicationHelper
   use Rack::Flash
 
@@ -22,17 +24,33 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
   end
 
+  assets do
+    serve "/javascripts", from: "assets/javascripts"
+    serve "/stylesheets", from: "assets/stylesheets"
+    serve "/images",      from: "assets/images"
+
+    css :application, ["/stylesheets/normalize.css", "/stylesheets/app.css"]
+
+    js  :foundation, [
+      "/javascripts/foundation/foundation.js",
+      "/javascripts/foundation/foundation.*.js"
+    ]
+    js :parallax, [
+      "/javascripts/jparallax/jquery.event.frame.js",
+      "/javascripts/jparallax/jquery.parallax.js"
+    ]
+    js :application, [
+      "/javascripts/vendor/*.js",
+      "/javascripts/brows3.js"
+    ]
+  end
+
   not_found do
     erb :not_found, layout: false
   end
 
   error do
     erb :error, layout: false
-  end
-
-  get '/assets/stylesheets/:name.css' do
-    content_type 'text/css', charset: 'utf-8'
-    scss :"stylesheets/#{params[:name]}"
   end
 
   get %r{(\/.*[^\/])$} do

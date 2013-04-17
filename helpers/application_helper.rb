@@ -17,11 +17,8 @@ module ApplicationHelper
     end
   end
 
-  def javascripts *scripts
-    html = []
-    scripts.each do |script|
-      html << "<script src='/javascripts/#{script}.js'></script>"
-    end
-    html.join
+  def controller_name
+    request.script_name.delete "/"
   end
+
 end

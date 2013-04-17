@@ -58,11 +58,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    erb :home, layout: :homepage
   end
 
   get '/login/?' do
-    erb :index
+    erb :home, layout: :homepage
   end
 
   %w(terms faq privacy).each do |page|

@@ -1,4 +1,5 @@
 require 'aws-sdk'
+require 'debugger'
 
 class ResourcesController < ApplicationController
 
@@ -23,7 +24,6 @@ class ResourcesController < ApplicationController
     ]
   end
 
-
   before do
     validate_credentials unless session[:logged_in]
 
@@ -40,7 +40,7 @@ class ResourcesController < ApplicationController
   # buckets#index
   get '/buckets/?' do
     @buckets = @storage.buckets
-    erb :'resources/buckets/index', layout: :resources
+    erb :'resources/buckets/index'
   end
 
   # buckets#show
@@ -50,7 +50,7 @@ class ResourcesController < ApplicationController
     @directories = @bucket.as_tree.children.select(&:branch?).collect(&:prefix)
     @files = @bucket.as_tree.children.select(&:leaf?).reject { |f| f.key == prefix }
 
-    erb :'resources/buckets/show', layout: :resources
+    erb :'resources/buckets/show'
   end
 
   # files#index
@@ -62,7 +62,7 @@ class ResourcesController < ApplicationController
     @directories = tree.children.select(&:branch?)
     @files = tree.children.select(&:leaf?).reject { |f| f.key == prefix }
 
-    erb :'resources/files/index', layout: :resources
+    erb :'resources/files/index'
   end
 
 end

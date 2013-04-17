@@ -25,8 +25,17 @@
               </a>
             </h1>
           </li>
-          <li class="toggle-topbar icon"><a href="#"><span>Menu</span></a></li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#"><span>Menu</span></a>
+          </li>
         </ul>
+        <% if controller_name == "resources" %>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li><a href="<%= url('logout') %>">Log out</a></li>
+            </ul>
+          </section>
+        <% end %>
       </nav>
 
       <div class="<%= controller_name %> row">
@@ -41,7 +50,7 @@
           </div>
         <% elsif flash[:alert] %>
           <div class="row">
-            <div class="large-8 columns">
+            <div class="large-12 columns">
               <div data-alert class="custom-alert">
                 <%= flash[:alert] %>
                 <a href="#" class="close">&times;</a>
@@ -61,6 +70,12 @@
         <a class="footer-option" href="<%= url('privacy') %>">Privacy Policy</a>
         <a class="footer-option" href="<%= url('terms') %>">Terms of Service</a>
         <a class="footer-option" href="<%= url('faq') %>">FAQ</a>
+      </div>
+      <div class="row">
+        <div class="tractical">
+          Service crafted & powered by
+          <a href="http://tractical.com"><%= img "/images/tractical.png" %></a>
+        </div>
       </div>
     </footer>
 

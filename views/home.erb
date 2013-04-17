@@ -1,0 +1,63 @@
+<div class="login parallax-viewport">
+  <div class="clouds parallax-layer"></div>
+  <div class="row">
+    <div class="brand">
+      <a class="logo" href="/">
+        <%= img "/images/brows3.png", alt: "An Amazing S3 Browser." %>
+      </a>
+
+      <h1>Brows3</h1>
+      <h2>An Amazon S3 Browser</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <form id="login" action="/login" method="post">
+      <div class="row">
+        <div class="large-5 columns">
+          <input id="aws-access" type="text" name="aws_access" placeholder="AWS Access Key">
+        </div>
+        <div class="large-5 columns">
+          <input id="aws-secret" type="text" name="aws_secret" placeholder="AWS Secret Key">
+        </div>
+        <div class="large-2 columns">
+          <input class="radius button" type="submit" value="Let's Go">
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="how-it-works">
+  <div class="row">
+    <h2>How It Works</h2>
+
+    <div class="feature">
+      <%= img "/images/home-how-it-works-login.png" %>
+      <hr>
+      <h3>Login</h3>
+      <p>
+        with your S3 access <br>
+        credentials.
+      </p>
+    </div>
+    <div class="feature odd">
+      <%= img "/images/home-how-it-works-dontworry.png" %>
+      <hr>
+      <h3>Don't Worry</h3>
+      <p>
+        we won't keep your <br>
+        information.
+      </p>
+    </div>
+    <div class="feature">
+      <%= img "/images/home-how-it-works-browse.png" %>
+      <hr>
+      <h3>Browse</h3>
+      <p>
+        your files through our <br>
+        delightful web interface.
+      </p>
+    </div>
+  </div>
+</div>

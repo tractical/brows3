@@ -6,12 +6,15 @@
     padding: 130px 0 240px;
 
     .clouds {
+      display: none;
       background: url('/images/clouds.png') center no-repeat;
       position: absolute;
       width: 941px;
       height: 167px;
       top: 150px;
       left: 100px;
+
+      @media #{$small} { display: block; }
     }
     .logo {
       @include grid-column($columns: 2, $center: true);
@@ -35,7 +38,6 @@
           line-height: 95px;
         }
       }
-
       h2 {
         color: #F1AB1D;
         margin-top: 0px;

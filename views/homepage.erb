@@ -28,7 +28,7 @@
           </div>
         <% elsif flash[:alert] %>
           <div class="row">
-            <div class="large-8 columns">
+            <div class="large-12 columns">
               <div data-alert class="custom-alert">
                 <%= flash[:alert] %>
                 <a href="#" class="close">&times;</a>
@@ -48,6 +48,12 @@
         <a class="footer-option" href="<%= url('privacy') %>">Privacy Policy</a>
         <a class="footer-option" href="<%= url('terms') %>">Terms of Service</a>
         <a class="footer-option" href="<%= url('faq') %>">FAQ</a>
+      </div>
+      <div class="row">
+        <div class="tractical">
+          Service crafted & powered by
+          <a href="http://tractical.com"><%= img "/images/tractical.png" %></a>
+        </div>
       </div>
     </footer>
 

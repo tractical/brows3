@@ -20,7 +20,7 @@ footer.main {
   padding: 10px 0;
 
   .footer-option {
-    @include grid-column($columns: 4, $float: left);
+    @include grid-column($columns: 4);
     border-right: 1px solid #D4D5D7;
     color: #686868;
     font-family: 'Museo Sans 500', sans-serif;
@@ -32,12 +32,19 @@ footer.main {
       border-right: 0px;
     }
   }
+  .tractical {
+    @include grid-column($columns: 12);
+    padding: 10px 0;
+    color: #c4c2c2;
+    text-align: center;
+  }
 }
 .custom-alert {
   @include alert(#60c5c3);
   border: 0px;
   height: 36px;
   position: absolute;
+  text-align: center;
   top: 20px;
   width: 100%;
   z-index: 100;

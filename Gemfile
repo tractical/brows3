@@ -14,7 +14,7 @@ group :test do
 end
 
 group :assets do
-  gem 'sinatra-assetpack', '~> 0.1.7', require: 'sinatra/assetpack'
+  gem 'sinatra-assetpack', '~> 0.2.2', require: 'sinatra/assetpack'
   gem 'compass',           '~> 0.12.2'
   gem 'zurb-foundation',   '~> 4.1.5'
 end

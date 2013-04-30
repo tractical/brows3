@@ -1,11 +1,12 @@
 # Application wide settings
 # Other controllers should use this
 
-require 'compass'
-require 'sinatra/base'
-require 'sinatra/contrib'
-require 'sinatra/assetpack'
-require 'rack-flash'
+require "compass"
+require "sinatra/base"
+require "sinatra/contrib"
+require "sinatra/assetpack"
+require "rack-flash"
+require "rack/ssl"
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
@@ -22,6 +23,10 @@ class ApplicationController < Sinatra::Base
     set :root, File.expand_path('../../', __FILE__)
     set :views, Proc.new { File.join(root, 'views') }
     set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
+  end
+
+  configure :production do
+    use Rack::SSL
   end
 
   assets do

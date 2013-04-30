@@ -15,14 +15,10 @@ class ApplicationController < Sinatra::Base
 
   config_file '../config/config.yml'
 
-  configure :production, :development do
-    enable :method_override
-    enable :logging
-    enable :sessions
-    set :root, File.expand_path('../../', __FILE__)
-    set :views, Proc.new { File.join(root, 'views') }
-    set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
-  end
+  enable :method_override
+  enable :sessions
+  set :root, File.expand_path('../../', __FILE__)
+  set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
 
   assets do
     serve "/javascripts", from: "assets/javascripts"

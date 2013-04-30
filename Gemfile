@@ -7,6 +7,7 @@ gem 'sinatra-contrib', '~> 1.3.2'
 gem 'debugger',        '~> 1.2.2'
 gem 'rubytree',        '~> 0.8.3'
 gem 'rack-flash3',     '~> 1.0.3'
+gem 'rack-ssl',        '~> 1.3.3'
 
 group :test do
   gem 'rspec',     '~> 2.12.0'

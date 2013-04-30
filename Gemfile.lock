@@ -37,6 +37,8 @@ GEM
       rack
     rack-protection (1.2.0)
       rack
+    rack-ssl (1.3.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rspec (2.12.0)
@@ -85,6 +87,7 @@ DEPENDENCIES
   compass (~> 0.12.2)
   debugger (~> 1.2.2)
   rack-flash3 (~> 1.0.3)
+  rack-ssl (~> 1.3.3)
   rack-test (~> 0.6.2)
   rspec (~> 2.12.0)
   rubytree (~> 0.8.3)

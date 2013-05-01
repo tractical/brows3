@@ -3,9 +3,7 @@
 
 body { background-image: url('/images/bg-gray.png') }
 
-ul {
-  &.none { list-style: none; }
-}
+ul { &.none { list-style: none; } }
 
 .top-bar {
   background-image: url('/images/spiky-header.png');
@@ -17,7 +15,7 @@ ul {
 
 footer.main {
   background: url('/images/footer-top.png') top repeat-x;
-  padding: 10px 0;
+  padding: 10px 0px;
 
   .footer-option {
     @include grid-column($columns: 4);
@@ -28,9 +26,7 @@ footer.main {
     text-align: center;
     text-transform: uppercase;
 
-    &:last-child {
-      border-right: 0px;
-    }
+    &:last-child { border-right: 0px; }
   }
   .tractical {
     @include grid-column($columns: 12);

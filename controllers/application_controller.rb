@@ -20,6 +20,9 @@ class ApplicationController < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
   set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
 
+  set :mixpanel_code, ENV["MIXPANEL_CODE"]
+  set :google_code, ENV["GOOGLE_CODE"]
+
   assets do
     serve "/javascripts", from: "assets/javascripts"
     serve "/stylesheets", from: "assets/stylesheets"

@@ -1,21 +1,31 @@
-// Required global settings and mixins for Foundation
-@import "foundation/foundation-global";
-
-// Settings file to override Foundation variables
-
-// You can find the variables for each component at the bottom of their
-// doc page. We tried to name them to where they'd make sense just by reading them.
-// Go to http://foundation.zurb.com/docs/ to find what you need.
-
 //
-// Foundation Global Variables
+// Foundation Variables
 //
 
-// We use these to control various global styles
+// The default font-size is set to 100% of the browser style sheet (usually 16px)
+// for compatibility with brower-based text zoom or user-set defaults.
+$base-font-size: 100% !default;
+
+// $base-line-height is 24px while $base-font-size is 16px
+// $base-line-height: 150%;
+
+// This is the default html and body font-size for the base em value.
+
+// Since the typical default browser font-size is 16px, that makes the calculation for grid size.
+// If you want your base font-size to be a different size and not have it effect grid size too,
+// set the value of $em-base to $base-font-size ($em-base: $base-font-size;)
+$em-base: 16px !default;
+
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+@function emCalc($pxWidth) {
+  @return $pxWidth / $em-base * 1em;
+}
+
+// Various global styles
 $body-bg: #efefef;
 $body-font-family: "Museo Sans 500", "Helvetica", Helvetica, Arial, sans-serif;
 
-// We use these as default colors throughout
+// Colors
 $primary-color: #f1ab1d;
 
 //
@@ -71,17 +81,6 @@ $table-head-bg: #60c5c3;
 $table-head-font-size: emCalc(12px);
 $table-head-font-color: #f2f1f0;
 $table-head-font-weight: lighter;
-// $table-head-padding: emCalc(8px) emCalc(10px) emCalc(10px);
-
-// These control the row padding and font styles
-// $table-row-padding: emCalc(9px) emCalc(10px);
-// $table-row-font-size: emCalc(14px);
-// $table-row-font-color: #222;
-// $table-line-height: emCalc(18px);
-
-// These are for controlling the display and margin of tables
-// $table-display: table-cell;
-// $table-margin-bottom: emCalc(20px);
 
 //
 // Top Bar Variables
@@ -99,5 +98,3 @@ $topbar-link-color: $primary-color;
 
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: rgba(255, 255, 255, 0);
-
-

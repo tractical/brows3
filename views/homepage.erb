@@ -3,22 +3,20 @@
   <head>
     <title>BROWS3.it - An Amazing S3 Browser.</title>
 
-    <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="<%= image_path "favicon.png" %>" rel="shortcut icon" type="image/png">
 
     <meta name="keywords" content="amazon,aws,s3,brows3,s3 browser,amazon browser">
     <meta name="description" content="BROWS3 is an AWS S3 file browser that is secure, pretty and easy to use.">
     <meta name="author" content="Tractical. Tractical is a small web development studio located in Mexico.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= css :application, media: "screen" %>
-    <%= stylesheet "/stylesheets/normalize.css" %>
-    <%= stylesheet "/stylesheets/app.css" %>
+    <%= stylesheet_tag "app" %>
   </head>
 
   <body class="homepage">
     <div id="content">
       <a href="https://github.com/tractical/brows3">
-        <%= img "images/github-ribbon.png", alt: "Fork me on Github", style: "position: absolute; top: 0; right: 0; border: 0;" %>
+        <img src="<%= image_path "github-ribbon.png" %>" alt="Fork me on Github" style="position: absolute; top: 0; right: 0; border: 0;">
       </a>
 
       <div>
@@ -57,14 +55,13 @@
       <div class="row">
         <div class="tractical">
           Service crafted & powered by
-          <a href="http://tractical.com"><%= img "/images/tractical.png" %></a>
+          <a href="http://tractical.com">
+            <img src="<%= image_path "tractical.png" %>" alt="Tractical">
+          </a>
         </div>
       </div>
     </footer>
 
-    <%= js :application %>
-    <%= js :foundation %>
-    <%= js :parallax %>
     <script>
       // Mixpanel
       (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==

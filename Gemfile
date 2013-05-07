@@ -16,6 +16,7 @@ group :test do
 end
 
 group :assets do
+  gem 'coffee-script',   '~> 2.2.0'
   gem 'sass',            '~> 3.2.8'
   gem 'compass',         '~> 0.12.2'
   gem 'zurb-foundation', '~> 4.1.6'

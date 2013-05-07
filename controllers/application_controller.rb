@@ -3,7 +3,7 @@
 
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
-  register Sinatra::AssetPack
+  register Sinatra::Sprockets::Helpers
   helpers ApplicationHelper
   use Rack::Flash
 
@@ -19,31 +19,6 @@ class ApplicationController < Sinatra::Base
 
   configure :production do
     use Rack::SSL
-  end
-
-  configure :production do
-    use Rack::SSL
-  end
-
-  assets do
-    serve "/javascripts", from: "assets/javascripts"
-    serve "/stylesheets", from: "assets/stylesheets"
-    serve "/images",      from: "assets/images"
-
-    css :application, ["/stylesheets/normalize.css", "/stylesheets/app.css"]
-
-    js  :foundation, [
-      "/javascripts/foundation/foundation.js",
-      "/javascripts/foundation/foundation.*.js"
-    ]
-    js :parallax, [
-      "/javascripts/jparallax/jquery.event.frame.js",
-      "/javascripts/jparallax/jquery.parallax.js"
-    ]
-    js :application, [
-      "/javascripts/vendor/*.js",
-      "/javascripts/brows3.js"
-    ]
   end
 
   not_found do

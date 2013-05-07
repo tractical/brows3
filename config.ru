@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler/setup'
-
 Bundler.require(:default, :assets)
 
 require './helpers/application_helper'
@@ -12,6 +11,13 @@ map '/assets' do
   environment.append_path 'assets/javascripts'
   environment.append_path 'assets/stylesheets'
   environment.append_path 'assets/images'
+
+  Sprockets::Helpers.configure do |config|
+    config.environment = environment
+    config.prefix      = "/assets"
+    config.digest      = false
+  end
+
   run environment
 end
 

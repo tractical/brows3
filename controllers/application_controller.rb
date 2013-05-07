@@ -1,13 +1,6 @@
 # Application wide settings
 # Other controllers should use this
 
-require "compass"
-require "sinatra/base"
-require "sinatra/contrib"
-require "sinatra/assetpack"
-require "rack-flash"
-require "rack/ssl"
-
 class ApplicationController < Sinatra::Base
   register Sinatra::Contrib
   register Sinatra::AssetPack

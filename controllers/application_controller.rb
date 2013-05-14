@@ -14,11 +14,14 @@ class ApplicationController < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
   set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
 
+  # Enable SSL
+  set :use_ssl, true
+
   set :mixpanel_code, ENV["MIXPANEL_CODE"]
   set :google_code, ENV["GOOGLE_CODE"]
 
   configure :production do
-    use Rack::SSL
+    use Rack::SSL if settings.use_ssl
   end
 
   not_found do

@@ -1,4 +1,3 @@
-require 'debugger'
 require './spec/spec_helper'
 
 describe ApplicationController do
@@ -54,6 +53,8 @@ describe ApplicationController do
     it "receives params" do
       AWS::S3.should_receive(:new)
         .with(access_key_id: "access", secret_access_key: "secret")
+        .and_return(s3)
+      s3.stub_chain(:buckets, :first, :name).and_return "Bucket"
       post "/login", { aws_access: "access", aws_secret: "secret" }
     end
 

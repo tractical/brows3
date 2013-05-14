@@ -17,6 +17,7 @@ group :test do
 end
 
 group :assets do
+  gem 'uglifier',        '~> 2.1.0'
   gem 'coffee-script',   '~> 2.2.0'
   gem 'sass',            '~> 3.2.8'
   gem 'compass',         '~> 0.12.2'

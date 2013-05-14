@@ -1,0 +1,35 @@
+.error-pages {
+  text-align: center;
+  background:
+    asset-url('errors-grass.png') bottom repeat-x,
+    asset-url('mountains.png') center bottom no-repeat,
+    #D3FBF8 asset-url('bg-blue.png');
+
+  h1, h2 { font-family: 'Museo Sans 500', sans-serif; }
+  h1 {
+    color: #2d363d;
+    font-size: emCalc(40px);
+  }
+  h2 {
+    color: #f1ab1d;
+    font-size: emCalc(24px);
+  }
+
+  .container {
+    height: 100%;
+
+    &.not-found {
+      background:
+        asset-url('errors-plane-404.png') center -50px no-repeat,
+        asset-url('errors-grass.png') bottom repeat-x,
+        asset-url('errors-flags.png') right bottom no-repeat;
+    }
+    &.error {
+      background:
+        asset-url('errors-plane-500.png') right top no-repeat,
+        asset-url('errors-grass.png') bottom repeat-x,
+        asset-url('errors-tower.png') left bottom no-repeat;
+    }
+    .message { top: 35% }
+  }
+}

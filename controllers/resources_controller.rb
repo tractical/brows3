@@ -1,6 +1,3 @@
-require 'aws-sdk'
-require 'debugger'
-
 class ResourcesController < ApplicationController
   before do
     validate_credentials unless session[:logged_in]

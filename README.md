@@ -66,9 +66,27 @@ You can disable it by setting the `use_ssl` option to false.
 
 4. Finally create a custom
 [session secret](http://www.sinatrarb.com/intro#Using%20Sessions) to sign your
-session data. You can use the same one defined in your `config.yml` local settings
-file.
+session data. You can use the same one defined in your `config.yml` local
+settings file.
 
         $ heroku config:add SESSION_SECRET=yoursessionsecretkey
 
 5. You are ready to go!
+
+## Roadmap. More features.
+One of the goals of this project is to be a nice alternative for browsing your
+AWS files, focusing on simplicity and ease of use rather than on number of
+features.
+
+That being said, it doesn't mean we don't think some more features would be
+nice, down the road we hope to be adding some of the following:
+
+* Create buckets and directories.
+* Edit, Upload and Delete files.
+* Github-like file navigation.
+
+Please feel free to contribute if there's something else you'd like to see.
+
+## Contributing
+You can see the contributing guidelines
+[here](https://github.com/tractical/brows3/blob/master/CONTRIBUTING.md)

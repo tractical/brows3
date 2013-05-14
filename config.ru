@@ -11,6 +11,8 @@ map '/assets' do
   environment.append_path 'assets/javascripts'
   environment.append_path 'assets/stylesheets'
   environment.append_path 'assets/images'
+  environment.css_compressor = :sass
+  environment.js_compressor  = :uglifier
 
   Sprockets::Helpers.configure do |config|
     config.environment = environment

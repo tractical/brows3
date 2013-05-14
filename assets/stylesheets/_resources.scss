@@ -2,7 +2,12 @@
   .breadcrumbs {
     font-family: 'Museo Sans 500', sans-serif;
     li {
+      background: $primary-color;
+      height: 30px;
       margin-bottom: 1em;
+      margin-left: 20px;
+      padding: 5px 10px;
+      position: relative;
 
       &.bucket {
         background: #60c5c3;
@@ -14,7 +19,7 @@
         }
         &:after {
           content: " ";
-          background: image-url('breadcrumbs-bucket-after.png') no-repeat;
+          background: asset-url('breadcrumbs-bucket-after.png') no-repeat;
           width: 12px;
           height: 31px;
           right: -12px;
@@ -22,16 +27,9 @@
           position: absolute;
         }
       }
-
-      background: $primary-color;
-      height: 30px;
-      padding: 2px 10px;
-      margin-left: 20px;
-      position: relative;
-
       &:before {
         content: " ";
-        background: image-url('breadcrumbs-before.png') no-repeat;
+        background: asset-url('breadcrumbs-before.png') no-repeat;
         width: 12px;
         height: 31px;
         left: -12px;
@@ -40,7 +38,7 @@
       }
       &:after {
         content: " ";
-        background: image-url('breadcrumbs-after.png') no-repeat;
+        background: asset-url('breadcrumbs-after.png') no-repeat;
         width: 12px;
         height: 31px;
         right: -12px;
@@ -53,13 +51,13 @@
     &.index {
       .bucket {
         @include grid-column(12);
-        background: image-url('resources-bucket-icon.png') center no-repeat;
+        background: asset-url('resources-bucket-icon.png') center no-repeat;
         height: 190px;
         margin-bottom: 20px;
         padding-top: 200px;
         text-align: center;
 
-        &:hover { background-image: image-url('resources-bucket-icon-hover.png'); }
+        &:hover { background-image: asset-url('resources-bucket-icon-hover.png'); }
 
         @media #{$small} { @include grid-column(4); }
       }
@@ -86,13 +84,13 @@
 
     td.directory {
       a {
-        background: url('/images/browser-folder.png') no-repeat;
+        background: asset-url('browser-folder.png') no-repeat;
         padding-left: 25px;
       }
     }
     td.file {
       a {
-        background: url('/images/browser-file.png') no-repeat;
+        background: asset-url('browser-file.png') no-repeat;
         padding-left: 25px;
       }
     }

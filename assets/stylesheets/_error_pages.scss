@@ -1,9 +1,9 @@
 .error-pages {
   text-align: center;
   background:
-    url('/images/errors-grass.png') bottom repeat-x,
-    url('/images/mountains.png') center bottom no-repeat,
-    #D3FBF8 url('/images/bg-blue.png');
+    asset-url('errors-grass.png') bottom repeat-x,
+    asset-url('mountains.png') center bottom no-repeat,
+    #D3FBF8 asset-url('bg-blue.png');
 
   h1, h2 { font-family: 'Museo Sans 500', sans-serif; }
   h1 {
@@ -20,15 +20,15 @@
 
     &.not-found {
       background:
-        url('/images/errors-plane-404.png') center -50px no-repeat,
-        url('/images/errors-grass.png') bottom repeat-x,
-        url('/images/errors-flags.png') right bottom no-repeat;
+        asset-url('errors-plane-404.png') center -50px no-repeat,
+        asset-url('errors-grass.png') bottom repeat-x,
+        asset-url('errors-flags.png') right bottom no-repeat;
     }
     &.error {
       background:
-        url('/images/errors-plane-500.png') right top no-repeat,
-        url('/images/errors-grass.png') bottom repeat-x,
-        url('/images/errors-tower.png') left bottom no-repeat;
+        asset-url('errors-plane-500.png') right top no-repeat,
+        asset-url('errors-grass.png') bottom repeat-x,
+        asset-url('errors-tower.png') left bottom no-repeat;
     }
     .message { top: 35% }
   }

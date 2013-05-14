@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include Sprockets::Helpers
 
   def validate_credentials
     aws_access_key = session[:aws_access]

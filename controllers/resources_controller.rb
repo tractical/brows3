@@ -1,29 +1,4 @@
-require 'aws-sdk'
-require 'debugger'
-
 class ResourcesController < ApplicationController
-
-  assets do
-    serve "/javascripts", from: "assets/javascripts"
-    serve "/stylesheets", from: "assets/stylesheets"
-    serve "/images",      from: "assets/images"
-
-    css :application, ["/stylesheets/normalize.css", "/stylesheets/app.css"]
-
-    js  :foundation, [
-      "/javascripts/foundation/foundation.js",
-      "/javascripts/foundation/foundation.*.js"
-    ]
-    js :parallax, [
-      "/javascripts/jparallax/jquery.event.frame.js",
-      "/javascripts/jparallax/jquery.parallax.js"
-    ]
-    js :application, [
-      "/javascripts/vendor/*.js",
-      "/javascripts/brows3.js"
-    ]
-  end
-
   before do
     validate_credentials unless session[:logged_in]
 

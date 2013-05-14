@@ -1,13 +1,13 @@
 .homepage {
   .login {
-    background: url('/images/mountains.png') center bottom no-repeat,
-      #D3FBFB url('/images/bg-blue.png');
+    background: asset-url('mountains.png') center bottom no-repeat,
+      #D3FBFB asset-url('bg-blue.png');
 
     padding: 130px 0 240px;
 
     .clouds {
       display: none;
-      background: url('/images/clouds.png') center no-repeat;
+      background: asset-url('clouds.png') center no-repeat;
       position: absolute;
       width: 941px;
       height: 167px;
@@ -45,7 +45,7 @@
         text-transform: uppercase;
 
         @media #{$small} {
-          background: transparent url('/images/home-strikethrough.png') 230px 25px no-repeat;
+          background: transparent asset-url('home-strikethrough.png') 230px 25px no-repeat;
           font-size: emCalc(38px);
           height: 60px;
         }
@@ -56,11 +56,11 @@
       @include grid-column($columns: 8, $center: true);
 
       #aws-access {
-        background: #fff url('/images/home-aws-access-input-icon.png') 10px center no-repeat;
+        background: #fff asset-url('home-aws-access-input-icon.png') 10px center no-repeat;
         text-indent: 30px;
       }
       #aws-secret {
-        background: #fff url('/images/home-aws-secret-input-icon.png') 10px center no-repeat;
+        background: #fff asset-url('home-aws-secret-input-icon.png') 10px center no-repeat;
         text-indent: 30px;
       }
 
@@ -73,7 +73,7 @@
     }
   }
   .how-it-works {
-    background: #eee url('/images/spiky-header.png') top repeat-x;
+    background: #eee asset-url('spiky-header.png') top repeat-x;
     padding-top: 120px;
 
     h2 {
@@ -89,7 +89,7 @@
 
         &:before {
           content: " ";
-          background: url('/images/home-how-it-works-title-line.png') left center no-repeat;
+          background: asset-url('home-how-it-works-title-line.png') left center no-repeat;
           display: inline-block;
           margin-right: 25px;
           position: absolute;
@@ -100,7 +100,7 @@
         }
         &:after {
           content: " ";
-          background: url('/images/home-how-it-works-title-line.png') right center no-repeat;
+          background: asset-url('home-how-it-works-title-line.png') right center no-repeat;
           display: inline-block;
           margin-left: 25px;
           position: absolute;

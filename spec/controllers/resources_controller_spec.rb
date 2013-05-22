@@ -1,56 +1,54 @@
 require './spec/spec_helper'
 
-describe "ResourcesController" do
+describe ResourcesController do
 
-  subject do
-    Fog::Storage::AWS.new(aws_access_key_id: 'abcdef', aws_secret_access_key: 'secret')
+  let(:s3)     { double(AWS::S3).as_null_object }
+  let(:bucket) { double(AWS::S3::Bucket).as_null_object }
+  let(:bucket_collection) { double(AWS::S3::BucketCollection).as_null_object }
+  let(:bucket_tree) { double(AWS::S3::Tree).as_null_object }
+
+  before do
+    s3.stub_chain(:buckets, :first, :name)
+    AWS::S3.stub(:new).and_return(s3)
   end
 
-  before :all do
-    directory = subject.directories.create(key: 'resources.bucket')
-    file = directory.files.create(key: 'ebooks/book.epub', body: 'my book')
-    file.save
+  describe "GET /" do
+    it "responds with redirect" do
+      get "/"
+      last_response.should be_redirect
+    end
   end
 
-  describe '/' do
+  describe "GET /buckets" do
     before do
-      get '/'
+      s3.stub(:buckets).and_return([bucket])
     end
 
-    it 'responds with success' do
+    it "gets s3 buckets" do
+      s3.should_receive(:buckets)
+      get "/buckets/"
+    end
+
+    it "renders the page" do
+      get "/buckets/"
       last_response.should be_ok
     end
-
-    it 'connects to S3' do
-      subject.should be
-    end
   end
 
-  describe '/buckets' do
+  describe "GET /buckets/:bucket_id/" do
     before do
-      get '/buckets'
+      s3.stub(:buckets).and_return(bucket_collection)
     end
 
-    it 'responds with success' do
+    it "gets bucket with :bucket_id" do
+      bucket_collection.should_receive(:[]).with("bucket_name")
+
+      get "/buckets/bucket_name/"
+    end
+
+    it "renders the page" do
+      get "/buckets/bucket_name/"
       last_response.should be_ok
     end
-
-    it 'returns a list of buckets' do
-      subject.directories.should_not be_empty
-    end
   end
-
-  # describe '/bucket/:id/?' do
-  #   before do
-  #     get "/bucket/#{subject.directories.first.key}/"
-  #   end
-
-  #   it 'responds with success' do
-  #     last_response.should be_ok
-  #   end
-
-  #   it 'gets directories under that bucket' do
-  #     subject.directories.get(subject.directories.first.key).should be
-  #   end
-  # end
 end

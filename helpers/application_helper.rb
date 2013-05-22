@@ -7,7 +7,7 @@ module ApplicationHelper
 
     begin
       s3 = AWS::S3.new(access_key_id: aws_access_key, secret_access_key: aws_secret_key)
-      s3.buckets.first.name
+      s3.buckets.first
     rescue AWS::Errors::MissingCredentialsError, AWS::S3::Errors::SignatureDoesNotMatch,
             AWS::S3::Errors::InvalidAccessKeyId, ArgumentError
       session.clear

@@ -1,9 +1,13 @@
 <div class="buckets index">
   <div class="row">
+  <% unless @buckets %>
     <% @buckets.each do |bucket| %>
       <a class="bucket" href="<%= bucket.name %>">
         <%= bucket.name %>
       </a>
     <% end %>
+  <% else %>
+    <h2>No Buckets found</h2>
+  <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="buckets index">
   <div class="row">
-  <% unless @buckets %>
+  <% unless @buckets.first.nil? %>
     <% @buckets.each do |bucket| %>
       <a class="bucket" href="<%= bucket.name %>">
         <%= bucket.name %>

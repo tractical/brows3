@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   enable :method_override
   enable :sessions
   set :root, File.expand_path('../../', __FILE__)
-  set :session_secret, ENV['SESSION_SECRET'] || settings.session["secret"]
+  set :session_secret, ENV['SESSION_SECRET']
 
   # Enable SSL
   set :use_ssl, true

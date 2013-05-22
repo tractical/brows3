@@ -23,7 +23,7 @@ class ResourcesController < ApplicationController
     @bucket = @storage.buckets[params[:bucket_id]]
 
     @directories = @bucket.as_tree.children.select(&:branch?).collect(&:prefix)
-    @files = @bucket.as_tree.children.select(&:leaf?).reject { |f| f.key == prefix }
+    @files = @bucket.as_tree.children.select(&:leaf?)
 
     erb :'resources/buckets/show'
   end

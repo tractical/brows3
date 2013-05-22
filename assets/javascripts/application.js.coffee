@@ -16,3 +16,8 @@ $ ->
 
   $(document).foundation()
 
+  $("form#login").submit ->
+    mixpanel.track("Sign in attempt")
+
+  $("tr.file a").click ->
+    mixpanel.track("Download file")

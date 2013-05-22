@@ -1,4 +1,8 @@
-config/config.yml
-.sass-cache
 .DS_Store
+.bundle
+.env
+.sass-cache
+Gemfile.lock
+bin
+config/config.yml
 public/stylesheets/_*.css

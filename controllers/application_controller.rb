@@ -17,6 +17,9 @@ class ApplicationController < Sinatra::Base
   # Enable SSL
   set :use_ssl, true
 
+  # Enable use of Sentry
+  set :use_sentry, ENV['SENTRY_DSN'].nil?
+
   set :mixpanel_code, ENV["MIXPANEL_CODE"]
   set :google_code, ENV["GOOGLE_CODE"]
 
@@ -29,6 +32,9 @@ class ApplicationController < Sinatra::Base
   end
 
   error do
+    # captures the exception and attempts to send it
+    # to the Sentry API.
+    Raven.capture_exception(env['sinatra.error']) if settings.use_sentry
     erb :error, layout: false
   end
 

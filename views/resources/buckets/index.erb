@@ -1,3 +1,8 @@
+<% content_for :mixpanel_events do %>
+  mixpanel.track('Signed in page viewed',
+    {'page name' : document.title, 'url' : window.location.pathname});
+<% end %>
+
 <div class="buckets index">
   <div class="row">
   <% unless @buckets.first.nil? %>

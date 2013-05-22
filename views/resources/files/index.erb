@@ -21,26 +21,37 @@
     <% unless @directories.empty? %>
       <% @directories.each do |directory| %>
         <% dir = directory.prefix.gsub(params[:splat].first + "/", "") %>
-        <tr>
-          <td class="directory">
+        <tr class="directory">
+          <td colspan="4">
             <a href="<%= dir %>"><%= dir %></a>
           </td>
-          <td></td>
-          <td></td>
-          <td></td>
         </tr>
       <% end %>
     <% end %>
 
     <% unless @files.empty? %>
       <% @files.each do |file| %>
-        <tr>
-          <td class="file">
-            <a href="<%= file.object.url_for(:read) %>"><%= file.key.gsub(params[:splat].first, "") %></a>
+        <tr class="file">
+          <td>
+            <a href="<%= file.object.url_for(:read) %>">
+              <%= file.key.gsub(params[:splat].first, "") %>
+            </a>
           </td>
-          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.content_type %></a></td>
-          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.content_length %> bytes</a></td>
-          <td><a href="<%= file.object.url_for(:read) %>"><%= file.object.last_modified.to_date.strftime("%B %e, %Y") %></a></td>
+          <td>
+            <a href="<%= file.object.url_for(:read) %>">
+              <%= file.object.content_type %>
+            </a>
+          </td>
+          <td>
+            <a href="<%= file.object.url_for(:read) %>">
+              <%= file.object.content_length %> bytes
+            </a>
+          </td>
+          <td>
+            <a href="<%= file.object.url_for(:read) %>">
+              <%= file.object.last_modified.to_date.strftime("%B %e, %Y") %>
+            </a>
+          </td>
         </tr>
       <% end %>
     <% end %>

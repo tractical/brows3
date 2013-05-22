@@ -10,6 +10,7 @@ gem 'rack-ssl',          '~> 1.3.3', require: 'rack/ssl'
 gem 'sprockets',         '~> 2.9.3'
 gem 'sprockets-sass',    '~> 1.0.1'
 gem 'sprockets-helpers', '~> 1.0.1', require: 'sinatra/sprockets-helpers'
+gem 'sentry-raven',      '~> 0.2'
 
 group :test do
   gem 'rspec',     '~> 2.12.0'

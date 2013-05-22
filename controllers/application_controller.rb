@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
   set :use_ssl, true
 
   # Enable use of Sentry
-  set :use_sentry, ENV['SENTRY_DSN'].nil?
+  set :use_sentry, !ENV['SENTRY_DSN'].nil?
 
   set :mixpanel_code, ENV["MIXPANEL_CODE"]
   set :google_code, ENV["GOOGLE_CODE"]
